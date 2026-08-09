@@ -4,14 +4,14 @@
    ========================================================= */
 
 :root {
-  --gold: #f5b52e;
-  --gold-bright: #ffd44a;
+  --gold: #e9ad28;
+  --gold-bright: #ffd65c;
   --ink: #111111;
-  --cream: #f4efdf;
-  --paper: #fbf8ef;
+  --cream: #eee5cf;
+  --paper: #f8f2e5;
   --blue: #143f55;
-  --blue-deep: #092b3a;
-  --red: #d9573f;
+  --blue-deep: #092b37;
+  --red: #ad442f;
   --white: #ffffff;
   --line: rgba(17, 17, 17, 0.18);
   --shell: min(1380px, calc(100vw - 64px));
@@ -1096,4 +1096,579 @@ button, input { font: inherit; }
     transition-duration: .01ms !important;
   }
   .reveal { opacity: 1; transform: none; }
+}
+
+
+/* =========================================================
+   2027 · 75TH ANNIVERSARY / "OUR GOLDEN ERA"
+   ========================================================= */
+
+/* Top date banner */
+.anniversary-banner {
+  background: var(--gold);
+  border-bottom: 1px solid rgba(17,17,17,.45);
+}
+
+.anniversary-banner a {
+  min-height: 44px;
+  gap: 17px;
+}
+
+.anniversary-banner span {
+  border: 0;
+}
+
+.banner-edition,
+.banner-dates,
+.banner-anniversary {
+  font-family: var(--display);
+  white-space: nowrap;
+}
+
+.banner-edition { font-size: 13px; }
+.banner-dates { font-size: 13px; letter-spacing: .16em; }
+.banner-anniversary { font-size: 10px; letter-spacing: .18em; }
+
+.banner-divider {
+  width: 34px;
+  height: 1px;
+  background: rgba(17,17,17,.65);
+}
+
+.site-header { top: 44px; }
+
+.brand-large sup {
+  position: relative;
+  top: -.7em;
+  margin-left: 3px;
+  font-size: .38em;
+  letter-spacing: 0;
+}
+
+/* Anniversary hero */
+.anniversary-hero {
+  min-height: 880px;
+}
+
+.anniversary-hero .hero-image {
+  background:
+    linear-gradient(125deg, rgba(9,43,55,.18), rgba(9,43,55,.03)),
+    url("images/hero.jpg") center 45% / cover no-repeat;
+  filter: saturate(.88) contrast(1.02);
+}
+
+.anniversary-hero .hero-overlay {
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.58), rgba(0,0,0,.05) 41%, rgba(0,0,0,.72)),
+    linear-gradient(95deg, rgba(0,0,0,.32), transparent 56%);
+}
+
+.anniversary-hero .hero-content {
+  padding-top: 158px;
+  padding-bottom: 66px;
+}
+
+.hero-topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.hero-75-watermark {
+  position: absolute;
+  z-index: 1;
+  right: -3vw;
+  top: 10%;
+  color: rgba(255,255,255,.055);
+  font-family: var(--display);
+  font-size: clamp(310px, 47vw, 740px);
+  line-height: .72;
+  letter-spacing: -.13em;
+  pointer-events: none;
+  user-select: none;
+}
+
+.anniversary-seal {
+  position: relative;
+  width: 126px;
+  height: 126px;
+  flex: 0 0 126px;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  text-align: center;
+  transform: rotate(6deg);
+  background: rgba(0,0,0,.16);
+  backdrop-filter: blur(4px);
+}
+
+.anniversary-seal::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 1px solid rgba(233,173,40,.65);
+  border-radius: inherit;
+}
+
+.anniversary-seal strong {
+  color: var(--gold);
+  font-family: var(--display);
+  font-size: 55px;
+  line-height: .82;
+  letter-spacing: -.08em;
+}
+
+.seal-small {
+  position: relative;
+  z-index: 2;
+  font-family: var(--display);
+  font-size: 7px;
+  letter-spacing: .17em;
+}
+
+.hero-theme {
+  margin: auto 0 20px;
+}
+
+.hero-overline {
+  margin: 0 0 13px 5px;
+  color: rgba(255,255,255,.72);
+  font-family: var(--display);
+  font-size: 11px;
+  letter-spacing: .2em;
+}
+
+.era-title {
+  margin: 0;
+  max-width: 1180px;
+  font-family: var(--display);
+  font-size: clamp(88px, 13.2vw, 202px);
+  font-weight: 900;
+  line-height: .69;
+  letter-spacing: -.075em;
+  text-transform: uppercase;
+}
+
+.era-title span {
+  display: block;
+}
+
+.era-title span:nth-child(1) {
+  margin-left: .32em;
+}
+
+.era-title .gold-word {
+  color: var(--gold);
+}
+
+.era-title span:nth-child(3) {
+  margin-left: .65em;
+}
+
+.hero-intro {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  max-width: 715px;
+}
+
+.hero-intro > p:last-child {
+  margin: 0;
+  max-width: 510px;
+}
+
+.hero-edition {
+  margin: 2px 0 0 !important;
+  padding-right: 24px;
+  border-right: 1px solid rgba(255,255,255,.55);
+  font-family: var(--display);
+  font-size: 11px !important;
+  letter-spacing: .12em;
+  white-space: nowrap;
+}
+
+/* 75th story */
+.anniversary-story {
+  position: relative;
+  overflow: hidden;
+  background: var(--cream);
+  border-bottom: 1px solid rgba(17,17,17,.16);
+}
+
+.anniversary-grid {
+  display: grid;
+  grid-template-columns: .8fr 2.1fr;
+  gap: 75px;
+  align-items: start;
+}
+
+.anniversary-number {
+  display: flex;
+  position: relative;
+  margin-top: -10px;
+  color: var(--gold);
+  font-family: var(--display);
+  font-size: clamp(190px, 25vw, 365px);
+  line-height: .72;
+  letter-spacing: -.17em;
+  text-shadow: 6px 6px 0 rgba(17,17,17,.06);
+}
+
+.anniversary-number span:last-child {
+  position: relative;
+  top: 54px;
+}
+
+.anniversary-copy .intro-copy {
+  max-width: 735px;
+  margin: 42px 0 0;
+}
+
+.anniversary-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 55px;
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid rgba(17,17,17,.3);
+}
+
+.anniversary-stats > div {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 115px;
+  padding: 20px 24px 20px 0;
+  border-right: 1px solid rgba(17,17,17,.3);
+}
+
+.anniversary-stats > div:not(:first-child) {
+  padding-left: 24px;
+}
+
+.anniversary-stats > div:last-child {
+  border-right: 0;
+}
+
+.anniversary-stats strong {
+  font-family: var(--display);
+  color: var(--red);
+  font-size: 48px;
+  line-height: 1;
+  letter-spacing: -.06em;
+}
+
+.anniversary-stats span {
+  font-family: var(--display);
+  font-size: 9px;
+  line-height: 1.45;
+  letter-spacing: .1em;
+}
+
+.era-manifesto {
+  display: grid;
+  grid-template-columns: .7fr 2.3fr;
+  gap: 50px;
+  align-items: baseline;
+  margin-top: 85px;
+  padding: 28px 0;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+.manifesto-label {
+  font-family: var(--display);
+  font-size: 10px;
+  letter-spacing: .14em;
+}
+
+.era-manifesto p {
+  max-width: 980px;
+  margin: 0;
+  font-size: clamp(25px, 3.1vw, 47px);
+  line-height: 1.1;
+  letter-spacing: -.035em;
+}
+
+.era-manifesto strong {
+  color: var(--red);
+  font-family: var(--display);
+}
+
+/* Event anniversary flags */
+.event-anniversary-tag {
+  position: absolute;
+  z-index: 2;
+  top: 31px;
+  left: 28px;
+  padding: 7px 9px;
+  border: 1px solid rgba(255,255,255,.55);
+  background: rgba(0,0,0,.22);
+  backdrop-filter: blur(4px);
+  font-family: var(--display);
+  font-size: 8px;
+  letter-spacing: .13em;
+}
+
+/* Date reveal */
+.date-band {
+  margin-bottom: 48px;
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: stretch;
+}
+
+.date-band-main {
+  display: flex;
+  align-items: baseline;
+  gap: 22px;
+  padding: 25px 0;
+}
+
+.date-band-main strong {
+  font-family: var(--display);
+  font-size: clamp(74px, 10vw, 145px);
+  line-height: .8;
+  letter-spacing: -.08em;
+}
+
+.date-month,
+.date-year {
+  font-family: var(--display);
+  font-size: 18px;
+  letter-spacing: .15em;
+}
+
+.date-dash {
+  font-family: var(--display);
+  font-size: 42px;
+}
+
+.date-band-side {
+  min-width: 220px;
+  border-left: 1px solid rgba(17,17,17,.42);
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--display);
+  font-size: 9px;
+  letter-spacing: .12em;
+}
+
+.anniversary-schedule .schedule-row {
+  cursor: default;
+}
+
+.schedule-note {
+  margin: 22px 0 0;
+  max-width: 620px;
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+/* 75 detail scattered through site */
+.experience .big-stat {
+  font-size: clamp(80px, 8vw, 125px);
+}
+
+.partners {
+  position: relative;
+}
+
+.partners::before {
+  content: "75";
+  position: absolute;
+  right: -1vw;
+  top: 60px;
+  color: rgba(17,17,17,.035);
+  font-family: var(--display);
+  font-size: clamp(260px, 31vw, 510px);
+  line-height: .75;
+  letter-spacing: -.12em;
+  pointer-events: none;
+}
+
+.newsletter {
+  position: relative;
+  overflow: hidden;
+}
+
+.newsletter::after {
+  content: "’27";
+  position: absolute;
+  right: 1vw;
+  bottom: -45px;
+  color: rgba(17,17,17,.06);
+  font-family: var(--display);
+  font-size: 210px;
+  line-height: 1;
+  letter-spacing: -.08em;
+  pointer-events: none;
+}
+
+.newsletter-grid {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 1040px) {
+  .site-header:not(.scrolled) .mobile-menu { top: 134px; }
+
+  .anniversary-grid {
+    grid-template-columns: .65fr 1.6fr;
+    gap: 42px;
+  }
+
+  .anniversary-number {
+    font-size: clamp(160px, 26vw, 260px);
+  }
+
+  .hero-intro {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-edition {
+    border-right: 0;
+    border-bottom: 1px solid rgba(255,255,255,.45);
+    padding: 0 0 8px;
+  }
+}
+
+@media (max-width: 760px) {
+  .anniversary-banner a {
+    min-height: 38px;
+    gap: 9px;
+    justify-content: center;
+    padding-inline: 8px;
+  }
+
+  .banner-divider { width: 12px; }
+  .banner-edition, .banner-dates { font-size: 9px; }
+  .banner-anniversary { font-size: 7px; }
+
+  .site-header { top: 38px; }
+  .site-header:not(.scrolled) .mobile-menu { top: 112px; }
+
+  .anniversary-hero {
+    min-height: 750px;
+    height: 94vh;
+  }
+
+  .anniversary-hero .hero-content {
+    padding-top: 116px;
+    padding-bottom: 42px;
+  }
+
+  .anniversary-seal {
+    width: 86px;
+    height: 86px;
+    flex-basis: 86px;
+  }
+
+  .anniversary-seal strong { font-size: 36px; }
+  .seal-small { font-size: 5px; }
+  .hero-kicker { max-width: 160px; flex-wrap: wrap; }
+
+  .hero-75-watermark {
+    top: 18%;
+    right: -15vw;
+  }
+
+  .hero-overline {
+    font-size: 8px;
+  }
+
+  .era-title {
+    font-size: clamp(77px, 24vw, 118px);
+    line-height: .72;
+  }
+
+  .era-title span:nth-child(1) { margin-left: 0; }
+  .era-title span:nth-child(3) { margin-left: .28em; }
+
+  .hero-intro > p:last-child { font-size: 15px; }
+
+  .anniversary-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+  }
+
+  .anniversary-number {
+    margin: 0;
+    font-size: clamp(165px, 54vw, 235px);
+  }
+
+  .anniversary-number span:last-child { top: 30px; }
+
+  .anniversary-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .anniversary-stats > div,
+  .anniversary-stats > div:not(:first-child) {
+    min-height: 84px;
+    padding: 16px 0;
+    border-right: 0;
+    border-bottom: 1px solid rgba(17,17,17,.25);
+  }
+
+  .anniversary-stats > div:last-child { border-bottom: 0; }
+
+  .anniversary-stats strong { width: 55px; font-size: 40px; }
+
+  .era-manifesto {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 55px;
+  }
+
+  .era-manifesto p {
+    font-size: 27px;
+  }
+
+  .event-anniversary-tag {
+    top: 22px;
+    left: 22px;
+  }
+
+  .date-band {
+    grid-template-columns: 1fr;
+  }
+
+  .date-band-main {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .date-band-main strong {
+    font-size: clamp(65px, 20vw, 92px);
+  }
+
+  .date-month,
+  .date-year { font-size: 12px; }
+
+  .date-dash { font-size: 25px; }
+
+  .date-band-side {
+    min-width: 0;
+    border-left: 0;
+    border-top: 1px solid rgba(17,17,17,.42);
+    padding: 15px 0;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .newsletter::after {
+    right: -18px;
+    font-size: 140px;
+  }
 }
