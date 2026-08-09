@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Golden Days — Fairbanks, Alaska's summer celebration." />
+  <title>Golden Days | Fairbanks, Alaska</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- =========================================================
+       ANNOUNCEMENT BAR
+       Edit this for registration deadlines, duck tickets, etc.
+  ========================================================== -->
+  <div class="announcement">
+    <a href="#events">
+      GOLDEN DAYS IS COMING TO FAIRBANKS
+      <span>EXPLORE EVENTS →</span>
+    </a>
+  </div>
+
+  <!-- =========================================================
+       NAVIGATION
+  ========================================================== -->
+  <header class="site-header" id="top">
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Golden Days home">
+        <span class="brand-small">FAIRBANKS</span>
+        <span class="brand-large">GOLDEN DAYS</span>
+      </a>
+
+      <div class="nav-links" id="desktopNav">
+        <a href="#events">Events</a>
+        <a href="#experience">Experience</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#partners">Partners</a>
+        <a href="#about">About</a>
+      </div>
+
+      <a class="nav-cta desktop-cta" href="#events">PLAN YOUR DAY</a>
+
+      <button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+        <span class="sr-only">Open menu</span>
+      </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#events">Events</a>
+      <a href="#experience">Experience</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#partners">Partners</a>
+      <a href="#about">About</a>
+      <a class="nav-cta" href="#events">PLAN YOUR DAY</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- =========================================================
+         HERO
+         Replace hero.jpg with your main Golden Days image.
+         Recommended: 2200px wide landscape image.
+    ========================================================== -->
+    <section class="hero">
+      <div class="hero-image"></div>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content shell">
+        <div class="hero-kicker reveal">
+          <span>FAIRBANKS, ALASKA</span>
+          <span class="dot"></span>
+          <span>SUMMER TRADITION</span>
+        </div>
+
+        <h1 class="hero-title reveal">
+          <span>GOLDEN</span>
+          <span>DAYS</span>
+        </h1>
+
+        <div class="hero-bottom reveal">
+          <p>
+            A week of Fairbanks tradition, community, history,
+            summer fun and a whole lot of Golden Heart spirit.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-gold" href="#events">EXPLORE EVENTS</a>
+            <a class="button button-outline" href="#schedule">VIEW SCHEDULE</a>
+          </div>
+        </div>
+      </div>
+
+      <a class="scroll-cue" href="#intro" aria-label="Scroll to content">
+        <span>SCROLL</span>
+        <span class="scroll-line"></span>
+      </a>
+    </section>
+
+    <!-- =========================================================
+         MOVING TICKER
+  ========================================================== -->
+    <section class="ticker" aria-label="Golden Days highlights">
+      <div class="ticker-track">
+        <span>GRANDE PARADE ✦ STREET FAIR ✦ RUBBER DUCKIE RACE ✦ KIDZ KORNER ✦ COMMUNITY EVENTS ✦ FAIRBANKS, ALASKA ✦</span>
+        <span aria-hidden="true">GRANDE PARADE ✦ STREET FAIR ✦ RUBBER DUCKIE RACE ✦ KIDZ KORNER ✦ COMMUNITY EVENTS ✦ FAIRBANKS, ALASKA ✦</span>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         INTRO
+  ========================================================== -->
+    <section class="intro section" id="intro">
+      <div class="shell intro-grid">
+        <p class="eyebrow reveal">THIS IS GOLDEN DAYS</p>
+        <div>
+          <h2 class="display-heading reveal">
+            FAIRBANKS' SUMMER<br>
+            <em>GOES GOLD.</em>
+          </h2>
+          <p class="intro-copy reveal">
+            Golden Days brings Fairbanks together for one of the Interior's
+            favorite summer traditions — from the Grande Parade and downtown
+            Street Fair to thousands of rubber ducks racing down the Chena River.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         FEATURED EVENT CARDS
+         Swap images in /images/ and edit links.
+  ========================================================== -->
+    <section class="events section" id="events">
+      <div class="shell">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow reveal">THE BIG EVENTS</p>
+            <h2 class="display-heading reveal">PICK YOUR<br><em>GOLDEN DAY.</em></h2>
+          </div>
+          <p class="section-side-copy reveal">
+            Make a day of it. Come downtown, grab some food, cheer on the parade,
+            explore local vendors and stay for the duck race.
+          </p>
+        </div>
+
+        <div class="event-grid">
+          <article class="event-card event-card-tall reveal">
+            <div class="event-image image-parade" role="img" aria-label="Golden Days Grande Parade"></div>
+            <div class="event-shade"></div>
+            <div class="event-number">01</div>
+            <div class="event-card-copy">
+              <p class="event-meta">DOWNTOWN FAIRBANKS</p>
+              <h3>GRANDE<br>PARADE</h3>
+              <p>Floats, performers, community groups and Golden Days spirit through the heart of Fairbanks.</p>
+              <a href="https://www.fairbankschamber.org/grande-parade">PARADE DETAILS <span>→</span></a>
+            </div>
+          </article>
+
+          <article class="event-card reveal">
+            <div class="event-image image-fair" role="img" aria-label="Golden Days Street Fair"></div>
+            <div class="event-shade"></div>
+            <div class="event-number">02</div>
+            <div class="event-card-copy">
+              <p class="event-meta">GOLDEN HEART PLAZA + 1ST AVE</p>
+              <h3>STREET<br>FAIR</h3>
+              <p>Local vendors, food, live entertainment and Kidz Korner downtown.</p>
+              <a href="https://www.fairbankschamber.org/street-fair">STREET FAIR DETAILS <span>→</span></a>
+            </div>
+          </article>
+
+          <article class="event-card reveal">
+            <div class="event-image image-ducks" role="img" aria-label="Golden Days Rubber Duckie Race"></div>
+            <div class="event-shade"></div>
+            <div class="event-number">03</div>
+            <div class="event-card-copy">
+              <p class="event-meta">CHENA RIVER</p>
+              <h3>DUCKIE<br>RACE</h3>
+              <p>Thousands of rubber ducks. One river. Dozens of prizes. A Fairbanks classic.</p>
+              <a href="https://www.fairbankschamber.org/rubber-duckie-race">RACE DETAILS <span>→</span></a>
+            </div>
+          </article>
+        </div>
+
+        <div class="all-events-cta reveal">
+          <a class="text-link" href="#schedule">SEE THE FULL GOLDEN DAYS SCHEDULE <span>↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         PHOTO / EXPERIENCE SECTION
+  ========================================================== -->
+    <section class="experience section" id="experience">
+      <div class="shell">
+        <div class="experience-title">
+          <p class="eyebrow light reveal">WHAT IS GOLDEN DAYS?</p>
+          <h2 class="display-heading light reveal">
+            A FAIRBANKS<br>
+            <em>TRADITION.</em>
+          </h2>
+        </div>
+
+        <div class="photo-collage">
+          <div class="collage-photo photo-one reveal"></div>
+          <div class="collage-photo photo-two reveal"></div>
+          <div class="collage-copy reveal">
+            <p class="big-stat">70+</p>
+            <p>YEARS OF<br>GOLDEN DAYS</p>
+          </div>
+          <div class="collage-photo photo-three reveal"></div>
+          <div class="collage-photo photo-four reveal"></div>
+        </div>
+
+        <div class="experience-points">
+          <div class="experience-point reveal">
+            <span>01</span>
+            <h3>THE PARADE</h3>
+            <p>Businesses, nonprofits, performers, families and community groups turn downtown Fairbanks into one big celebration.</p>
+          </div>
+          <div class="experience-point reveal">
+            <span>02</span>
+            <h3>THE FAIR</h3>
+            <p>Spend the day discovering local makers, food trucks, organizations, music and activities in the center of town.</p>
+          </div>
+          <div class="experience-point reveal">
+            <span>03</span>
+            <h3>THE DUCKS</h3>
+            <p>Thousands of numbered rubber ducks hit the Chena River in a race for prizes and eternal duckie glory.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SCHEDULE
+         These are intentionally easy to edit.
+         Add/remove .schedule-row items as needed.
+  ========================================================== -->
+    <section class="schedule section" id="schedule">
+      <div class="shell">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow reveal">MAKE A DAY OF IT</p>
+            <h2 class="display-heading reveal">YOUR GOLDEN<br><em>SCHEDULE.</em></h2>
+          </div>
+          <p class="section-side-copy reveal">
+            Use this area for the headline events. You can also link out to your
+            full ChamberMaster community calendar for all partner events.
+          </p>
+        </div>
+
+        <div class="schedule-list">
+          <a class="schedule-row reveal" href="https://www.fairbankschamber.org/street-fair">
+            <span class="schedule-time">9:00 AM</span>
+            <span class="schedule-name">STREET FAIR + KIDZ KORNER</span>
+            <span class="schedule-place">GOLDEN HEART PLAZA</span>
+            <span class="schedule-arrow">↗</span>
+          </a>
+          <a class="schedule-row reveal" href="https://www.fairbankschamber.org/grande-parade">
+            <span class="schedule-time">10:00 AM</span>
+            <span class="schedule-name">GRANDE PARADE</span>
+            <span class="schedule-place">DOWNTOWN FAIRBANKS</span>
+            <span class="schedule-arrow">↗</span>
+          </a>
+          <a class="schedule-row reveal" href="https://www.fairbankschamber.org/rubber-duckie-race">
+            <span class="schedule-time">3:00 PM</span>
+            <span class="schedule-name">RUBBER DUCKIE RACE</span>
+            <span class="schedule-place">CHENA RIVER</span>
+            <span class="schedule-arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="schedule-actions reveal">
+          <a class="button button-dark" href="https://www.fairbankschamber.org/golden-days-2026">FULL GOLDEN DAYS CALENDAR</a>
+          <a class="button button-ghost-dark" href="https://www.fairbankschamber.org/golden-days-2026">ADD A COMMUNITY EVENT</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         BIG CTA / DUCK TICKETS
+  ========================================================== -->
+    <section class="duck-cta">
+      <div class="duck-cta-art"></div>
+      <div class="duck-cta-overlay"></div>
+      <div class="shell duck-cta-content reveal">
+        <p class="eyebrow light">A FAIRBANKS FAVORITE</p>
+        <h2>8,000 DUCKS.<br>ONE CHENA RIVER.</h2>
+        <p>Get your ticket number into the race and cheer your duck all the way to the finish.</p>
+        <a class="button button-gold" href="https://www.fairbankschamber.org/rubber-duckie-race">RUBBER DUCKIE RACE →</a>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         PARTNERS
+         Replace text with sponsor logo <img> elements if preferred.
+  ========================================================== -->
+    <section class="partners section" id="partners">
+      <div class="shell">
+        <p class="eyebrow reveal">MADE POSSIBLE BY</p>
+        <h2 class="partner-heading reveal">GOLDEN DAYS <em>PARTNERS</em></h2>
+
+        <div class="partner-feature reveal">
+          <p>PRESENTING + MAJOR EVENT PARTNERS</p>
+          <div class="partner-logos">
+            <div class="logo-placeholder">KINROSS<br>FORT KNOX</div>
+            <div class="logo-placeholder">MT. McKINLEY<br>BANK</div>
+            <div class="logo-placeholder">ALASKA 529</div>
+          </div>
+        </div>
+
+        <div class="partner-marquee reveal">
+          <div class="partner-marquee-track">
+            <span>SUPPORT FAIRBANKS ✦ CELEBRATE COMMUNITY ✦ BECOME A GOLDEN DAYS PARTNER ✦</span>
+            <span aria-hidden="true">SUPPORT FAIRBANKS ✦ CELEBRATE COMMUNITY ✦ BECOME A GOLDEN DAYS PARTNER ✦</span>
+          </div>
+        </div>
+
+        <div class="partner-cta reveal">
+          <p>Want your business at the center of one of Fairbanks' biggest summer traditions?</p>
+          <a class="button button-dark" href="mailto:info@fairbankschamber.org">SPONSOR GOLDEN DAYS</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ABOUT / EMAIL SIGNUP
+  ========================================================== -->
+    <section class="about section" id="about">
+      <div class="shell about-grid">
+        <div>
+          <p class="eyebrow light reveal">THE GOLDEN HEART CITY</p>
+          <h2 class="display-heading light reveal">COME FOR<br>THE GOLD.<br><em>STAY FOR FAIRBANKS.</em></h2>
+        </div>
+        <div class="about-copy reveal">
+          <p>
+            Golden Days celebrates the people, businesses, history and character
+            that make Fairbanks unlike anywhere else.
+          </p>
+          <p>
+            This standalone site can become the front door to the celebration
+            while detailed registrations, forms and event listings continue to
+            live on FairbanksChamber.org.
+          </p>
+          <a class="text-link light-link" href="https://www.fairbankschamber.org/">VISIT THE FAIRBANKS CHAMBER <span>↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter">
+      <div class="shell newsletter-grid">
+        <div>
+          <p class="eyebrow">DON'T MISS A THING</p>
+          <h2>GET GOLDEN DAYS UPDATES.</h2>
+        </div>
+
+        <!-- Replace action URL with Constant Contact / Chamber signup endpoint -->
+        <form class="signup-form" action="#" method="post">
+          <label class="sr-only" for="email">Email address</label>
+          <input id="email" type="email" name="email" placeholder="YOUR EMAIL ADDRESS" required>
+          <button type="submit">SIGN ME UP →</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================== -->
+  <footer class="footer">
+    <div class="shell">
+      <div class="footer-top">
+        <a class="brand footer-brand" href="#top">
+          <span class="brand-small">FAIRBANKS</span>
+          <span class="brand-large">GOLDEN DAYS</span>
+        </a>
+
+        <div class="footer-links">
+          <div>
+            <p>GOLDEN DAYS</p>
+            <a href="#events">Events</a>
+            <a href="#schedule">Schedule</a>
+            <a href="#partners">Partners</a>
+            <a href="#about">About</a>
+          </div>
+          <div>
+            <p>MAIN EVENTS</p>
+            <a href="https://www.fairbankschamber.org/grande-parade">Grande Parade</a>
+            <a href="https://www.fairbankschamber.org/street-fair">Street Fair</a>
+            <a href="https://www.fairbankschamber.org/rubber-duckie-race">Duckie Race</a>
+          </div>
+          <div>
+            <p>CONNECT</p>
+            <a href="https://www.fairbankschamber.org/">Fairbanks Chamber</a>
+            <a href="mailto:info@fairbankschamber.org">Email Us</a>
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> GREATER FAIRBANKS CHAMBER OF COMMERCE</span>
+        <span>FAIRBANKS, ALASKA</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
