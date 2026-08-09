@@ -706,7 +706,7 @@ button, input { font: inherit; }
 .duck-cta-art {
   position: absolute;
   inset: 0;
-  background: url("images/duck-hero.jpg") center / cover no-repeat;
+  background: url("duck-hero.jpg") center / cover no-repeat;
 }
 
 .duck-cta-overlay {
