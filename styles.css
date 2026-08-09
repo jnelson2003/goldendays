@@ -1,468 +1,1675 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Golden Days ’27 — July 17–25. Celebrate the 75th anniversary of Golden Days in Fairbanks, Alaska. Our Golden Era." />
-  <title>Golden Days ’27 | Our Golden Era | Fairbanks, Alaska</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
+/* =========================================================
+   GOLDEN DAYS — ORIGINAL FESTIVAL-STYLE LANDING PAGE
+   Inspired by modern large-event websites; not copied source code.
+   ========================================================= */
 
-  <!-- =========================================================
-       ANNOUNCEMENT BAR
-       Edit this for registration deadlines, duck tickets, etc.
-  ========================================================== -->
-  <div class="announcement anniversary-banner">
-    <a href="#anniversary" aria-label="Golden Days 2027 anniversary information">
-      <span class="banner-edition">GOLDEN DAYS ’27</span>
-      <span class="banner-dates">JULY 17-25</span>
-    </a>
-  </div>
+:root {
+  --gold: #e9ad28;
+  --gold-bright: #ffd65c;
+  --ink: #111111;
+  --cream: #eee5cf;
+  --paper: #f8f2e5;
+  --blue: #143f55;
+  --blue-deep: #092b37;
+  --red: #ad442f;
+  --white: #ffffff;
+  --line: rgba(17, 17, 17, 0.18);
+  --shell: min(1380px, calc(100vw - 64px));
+  --display: "Archivo Black", Impact, sans-serif;
+  --body: "DM Sans", Arial, sans-serif;
+}
 
-  <!-- =========================================================
-       NAVIGATION
-  ========================================================== -->
-  <header class="site-header" id="top">
-    <nav class="nav shell" aria-label="Main navigation">
-      <a class="brand" href="#top" aria-label="Golden Days home">
-        <span class="brand-small">FAIRBANKS · ALASKA</span>
-        <span class="brand-large">GOLDEN DAYS</span>
-      </a>
+* { box-sizing: border-box; }
 
-      <div class="nav-links" id="desktopNav">
-        <a href="#anniversary">75 Years</a>
-        <a href="#events">Events</a>
-        <a href="#experience">Experience</a>
-        <a href="#schedule">Calendar</a>
-        <a href="#partners">Partners</a>
-      </div>
+html {
+  scroll-behavior: smooth;
+  background: var(--ink);
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: var(--body);
+  overflow-x: hidden;
+}
+
+body.menu-open { overflow: hidden; }
+
+a { color: inherit; text-decoration: none; }
+
+img { max-width: 100%; display: block; }
+
+button, input { font: inherit; }
+
+.shell {
+  width: var(--shell);
+  margin-inline: auto;
+}
+
+.section { padding: 112px 0; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Announcement */
+.announcement {
+  position: relative;
+  z-index: 1001;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 12px;
+  letter-spacing: .09em;
+}
+
+.announcement a {
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 8px 20px;
+}
+
+.announcement span {
+  border-bottom: 2px solid currentColor;
+}
+
+/* Header */
+.site-header {
+  position: absolute;
+  top: 38px;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  color: var(--white);
+  transition: background .25s ease, position .25s ease;
+}
+
+.site-header.scrolled {
+  position: fixed;
+  top: 0;
+  color: var(--ink);
+  background: rgba(251, 248, 239, .96);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(0,0,0,.12);
+}
+
+.nav {
+  height: 90px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 30px;
+}
+
+.brand {
+  display: inline-flex;
+  width: max-content;
+  flex-direction: column;
+  font-family: var(--display);
+  line-height: .84;
+  transform: rotate(-1deg);
+}
+
+.brand-small {
+  font-size: 11px;
+  letter-spacing: .24em;
+  margin-left: 3px;
+  margin-bottom: 5px;
+}
+
+.brand-large {
+  font-size: 27px;
+  letter-spacing: -.04em;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+}
+
+.nav-links a {
+  position: relative;
+  padding: 8px 0;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 3px;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .25s ease;
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.nav-cta {
+  justify-self: end;
+  padding: 14px 18px;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 11px;
+  letter-spacing: .08em;
+}
+
+.menu-button {
+  display: none;
+  justify-self: end;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  padding: 9px;
+  cursor: pointer;
+}
+
+.menu-button span:not(.sr-only) {
+  display: block;
+  height: 2px;
+  background: currentColor;
+  margin: 5px 0;
+  transition: .25s ease;
+}
+
+.mobile-menu { display: none; }
+
+/* Hero */
+.hero {
+  position: relative;
+  min-height: 830px;
+  height: calc(100vh - 38px);
+  max-height: 1050px;
+  color: var(--white);
+  overflow: hidden;
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(
+      125deg,
+      rgba(9, 43, 55, 0.18),
+      rgba(9, 43, 55, 0.03)
+    ),
+    url("hero.jpg");
+  background-position: center 45%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transform: scale(1.02);
+  filter: saturate(.88) contrast(1.02);
+}
+
+/* If hero.jpg hasn't been added yet, this color still gives you a usable hero. */
+.hero-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(20,63,85,.35), rgba(217,87,63,.08));
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.48), rgba(0,0,0,.05) 38%, rgba(0,0,0,.63)),
+    linear-gradient(to right, rgba(0,0,0,.22), transparent 60%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  padding-top: 160px;
+  padding-bottom: 76px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero-kicker {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  font-family: var(--display);
+  font-size: 12px;
+  letter-spacing: .14em;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.hero-title {
+  margin: auto 0 22px;
+  font-family: var(--display);
+  font-size: clamp(90px, 15vw, 235px);
+  font-weight: 900;
+  line-height: .72;
+  letter-spacing: -.075em;
+  text-transform: uppercase;
+  max-width: 1120px;
+}
+
+.hero-title span { display: block; }
+.hero-title span:last-child { color: var(--gold); margin-left: .23em; }
+
+.hero-bottom {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.hero-bottom p {
+  max-width: 570px;
+  margin: 0;
+  font-size: clamp(16px, 2vw, 22px);
+  line-height: 1.35;
+  font-weight: 600;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.button {
+  display: inline-flex;
+  min-height: 54px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 22px;
+  border: 2px solid transparent;
+  font-family: var(--display);
+  font-size: 12px;
+  letter-spacing: .07em;
+  transition: transform .18s ease, background .18s ease, color .18s ease;
+}
+
+.button:hover { transform: translateY(-3px); }
+.button-gold { background: var(--gold); color: var(--ink); }
+.button-gold:hover { background: var(--gold-bright); }
+.button-outline { border-color: rgba(255,255,255,.7); color: var(--white); background: rgba(0,0,0,.12); }
+.button-outline:hover { background: var(--white); color: var(--ink); }
+.button-dark { background: var(--ink); color: var(--white); }
+.button-ghost-dark { border-color: var(--ink); color: var(--ink); }
+
+.scroll-cue {
+  position: absolute;
+  z-index: 4;
+  right: 24px;
+  bottom: 44px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transform: rotate(90deg);
+  transform-origin: bottom right;
+  font-family: var(--display);
+  font-size: 9px;
+  letter-spacing: .15em;
+}
+
+.scroll-line {
+  display: block;
+  width: 54px;
+  height: 1px;
+  background: var(--white);
+}
+
+/* Ticker */
+.ticker {
+  overflow: hidden;
+  background: var(--gold);
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 25s linear infinite;
+}
+
+.ticker-track span {
+  white-space: nowrap;
+  font-family: var(--display);
+  font-size: 18px;
+  letter-spacing: .02em;
+  padding: 17px 10px;
+}
+
+@keyframes ticker {
+  to { transform: translateX(-50%); }
+}
+
+/* Shared type */
+.eyebrow {
+  margin: 0 0 22px;
+  font-family: var(--display);
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.eyebrow.light { color: rgba(255,255,255,.72); }
+
+.display-heading {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(52px, 7.2vw, 110px);
+  line-height: .88;
+  letter-spacing: -.06em;
+  text-transform: uppercase;
+}
+
+.display-heading em {
+  color: var(--gold);
+  font-style: normal;
+}
+
+.display-heading.light { color: var(--white); }
+
+/* Intro */
+.intro { background: var(--cream); }
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 40px;
+}
+
+.intro-copy {
+  max-width: 720px;
+  margin: 45px 0 0 auto;
+  font-size: 20px;
+  line-height: 1.55;
+}
+
+/* Event cards */
+.events { background: var(--paper); }
+
+.section-header {
+  display: grid;
+  grid-template-columns: 2.2fr 1fr;
+  gap: 70px;
+  align-items: end;
+  margin-bottom: 65px;
+}
+
+.section-side-copy {
+  max-width: 420px;
+  margin: 0 0 8px;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.event-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  grid-template-rows: repeat(2, minmax(330px, 1fr));
+  gap: 16px;
+}
+
+.event-card {
+  position: relative;
+  min-height: 370px;
+  overflow: hidden;
+  color: var(--white);
+  background: var(--blue-deep);
+}
+
+.event-card-tall { grid-row: 1 / 3; min-height: 760px; }
+
+.event-image {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  transform: scale(1.015);
+  transition: transform .55s cubic-bezier(.2,.65,.25,1);
+}
+
+/* Replace these files with your Golden Days photos */
+.image-parade {
+  background-image:
+    linear-gradient(135deg, rgba(9,43,58,.25), transparent),
+    url("images/parade.jpg");
+}
+.image-fair {
+  background-image:
+    linear-gradient(135deg, rgba(9,43,58,.18), transparent),
+    url("images/street-fair.jpg");
+}
+.image-ducks {
+  background-image:
+    linear-gradient(135deg, rgba(9,43,58,.16), transparent),
+    url("images/duck-race.jpg");
+}
+
+.event-card:hover .event-image { transform: scale(1.065); }
+
+.event-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.83), rgba(0,0,0,.04) 62%);
+}
+
+.event-number {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  background: var(--gold);
+  color: var(--ink);
+  border-radius: 50%;
+  font-family: var(--display);
+  font-size: 11px;
+}
+
+.event-card-copy {
+  position: absolute;
+  z-index: 2;
+  left: 30px;
+  right: 30px;
+  bottom: 30px;
+}
+
+.event-meta {
+  margin: 0 0 10px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+.event-card h3 {
+  margin: 0 0 16px;
+  font-family: var(--display);
+  font-size: clamp(43px, 5vw, 83px);
+  line-height: .82;
+  letter-spacing: -.055em;
+}
+
+.event-card:not(.event-card-tall) h3 {
+  font-size: clamp(34px, 3.5vw, 58px);
+}
+
+.event-card-copy > p:not(.event-meta) {
+  max-width: 510px;
+  margin: 0 0 18px;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.event-card-copy a {
+  display: inline-flex;
+  gap: 10px;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 4px;
+  font-family: var(--display);
+  font-size: 10px;
+  letter-spacing: .08em;
+}
+
+.event-card-copy a span { color: var(--gold); }
+
+.all-events-cta { margin-top: 34px; text-align: right; }
+
+.text-link {
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+  border-bottom: 2px solid currentColor;
+  padding-bottom: 5px;
+  font-family: var(--display);
+  font-size: 12px;
+  letter-spacing: .06em;
+}
+
+/* Experience */
+.experience {
+  background: var(--blue-deep);
+  color: var(--white);
+}
+
+.experience-title { margin-bottom: 76px; }
+
+.photo-collage {
+  display: grid;
+  grid-template-columns: 1.2fr .75fr .65fr;
+  grid-template-rows: 280px 310px;
+  gap: 14px;
+}
+
+.collage-photo {
+  min-height: 220px;
+  background-position: center;
+  background-size: cover;
+}
+
+.photo-one {
+  grid-row: 1 / 3;
+  background-image: url("images/collage-1.jpg");
+}
+.photo-two { background-image: url("images/collage-2.jpg"); }
+.photo-three { background-image: url("images/collage-3.jpg"); }
+.photo-four {
+  grid-column: 2 / 4;
+  background-image: url("images/collage-4.jpg");
+}
+
+.collage-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 26px;
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.big-stat {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(58px, 6.5vw, 100px);
+  letter-spacing: -.08em;
+  line-height: .9;
+}
+
+.collage-copy p:last-child {
+  margin: 10px 0 0;
+  font-family: var(--display);
+  font-size: 13px;
+  letter-spacing: .09em;
+}
+
+.experience-points {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+  margin-top: 74px;
+}
+
+.experience-point {
+  border-top: 1px solid rgba(255,255,255,.28);
+  padding-top: 18px;
+}
+
+.experience-point span {
+  color: var(--gold);
+  font-family: var(--display);
+  font-size: 10px;
+}
+
+.experience-point h3 {
+  margin: 28px 0 14px;
+  font-family: var(--display);
+  font-size: 25px;
+}
+
+.experience-point p {
+  color: rgba(255,255,255,.75);
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+/* Schedule */
+.schedule { background: var(--gold); }
+
+.schedule-list {
+  border-top: 3px solid var(--ink);
+}
+
+.schedule-row {
+  display: grid;
+  grid-template-columns: 150px 1.5fr 1fr 40px;
+  gap: 25px;
+  align-items: center;
+  min-height: 112px;
+  border-bottom: 1px solid rgba(17,17,17,.48);
+  transition: padding .2s ease, background .2s ease;
+}
+
+.schedule-row:hover {
+  padding-left: 14px;
+  padding-right: 14px;
+  background: rgba(255,255,255,.22);
+}
+
+.schedule-time,
+.schedule-place {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .07em;
+}
+
+.schedule-name {
+  font-family: var(--display);
+  font-size: clamp(22px, 3vw, 42px);
+  letter-spacing: -.04em;
+}
+
+.schedule-arrow {
+  justify-self: end;
+  font-size: 25px;
+}
+
+.schedule-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 34px;
+}
+
+/* Duck CTA */
+.duck-cta {
+  position: relative;
+  min-height: 670px;
+  display: flex;
+  align-items: center;
+  color: var(--white);
+  overflow: hidden;
+}
+
+.duck-cta-art {
+  position: absolute;
+  inset: 0;
+  background: url("images/duck-hero.jpg") center / cover no-repeat;
+}
+
+.duck-cta-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,.75), rgba(0,0,0,.12) 72%);
+}
+
+.duck-cta-content {
+  position: relative;
+  z-index: 2;
+}
+
+.duck-cta h2 {
+  max-width: 900px;
+  margin: 0 0 22px;
+  font-family: var(--display);
+  font-size: clamp(58px, 8vw, 122px);
+  line-height: .86;
+  letter-spacing: -.065em;
+}
+
+.duck-cta-content > p:not(.eyebrow) {
+  max-width: 540px;
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+/* Partners */
+.partners { background: var(--cream); }
+
+.partner-heading {
+  margin: 0 0 60px;
+  font-family: var(--display);
+  font-size: clamp(52px, 8vw, 118px);
+  letter-spacing: -.06em;
+  line-height: .9;
+}
+
+.partner-heading em { color: var(--red); font-style: normal; }
+
+.partner-feature {
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--line);
+  padding: 24px 0 45px;
+}
+
+.partner-feature > p {
+  font-family: var(--display);
+  font-size: 10px;
+  letter-spacing: .12em;
+}
+
+.partner-logos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.logo-placeholder {
+  min-height: 170px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background: var(--white);
+  border: 1px solid var(--line);
+  font-family: var(--display);
+  font-size: clamp(18px, 2vw, 29px);
+  line-height: .92;
+}
+
+.partner-marquee {
+  overflow: hidden;
+  margin: 50px 0;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+.partner-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 30s linear infinite reverse;
+}
+
+.partner-marquee span {
+  white-space: nowrap;
+  padding: 18px 12px;
+  font-family: var(--display);
+  font-size: 18px;
+}
+
+.partner-cta {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  align-items: center;
+}
+
+.partner-cta p {
+  max-width: 560px;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+/* About */
+.about {
+  background: var(--red);
+  color: var(--white);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.5fr .8fr;
+  gap: 80px;
+  align-items: end;
+}
+
+.about-copy {
+  padding-bottom: 10px;
+}
+
+.about-copy p {
+  font-size: 18px;
+  line-height: 1.55;
+  color: rgba(255,255,255,.88);
+}
+
+.light-link { color: var(--white); margin-top: 22px; }
+
+/* Newsletter */
+.newsletter {
+  padding: 65px 0;
+  background: var(--gold);
+}
+
+.newsletter-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: end;
+}
+
+.newsletter h2 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(34px, 4vw, 64px);
+  line-height: .95;
+  letter-spacing: -.05em;
+}
+
+.signup-form {
+  display: flex;
+  border-bottom: 3px solid var(--ink);
+}
+
+.signup-form input {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 16px 2px;
+  outline: none;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.signup-form input::placeholder { color: rgba(17,17,17,.62); }
+
+.signup-form button {
+  border: 0;
+  background: transparent;
+  padding: 10px;
+  font-family: var(--display);
+  font-size: 11px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* Footer */
+.footer {
+  background: var(--ink);
+  color: var(--white);
+  padding: 80px 0 25px;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.3fr 2fr;
+  gap: 100px;
+  padding-bottom: 80px;
+}
+
+.footer-brand .brand-large { font-size: clamp(38px, 5vw, 75px); }
+.footer-brand .brand-small { font-size: 14px; }
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px;
+}
+
+.footer-links div { display: flex; flex-direction: column; gap: 10px; }
+.footer-links p {
+  color: var(--gold);
+  font-family: var(--display);
+  font-size: 10px;
+  letter-spacing: .12em;
+  margin: 0 0 10px;
+}
+.footer-links a { color: rgba(255,255,255,.7); font-size: 13px; }
+.footer-links a:hover { color: var(--white); }
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255,255,255,.22);
+  padding-top: 22px;
+  color: rgba(255,255,255,.45);
+  font-size: 10px;
+  letter-spacing: .08em;
+}
+
+/* Reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity .75s cubic-bezier(.2,.7,.2,1),
+    transform .75s cubic-bezier(.2,.7,.2,1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 1040px) {
+  :root { --shell: min(100% - 40px, 1380px); }
+
+  .nav { grid-template-columns: 1fr auto; }
+  .nav-links, .desktop-cta { display: none; }
+  .menu-button { display: block; }
+
+  .mobile-menu {
+    position: fixed;
+    inset: 90px 0 auto 0;
+    min-height: calc(100vh - 90px);
+    background: var(--paper);
+    color: var(--ink);
+    padding: 45px 20px 70px;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .site-header:not(.scrolled) .mobile-menu { top: 128px; }
+
+  .mobile-menu.open { display: flex; }
+
+  .mobile-menu > a:not(.nav-cta) {
+    font-family: var(--display);
+    font-size: 38px;
+    letter-spacing: -.04em;
+    border-bottom: 1px solid var(--line);
+    padding: 14px 0;
+  }
+
+  .mobile-menu .nav-cta {
+    margin-top: 30px;
+    align-self: stretch;
+    text-align: center;
+  }
+
+  .hero { min-height: 780px; }
+  .hero-bottom { align-items: flex-start; flex-direction: column; }
+  .hero-actions { flex-wrap: wrap; }
+
+  .event-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 620px 390px;
+  }
+  .event-card-tall { grid-column: 1 / 3; grid-row: 1; min-height: 620px; }
+
+  .photo-collage {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 380px 230px 300px;
+  }
+  .photo-one { grid-row: 1; grid-column: 1 / 3; }
+  .photo-four { grid-column: 1 / 3; }
+  .photo-three { display: none; }
+
+  .about-grid { grid-template-columns: 1fr; }
+  .about-copy { max-width: 650px; }
+}
+
+@media (max-width: 760px) {
+  :root { --shell: calc(100vw - 30px); }
+  .section { padding: 80px 0; }
+  .announcement a { justify-content: space-between; font-size: 9px; }
+  .announcement span { display: none; }
+
+  .nav { height: 74px; }
+  .site-header:not(.scrolled) .mobile-menu { top: 112px; }
+  .mobile-menu { inset: 74px 0 auto 0; min-height: calc(100vh - 74px); }
+
+  .hero {
+    height: 92vh;
+    min-height: 670px;
+  }
+  .hero-content { padding-top: 130px; padding-bottom: 42px; }
+  .hero-title {
+    font-size: clamp(74px, 27vw, 130px);
+    line-height: .75;
+  }
+  .hero-title span:last-child { margin-left: 0; }
+  .hero-kicker { font-size: 9px; }
+  .hero-bottom p { font-size: 16px; max-width: 90%; }
+  .button { min-height: 49px; font-size: 10px; }
+  .scroll-cue { display: none; }
+
+  .ticker-track span { font-size: 13px; padding: 13px 8px; }
+
+  .intro-grid,
+  .section-header,
+  .newsletter-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .display-heading { font-size: clamp(48px, 16vw, 78px); }
+  .intro-copy { margin: 28px 0 0; font-size: 17px; }
+
+  .event-grid {
+    display: flex;
+    flex-direction: column;
+  }
+  .event-card,
+  .event-card-tall { min-height: 520px; }
+  .event-card-copy { left: 22px; right: 22px; bottom: 22px; }
+  .event-card h3,
+  .event-card:not(.event-card-tall) h3 { font-size: 52px; }
+  .all-events-cta { text-align: left; }
+
+  .experience-title { margin-bottom: 45px; }
+  .photo-collage {
+    display: flex;
+    flex-direction: column;
+  }
+  .collage-photo { min-height: 310px; }
+  .photo-two, .photo-three { display: none; }
+  .collage-copy { min-height: 200px; }
+  .experience-points { grid-template-columns: 1fr; gap: 30px; margin-top: 50px; }
+
+  .schedule-row {
+    grid-template-columns: 88px 1fr 28px;
+    gap: 12px;
+    min-height: 105px;
+  }
+  .schedule-place { display: none; }
+  .schedule-name { font-size: 22px; }
+  .schedule-time { font-size: 10px; }
+  .schedule-actions { justify-content: flex-start; flex-direction: column; }
+  .schedule-actions .button { width: 100%; }
+
+  .duck-cta { min-height: 590px; }
+  .duck-cta h2 { font-size: clamp(55px, 17vw, 90px); }
+  .duck-cta-content > p:not(.eyebrow) { font-size: 16px; }
+
+  .partner-logos { grid-template-columns: 1fr; }
+  .logo-placeholder { min-height: 130px; }
+  .partner-cta { align-items: flex-start; flex-direction: column; }
+
+  .about-grid { gap: 38px; }
+
+  .signup-form { margin-top: 8px; }
+  .signup-form button { font-size: 9px; }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 60px;
+    padding-bottom: 55px;
+  }
+  .footer-links { grid-template-columns: 1fr 1fr; }
+  .footer-bottom { flex-direction: column; gap: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
 
 
-      <button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="mobileMenu">
-        <span></span><span></span><span></span>
-        <span class="sr-only">Open menu</span>
-      </button>
-    </nav>
+/* =========================================================
+   2027 · 75TH ANNIVERSARY / "OUR GOLDEN ERA"
+   ========================================================= */
 
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#anniversary">75 Years</a>
-      <a href="#events">Events</a>
-      <a href="#experience">Experience</a>
-      <a href="#schedule">Golden Days ’27</a>
-      <a href="#partners">Partners</a>
-      <a class="nav-cta" href="#events">EXPLORE GOLDEN DAYS</a>
-    </div>
-  </header>
+/* Top date banner */
+.anniversary-banner {
+  background: var(--gold);
+  border-bottom: 1px solid rgba(17,17,17,.45);
+}
 
-  <main>
-    <!-- =========================================================
-         75TH ANNIVERSARY HERO
-         Replace images/hero.jpg with a dramatic Golden Days photo.
-    ========================================================== -->
-    <section class="hero anniversary-hero">
-      <div class="hero-image"></div>
-      <div class="hero-overlay"></div>
-      <div class="hero-75-watermark" aria-hidden="true">75</div>
+.anniversary-banner a {
+  min-height: 44px;
+  gap: 17px;
+}
 
-      <div class="hero-content shell">
-        <div class="hero-topline reveal"> 
-          <div class="hero-kicker">
-            <span>FAIRBANKS, ALASKA</span>
-            <span class="dot"></span>
-            <span>JULY 17–25, 2027</span>
-          </div>
+.anniversary-banner span {
+  border: 0;
+}
 
-          <div class="anniversary-seal" aria-label="75th anniversary">
-            <span class="seal-small">CELEBRATING</span>
-            <strong>75</strong>
-            <span class="seal-small">GOLDEN YEARS</span>
-          </div>
-        </div>
+.banner-edition,
+.banner-dates,
+.banner-anniversary {
+  font-family: var(--display);
+  white-space: nowrap;
+}
 
-        <div class="hero-theme reveal">
-          <p class="hero-overline">THE 75TH GOLDEN DAYS</p>
-          <h1 class="era-title">
-            <span>OUR</span>
-            <span class="gold-word">GOLDEN</span>
-            <span>ERA</span>
-          </h1>
-        </div>
+.banner-edition { font-size: 13px; }
+.banner-dates { font-size: 13px; letter-spacing: .16em; }
+.banner-anniversary { font-size: 10px; letter-spacing: .18em; }
 
-        <div class="hero-bottom reveal">
-          <div class="hero-intro">
-            <p>
-              Celebrating 75 years of Golden Days with nine days
-              of tradition, community, history and Golden Heart fun.
-            </p>
-          </div>
-        </div>
-      </div>
+.banner-divider {
+  width: 34px;
+  height: 1px;
+  background: rgba(17,17,17,.65);
+}
 
-      <a class="scroll-cue" href="#anniversary" aria-label="Scroll to 75th anniversary">
-        <span>OUR GOLDEN ERA</span>
-        <span class="scroll-line"></span>
-      </a>
-    </section>
+.site-header { top: 44px; }
 
-    <!-- =========================================================
-         MOVING TICKER
-  ========================================================== -->
-    <section class="ticker" aria-label="Golden Days highlights">
-      <div class="ticker-track">
-        <span>OUR GOLDEN ERA ✦ 75TH ANNIVERSARY ✦ GOLDEN DAYS ’27 ✦ JULY 17–25 ✦ FAIRBANKS, ALASKA ✦</span>
-        <span aria-hidden="true">OUR GOLDEN ERA ✦ 75TH ANNIVERSARY ✦ GOLDEN DAYS ’27 ✦ JULY 17–25 ✦ FAIRBANKS, ALASKA ✦</span>
-      </div>
-    </section>
+.brand-large sup {
+  position: relative;
+  top: -.7em;
+  margin-left: 3px;
+  font-size: .38em;
+  letter-spacing: 0;
+}
 
-    <!-- =========================================================
-         75TH ANNIVERSARY STORY
-    ========================================================== -->
-    <section class="anniversary-story section" id="anniversary">
-      <div class="shell">
-        <div class="anniversary-grid">
-          <div class="anniversary-number reveal" aria-hidden="true">
-            <span>7</span><span>5</span>
-          </div>
+/* Anniversary hero */
+.anniversary-hero {
+  min-height: 880px;
+}
 
-          <div class="anniversary-copy">
-            <p class="eyebrow reveal">75TH ANNIVERSARY · GOLDEN DAYS ’27</p>
-            <h2 class="display-heading reveal">
-              THIS IS<br>
-              <em>OUR GOLDEN ERA.</em>
-            </h2>
-            <p class="intro-copy reveal">
-              For 75 years, Golden Days has brought Fairbanks together to celebrate
-              the character, history and community of the Golden Heart City.
-              In 2027, we're making the celebration bigger.
-            </p>
+.anniversary-hero .hero-overlay {
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.58), rgba(0,0,0,.05) 41%, rgba(0,0,0,.72)),
+    linear-gradient(95deg, rgba(0,0,0,.32), transparent 56%);
+}
 
-            <div class="anniversary-stats reveal">
-              <div>
-                <strong>75</strong>
-                <span>YEARS OF<br>GOLDEN DAYS</span>
-              </div>
-              <div>
-                <strong>9</strong>
-                <span>DAYS OF<br>CELEBRATION</span>
-              </div>
-              <div>
-                <strong>1</strong>
-                <span>GOLDEN HEART<br>COMMUNITY</span>
-              </div>
-            </div>
-          </div>
-        </div>
+.anniversary-hero .hero-content {
+  padding-top: 158px;
+  padding-bottom: 66px;
+}
 
-        <div class="era-manifesto reveal">
-          <span class="manifesto-label">THE THEME</span>
-          <p>
-            <strong>OUR GOLDEN ERA</strong> celebrates what Fairbanks has built,
-            the people who make this place special, and everything still ahead.
-          </p>
-        </div>
-      </div>
-    </section>
+.hero-topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+}
 
-    <!-- =========================================================
-         FEATURED EVENT CARDS
-         Swap images in /images/ and edit links.
-  ========================================================== -->
-    <section class="events section" id="events">
-      <div class="shell">
-        <div class="section-header">
-          <div>
-            <p class="eyebrow reveal">THE ICONS OF GOLDEN DAYS</p>
-            <h2 class="display-heading reveal">THE TRADITIONS<br><em>GO ON.</em></h2>
-          </div>
-          <p class="section-side-copy reveal">
-            The anniversary gets its energy from the traditions Fairbanks already loves.
-            Come downtown, show up gold, and be part of the 75th.
-          </p>
-        </div>
+.hero-75-watermark {
+  position: absolute;
+  z-index: 1;
+  right: -3vw;
+  top: 10%;
+  color: rgba(255,255,255,.055);
+  font-family: var(--display);
+  font-size: clamp(310px, 47vw, 740px);
+  line-height: .72;
+  letter-spacing: -.13em;
+  pointer-events: none;
+  user-select: none;
+}
 
-        <div class="event-grid">
-          <article class="event-card event-card-tall reveal">
-            <div class="event-image image-parade" role="img" aria-label="Golden Days Grande Parade"></div>
-            <div class="event-shade"></div>
-            <div class="event-number">01</div><div class="event-anniversary-tag">75TH EDITION</div>
-            <div class="event-card-copy">
-              <p class="event-meta">DOWNTOWN FAIRBANKS</p>
-              <h3>GRANDE<br>PARADE</h3>
-              <p>Floats, performers, community groups and Golden Days spirit through the heart of Fairbanks.</p>
-              <a href="https://www.fairbankschamber.org/grande-parade">PARADE DETAILS <span>→</span></a>
-            </div>
-          </article>
+.anniversary-seal {
+  position: relative;
+  width: 126px;
+  height: 126px;
+  flex: 0 0 126px;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  text-align: center;
+  transform: rotate(6deg);
+  background: rgba(0,0,0,.16);
+  backdrop-filter: blur(4px);
+}
 
-          <article class="event-card reveal">
-            <div class="event-image image-fair" role="img" aria-label="Golden Days Street Fair"></div>
-            <div class="event-shade"></div>
-            <div class="event-number">02</div><div class="event-anniversary-tag">OUR GOLDEN ERA</div>
-            <div class="event-card-copy">
-              <p class="event-meta">GOLDEN HEART PLAZA + 1ST AVE</p>
-              <h3>STREET<br>FAIR</h3>
-              <p>Local vendors, food, live entertainment and Kidz Korner downtown.</p>
-              <a href="https://www.fairbankschamber.org/street-fair">STREET FAIR DETAILS <span>→</span></a>
-            </div>
-          </article>
+.anniversary-seal::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 1px solid rgba(233,173,40,.65);
+  border-radius: inherit;
+}
 
-          <article class="event-card reveal">
-            <div class="event-image image-ducks" role="img" aria-label="Golden Days Rubber Duckie Race"></div>
-            <div class="event-shade"></div>
-            <div class="event-number">03</div><div class="event-anniversary-tag">GOLDEN DAYS ’27</div>
-            <div class="event-card-copy">
-              <p class="event-meta">CHENA RIVER</p>
-              <h3>DUCKIE<br>RACE</h3>
-              <p>Thousands of rubber ducks. One river. Dozens of prizes. A Fairbanks classic.</p>
-              <a href="https://www.fairbankschamber.org/rubber-duckie-race">RACE DETAILS <span>→</span></a>
-            </div>
-          </article>
-        </div>
+.anniversary-seal strong {
+  color: var(--gold);
+  font-family: var(--display);
+  font-size: 55px;
+  line-height: .82;
+  letter-spacing: -.08em;
+}
 
-        <div class="all-events-cta reveal">
-          <a class="text-link" href="#schedule">SEE THE FULL GOLDEN DAYS SCHEDULE <span>↗</span></a>
-        </div>
-      </div>
-    </section>
+.seal-small {
+  position: relative;
+  z-index: 2;
+  font-family: var(--display);
+  font-size: 7px;
+  letter-spacing: .17em;
+}
 
-    <!-- =========================================================
-         PHOTO / EXPERIENCE SECTION
-  ========================================================== -->
-    <section class="experience section" id="experience">
-      <div class="shell">
-        <div class="experience-title">
-          <p class="eyebrow light reveal">75 YEARS IN THE MAKING</p>
-          <h2 class="display-heading light reveal">
-            THE STORY<br>
-            <em>CONTINUES.</em>
-          </h2>
-        </div>
+.hero-theme {
+  margin: auto 0 20px;
+}
 
-        <div class="photo-collage">
-          <div class="collage-photo photo-one reveal"></div>
-          <div class="collage-photo photo-two reveal"></div>
-          <div class="collage-copy reveal">
-            <p class="big-stat">75</p>
-            <p>GOLDEN YEARS.<br>ONE FAIRBANKS.</p>
-          </div>
-          <div class="collage-photo photo-three reveal"></div>
-          <div class="collage-photo photo-four reveal"></div>
-        </div>
+.hero-overline {
+  margin: 0 0 13px 5px;
+  color: rgba(255,255,255,.72);
+  font-family: var(--display);
+  font-size: 11px;
+  letter-spacing: .2em;
+}
 
-        <div class="experience-points">
-          <div class="experience-point reveal">
-            <span>01</span>
-            <h3>THE PARADE</h3>
-            <p>Businesses, nonprofits, performers, families and community groups turn downtown Fairbanks into one big celebration.</p>
-          </div>
-          <div class="experience-point reveal">
-            <span>02</span>
-            <h3>THE FAIR</h3>
-            <p>Spend the day discovering local makers, food trucks, organizations, music and activities in the center of town.</p>
-          </div>
-          <div class="experience-point reveal">
-            <span>03</span>
-            <h3>THE DUCKS</h3>
-            <p>Thousands of numbered rubber ducks hit the Chena River in a race for prizes and eternal duckie glory.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+.era-title {
+  margin: 0;
+  max-width: 1180px;
+  font-family: var(--display);
+  font-size: clamp(88px, 13.2vw, 202px);
+  font-weight: 900;
+  line-height: .69;
+  letter-spacing: -.075em;
+  text-transform: uppercase;
+}
 
-    <!-- =========================================================
-         GOLDEN DAYS ’27 DATE BLOCK
-         Add individual 2027 events here as the calendar is confirmed.
-    ========================================================== -->
-    <section class="schedule section" id="schedule">
-      <div class="shell">
-        <div class="section-header">
-          <div>
-            <p class="eyebrow reveal">SAVE THE DATES</p>
-            <h2 class="display-heading reveal">NINE DAYS.<br><em>ONE GOLDEN ERA.</em></h2>
-          </div>
-          <p class="section-side-copy reveal">
-            Golden Days ’27 runs July 17–25. The full 75th anniversary schedule
-            will be added here as events and community celebrations are confirmed.
-          </p>
-        </div>
+.era-title span {
+  display: block;
+}
 
-        <div class="date-band reveal" aria-label="Golden Days dates July 17 through July 25, 2027">
-          <div class="date-band-main">
-            <span class="date-month">JULY</span>
-            <strong>17</strong>
-            <span class="date-dash">—</span>
-            <strong>25</strong>
-            <span class="date-year">2027</span>
-          </div>
-          <div class="date-band-side">
-            <span>75TH GOLDEN DAYS</span>
-            <span>FAIRBANKS, ALASKA</span>
-          </div>
-        </div>
+.era-title span:nth-child(1) {
+  margin-left: .32em;
+}
 
-        <div class="schedule-list anniversary-schedule">
-          <div class="schedule-row reveal">
-            <span class="schedule-time">JUL 17</span>
-            <span class="schedule-name">OPENING WEEKEND</span>
-            <span class="schedule-place">GOLDEN DAYS ’27 BEGINS</span>
-            <span class="schedule-arrow">✦</span>
-          </div>
-          <div class="schedule-row reveal">
-            <span class="schedule-time">JUL 17–25</span>
-            <span class="schedule-name">COMMUNITY EVENTS</span>
-            <span class="schedule-place">FAIRBANKS + THE INTERIOR</span>
-            <span class="schedule-arrow">✦</span>
-          </div>
-          <div class="schedule-row reveal">
-            <span class="schedule-time">JUL 25</span>
-            <span class="schedule-name">FINALE WEEKEND</span>
-            <span class="schedule-place">CELEBRATE THE 75TH</span>
-            <span class="schedule-arrow">✦</span>
-          </div>
-        </div>
+.era-title .gold-word {
+  color: var(--gold);
+}
 
-        <p class="schedule-note reveal">
-          Parade, Street Fair, Rubber Duckie Race and community-event details coming as the 2027 calendar is finalized.
-        </p>
+.era-title span:nth-child(3) {
+  margin-left: .65em;
+}
 
-        <div class="schedule-actions reveal">
-          <a class="button button-dark" href="#newsletter">GET 2027 UPDATES</a>
-          <a class="button button-ghost-dark" href="#events">EXPLORE SIGNATURE EVENTS</a>
-        </div>
-      </div>
-    </section>
+.hero-intro {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  max-width: 715px;
+}
 
-    <!-- =========================================================
-         BIG CTA / DUCK TICKETS
-  ========================================================== -->
-    <section class="duck-cta">
-      <div class="duck-cta-art"></div>
-      <div class="duck-cta-overlay"></div>
-      <div class="shell duck-cta-content reveal">
-        <p class="eyebrow light">AN ICON OF OUR GOLDEN ERA</p>
-        <h2>THE DUCKS<br>ARE GOING GOLD.</h2>
-        <p>The Rubber Duckie Race returns as part of the 75th Golden Days celebration — one of Fairbanks’ most unmistakable traditions.</p>
-        <a class="button button-gold" href="https://www.fairbankschamber.org/rubber-duckie-race">RUBBER DUCKIE RACE →</a>
-      </div>
-    </section>
+.hero-intro > p:last-child {
+  margin: 0;
+  max-width: 510px;
+}
 
-    <!-- =========================================================
-         PARTNERS
-         Replace text with sponsor logo <img> elements if preferred.
-  ========================================================== -->
-    <section class="partners section" id="partners">
-      <div class="shell">
-        <p class="eyebrow reveal">MADE POSSIBLE BY</p>
-        <h2 class="partner-heading reveal">75TH ANNIVERSARY <em>PARTNERS</em></h2>
+.hero-edition {
+  margin: 2px 0 0 !important;
+  padding-right: 24px;
+  border-right: 1px solid rgba(255,255,255,.55);
+  font-family: var(--display);
+  font-size: 11px !important;
+  letter-spacing: .12em;
+  white-space: nowrap;
+}
 
-        <div class="partner-feature reveal">
-          <p>PRESENTING + MAJOR EVENT PARTNERS</p>
-          <div class="partner-logos">
-            <div class="logo-placeholder">KINROSS<br>FORT KNOX</div>
-            <div class="logo-placeholder">MT. McKINLEY<br>BANK</div>
-            <div class="logo-placeholder">ALASKA 529</div>
-          </div>
-        </div>
+/* 75th story */
+.anniversary-story {
+  position: relative;
+  overflow: hidden;
+  background: var(--cream);
+  border-bottom: 1px solid rgba(17,17,17,.16);
+}
 
-        <div class="partner-marquee reveal">
-          <div class="partner-marquee-track">
-            <span>BE PART OF OUR GOLDEN ERA ✦ CELEBRATE 75 YEARS ✦ PARTNER WITH GOLDEN DAYS ’27 ✦</span>
-            <span aria-hidden="true">BE PART OF OUR GOLDEN ERA ✦ CELEBRATE 75 YEARS ✦ PARTNER WITH GOLDEN DAYS ’27 ✦</span>
-          </div>
-        </div>
+.anniversary-grid {
+  display: grid;
+  grid-template-columns: .8fr 2.1fr;
+  gap: 75px;
+  align-items: start;
+}
 
-        <div class="partner-cta reveal">
-          <p>Put your business at the center of the 75th anniversary — a landmark year for one of Fairbanks’ biggest summer traditions.</p>
-          <a class="button button-dark" href="mailto:info@fairbankschamber.org">SPONSOR THE 75TH</a>
-        </div>
-      </div>
-    </section>
+.anniversary-number {
+  display: flex;
+  position: relative;
+  margin-top: -10px;
+  color: var(--gold);
+  font-family: var(--display);
+  font-size: clamp(190px, 25vw, 365px);
+  line-height: .72;
+  letter-spacing: -.17em;
+  text-shadow: 6px 6px 0 rgba(17,17,17,.06);
+}
 
-    <!-- =========================================================
-         ABOUT / EMAIL SIGNUP
-  ========================================================== -->
-    <section class="about section" id="about">
-      <div class="shell about-grid">
-        <div>
-          <p class="eyebrow light reveal">THIS IS OUR MOMENT</p>
-          <h2 class="display-heading light reveal">75 YEARS.<br>STILL<br><em>GOLDEN.</em></h2>
-        </div>
-        <div class="about-copy reveal">
-          <p>
-            Our Golden Era is a celebration of the people, businesses, traditions
-            and unmistakable character that make Fairbanks the Golden Heart City.
-          </p>
-          <p>
-            The 75th anniversary gives Fairbanks a chance to look back, show up,
-            and make 2027 one of the biggest Golden Days celebrations yet.
-          </p>
-          <a class="text-link light-link" href="https://www.fairbankschamber.org/">VISIT THE FAIRBANKS CHAMBER <span>↗</span></a>
-        </div>
-      </div>
-    </section>
+.anniversary-number span:last-child {
+  position: relative;
+  top: 54px;
+}
 
-    <section class="newsletter" id="newsletter">
-      <div class="shell newsletter-grid">
-        <div>
-          <p class="eyebrow">COUNTDOWN TO JULY 17</p>
-          <h2>ENTER OUR GOLDEN ERA.</h2>
-        </div>
+.anniversary-copy .intro-copy {
+  max-width: 735px;
+  margin: 42px 0 0;
+}
 
-        <!-- Replace action URL with Constant Contact / Chamber signup endpoint -->
-        <form class="signup-form" action="#" method="post">
-          <label class="sr-only" for="email">Email address</label>
-          <input id="email" type="email" name="email" placeholder="YOUR EMAIL ADDRESS" required>
-          <button type="submit">KEEP ME GOLDEN →</button>
-        </form>
-      </div>
-    </section>
-  </main>
+.anniversary-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 55px;
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid rgba(17,17,17,.3);
+}
 
-  <!-- =========================================================
-       FOOTER
-  ========================================================== -->
-  <footer class="footer">
-    <div class="shell">
-      <div class="footer-top">
-        <a class="brand footer-brand" href="#top">
-          <span class="brand-small">75TH ANNIVERSARY · FAIRBANKS</span>
-          <span class="brand-large">OUR GOLDEN ERA</span>
-        </a>
+.anniversary-stats > div {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 115px;
+  padding: 20px 24px 20px 0;
+  border-right: 1px solid rgba(17,17,17,.3);
+}
 
-        <div class="footer-links">
-          <div>
-            <p>GOLDEN DAYS ’27</p>
-            <a href="#events">Events</a>
-            <a href="#schedule">Schedule</a>
-            <a href="#partners">Partners</a>
-            <a href="#about">About</a>
-          </div>
-          <div>
-            <p>MAIN EVENTS</p>
-            <a href="https://www.fairbankschamber.org/grande-parade">Grande Parade</a>
-            <a href="https://www.fairbankschamber.org/street-fair">Street Fair</a>
-            <a href="https://www.fairbankschamber.org/rubber-duckie-race">Duckie Race</a>
-          </div>
-          <div>
-            <p>CONNECT</p>
-            <a href="https://www.fairbankschamber.org/">Fairbanks Chamber</a>
-            <a href="mailto:info@fairbankschamber.org">Email Us</a>
-            <a href="#">Facebook</a>
-            <a href="#">Instagram</a>
-          </div>
-        </div>
-      </div>
+.anniversary-stats > div:not(:first-child) {
+  padding-left: 24px;
+}
 
-      <div class="footer-bottom">
-        <span>© <span id="year"></span> GREATER FAIRBANKS CHAMBER OF COMMERCE</span>
-        <span>FAIRBANKS, ALASKA</span>
-      </div>
-    </div>
-  </footer>
+.anniversary-stats > div:last-child {
+  border-right: 0;
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+.anniversary-stats strong {
+  font-family: var(--display);
+  color: var(--red);
+  font-size: 48px;
+  line-height: 1;
+  letter-spacing: -.06em;
+}
+
+.anniversary-stats span {
+  font-family: var(--display);
+  font-size: 9px;
+  line-height: 1.45;
+  letter-spacing: .1em;
+}
+
+.era-manifesto {
+  display: grid;
+  grid-template-columns: .7fr 2.3fr;
+  gap: 50px;
+  align-items: baseline;
+  margin-top: 85px;
+  padding: 28px 0;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+.manifesto-label {
+  font-family: var(--display);
+  font-size: 10px;
+  letter-spacing: .14em;
+}
+
+.era-manifesto p {
+  max-width: 980px;
+  margin: 0;
+  font-size: clamp(25px, 3.1vw, 47px);
+  line-height: 1.1;
+  letter-spacing: -.035em;
+}
+
+.era-manifesto strong {
+  color: var(--red);
+  font-family: var(--display);
+}
+
+/* Event anniversary flags */
+.event-anniversary-tag {
+  position: absolute;
+  z-index: 2;
+  top: 31px;
+  left: 28px;
+  padding: 7px 9px;
+  border: 1px solid rgba(255,255,255,.55);
+  background: rgba(0,0,0,.22);
+  backdrop-filter: blur(4px);
+  font-family: var(--display);
+  font-size: 8px;
+  letter-spacing: .13em;
+}
+
+/* Date reveal */
+.date-band {
+  margin-bottom: 48px;
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: stretch;
+}
+
+.date-band-main {
+  display: flex;
+  align-items: baseline;
+  gap: 22px;
+  padding: 25px 0;
+}
+
+.date-band-main strong {
+  font-family: var(--display);
+  font-size: clamp(74px, 10vw, 145px);
+  line-height: .8;
+  letter-spacing: -.08em;
+}
+
+.date-month,
+.date-year {
+  font-family: var(--display);
+  font-size: 18px;
+  letter-spacing: .15em;
+}
+
+.date-dash {
+  font-family: var(--display);
+  font-size: 42px;
+}
+
+.date-band-side {
+  min-width: 220px;
+  border-left: 1px solid rgba(17,17,17,.42);
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--display);
+  font-size: 9px;
+  letter-spacing: .12em;
+}
+
+.anniversary-schedule .schedule-row {
+  cursor: default;
+}
+
+.schedule-note {
+  margin: 22px 0 0;
+  max-width: 620px;
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+/* 75 detail scattered through site */
+.experience .big-stat {
+  font-size: clamp(80px, 8vw, 125px);
+}
+
+.partners {
+  position: relative;
+}
+
+.partners::before {
+  content: "75";
+  position: absolute;
+  right: -1vw;
+  top: 60px;
+  color: rgba(17,17,17,.035);
+  font-family: var(--display);
+  font-size: clamp(260px, 31vw, 510px);
+  line-height: .75;
+  letter-spacing: -.12em;
+  pointer-events: none;
+}
+
+.newsletter {
+  position: relative;
+  overflow: hidden;
+}
+
+.newsletter::after {
+  content: "’27";
+  position: absolute;
+  right: 1vw;
+  bottom: -45px;
+  color: rgba(17,17,17,.06);
+  font-family: var(--display);
+  font-size: 210px;
+  line-height: 1;
+  letter-spacing: -.08em;
+  pointer-events: none;
+}
+
+.newsletter-grid {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 1040px) {
+  .site-header:not(.scrolled) .mobile-menu { top: 134px; }
+
+  .anniversary-grid {
+    grid-template-columns: .65fr 1.6fr;
+    gap: 42px;
+  }
+
+  .anniversary-number {
+    font-size: clamp(160px, 26vw, 260px);
+  }
+
+  .hero-intro {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-edition {
+    border-right: 0;
+    border-bottom: 1px solid rgba(255,255,255,.45);
+    padding: 0 0 8px;
+  }
+}
+
+@media (max-width: 760px) {
+  .anniversary-banner a {
+    min-height: 38px;
+    gap: 9px;
+    justify-content: center;
+    padding-inline: 8px;
+  }
+
+  .banner-divider { width: 12px; }
+  .banner-edition, .banner-dates { font-size: 9px; }
+  .banner-anniversary { font-size: 7px; }
+
+  .site-header { top: 38px; }
+  .site-header:not(.scrolled) .mobile-menu { top: 112px; }
+
+  .anniversary-hero {
+    min-height: 750px;
+    height: 94vh;
+  }
+
+  .anniversary-hero .hero-content {
+    padding-top: 116px;
+    padding-bottom: 42px;
+  }
+
+  .anniversary-seal {
+    width: 86px;
+    height: 86px;
+    flex-basis: 86px;
+  }
+
+  .anniversary-seal strong { font-size: 36px; }
+  .seal-small { font-size: 5px; }
+  .hero-kicker { max-width: 160px; flex-wrap: wrap; }
+
+  .hero-75-watermark {
+    top: 18%;
+    right: -15vw;
+  }
+
+  .hero-overline {
+    font-size: 8px;
+  }
+
+  .era-title {
+    font-size: clamp(77px, 24vw, 118px);
+    line-height: .72;
+  }
+
+  .era-title span:nth-child(1) { margin-left: 0; }
+  .era-title span:nth-child(3) { margin-left: .28em; }
+
+  .hero-intro > p:last-child { font-size: 15px; }
+
+  .anniversary-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+  }
+
+  .anniversary-number {
+    margin: 0;
+    font-size: clamp(165px, 54vw, 235px);
+  }
+
+  .anniversary-number span:last-child { top: 30px; }
+
+  .anniversary-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .anniversary-stats > div,
+  .anniversary-stats > div:not(:first-child) {
+    min-height: 84px;
+    padding: 16px 0;
+    border-right: 0;
+    border-bottom: 1px solid rgba(17,17,17,.25);
+  }
+
+  .anniversary-stats > div:last-child { border-bottom: 0; }
+
+  .anniversary-stats strong { width: 55px; font-size: 40px; }
+
+  .era-manifesto {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 55px;
+  }
+
+  .era-manifesto p {
+    font-size: 27px;
+  }
+
+  .event-anniversary-tag {
+    top: 22px;
+    left: 22px;
+  }
+
+  .date-band {
+    grid-template-columns: 1fr;
+  }
+
+  .date-band-main {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .date-band-main strong {
+    font-size: clamp(65px, 20vw, 92px);
+  }
+
+  .date-month,
+  .date-year { font-size: 12px; }
+
+  .date-dash { font-size: 25px; }
+
+  .date-band-side {
+    min-width: 0;
+    border-left: 0;
+    border-top: 1px solid rgba(17,17,17,.42);
+    padding: 15px 0;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .newsletter::after {
+    right: -18px;
+    font-size: 140px;
+  }
+}
