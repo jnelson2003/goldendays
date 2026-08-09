@@ -1153,7 +1153,7 @@ button, input { font: inherit; }
 .anniversary-hero .hero-image {
   background:
     linear-gradient(125deg, rgba(9,43,55,.18), rgba(9,43,55,.03)),
-    url("images/hero.jpg") center 45% / cover no-repeat;
+    url("hero.jpg") center 45% / cover no-repeat;
   filter: saturate(.88) contrast(1.02);
 }
 
