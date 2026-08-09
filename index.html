@@ -76,10 +76,10 @@
             <span></span>
           </div>
 
-          <div class="anniversary-seal" aria-label="75th anniversary">
-            <span class="seal-small">CELEBRATING</span>
-            <strong>75</strong>
-            <span class="seal-small">GOLDEN YEARS</span>
+          <div class="anniversary-seal-image">
+            <!-- Upload your official seal using this filename,
+                 or change the src to match your file. -->
+            <img src="anniversary-seal.png" alt="Golden Days 75th Anniversary">
           </div>
         </div>
 
@@ -119,7 +119,7 @@
     </section>
 
     <!-- =========================================================
-         75TH ANNIVERSARY STORY
+         75TH ANNIVERSARY STORY + HISTORY DROPDOWN
     ========================================================== -->
     <section class="anniversary-story section" id="anniversary">
       <div class="shell">
@@ -130,15 +130,41 @@
 
           <div class="anniversary-copy">
             <p class="eyebrow reveal">75TH ANNIVERSARY · GOLDEN DAYS ’27</p>
+
             <h2 class="display-heading reveal">
               THIS IS<br>
               <em>OUR GOLDEN ERA.</em>
             </h2>
+
             <p class="intro-copy reveal">
               For 75 years, Golden Days has brought Fairbanks together to celebrate
               the character, history and community of the Golden Heart City.
               In 2027, we're making the celebration bigger.
             </p>
+
+            <details class="history-dropdown reveal">
+              <summary>
+                <span>THE HISTORY OF GOLDEN DAYS</span>
+                <span class="history-toggle" aria-hidden="true">+</span>
+              </summary>
+
+              <div class="history-dropdown-content">
+                <p>
+                  Add your Golden Days history here. This space can hold a longer
+                  paragraph or several short paragraphs about how Golden Days began,
+                  how the celebration has changed over the years, and the traditions
+                  that have become part of summer in Fairbanks.
+                </p>
+
+                <p>
+                  Replace this placeholder copy directly in the HTML. The dropdown
+                  will continue to work without any other changes.
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- =========================================================
@@ -159,6 +185,11 @@
           <article class="event-card event-card-tall reveal">
             <div class="event-image image-parade" role="img" aria-label="Golden Days Grande Parade"></div>
             <div class="event-shade"></div>
+
+            <div class="event-sponsor-logo">
+              <!-- Replace parade-sponsor.png with the Parade sponsor logo -->
+              <img src="parade-sponsor.png" alt="Grande Parade sponsor logo" onerror="this.style.display='none'">
+            </div>
             <div class="event-card-copy">
               <p class="event-meta">DOWNTOWN FAIRBANKS</p>
               <h3>GRANDE<br>PARADE</h3>
@@ -170,6 +201,11 @@
           <article class="event-card reveal">
             <div class="event-image image-fair" role="img" aria-label="Golden Days Street Fair"></div>
             <div class="event-shade"></div>
+
+            <div class="event-sponsor-logo event-sponsor-logo-small">
+              <!-- Replace street-fair-sponsor.png with the Street Fair sponsor logo -->
+              <img src="street-fair-sponsor.png" alt="Street Fair sponsor logo" onerror="this.style.display='none'">
+            </div>
             <div class="event-card-copy">
               <p class="event-meta">GOLDEN HEART PLAZA + 1ST AVE</p>
               <h3>STREET<br>FAIR</h3>
@@ -181,6 +217,11 @@
           <article class="event-card reveal">
             <div class="event-image image-ducks" role="img" aria-label="Golden Days Rubber Duckie Race"></div>
             <div class="event-shade"></div>
+
+            <div class="event-sponsor-logo event-sponsor-logo-small">
+              <!-- Replace duck-race-sponsor.png with the Duckie Race sponsor logo -->
+              <img src="duck-race-sponsor.png" alt="Rubber Duckie Race sponsor logo" onerror="this.style.display='none'">
+            </div>
             <div class="event-card-copy">
               <p class="event-meta">CHENA RIVER</p>
               <h3>DUCKIE<br>RACE</h3>
