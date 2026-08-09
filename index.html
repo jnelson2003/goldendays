@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Golden Days — Fairbanks, Alaska's summer celebration." />
-  <title>Golden Days | Fairbanks, Alaska</title>
+  <meta name="description" content="Golden Days ’27 — July 17–25. Celebrate the 75th anniversary of Golden Days in Fairbanks, Alaska. Our Golden Era." />
+  <title>Golden Days ’27 | Our Golden Era | Fairbanks, Alaska</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -16,10 +16,13 @@
        ANNOUNCEMENT BAR
        Edit this for registration deadlines, duck tickets, etc.
   ========================================================== -->
-  <div class="announcement">
-    <a href="#events">
-      GOLDEN DAYS IS COMING TO FAIRBANKS
-      <span>EXPLORE EVENTS →</span>
+  <div class="announcement anniversary-banner">
+    <a href="#anniversary" aria-label="Golden Days 2027 anniversary information">
+      <span class="banner-edition">GOLDEN DAYS ’27</span>
+      <span class="banner-divider" aria-hidden="true"></span>
+      <span class="banner-dates">JULY 17–25</span>
+      <span class="banner-divider" aria-hidden="true"></span>
+      <span class="banner-anniversary">75TH ANNIVERSARY</span>
     </a>
   </div>
 
@@ -29,19 +32,19 @@
   <header class="site-header" id="top">
     <nav class="nav shell" aria-label="Main navigation">
       <a class="brand" href="#top" aria-label="Golden Days home">
-        <span class="brand-small">FAIRBANKS</span>
-        <span class="brand-large">GOLDEN DAYS</span>
+        <span class="brand-small">FAIRBANKS · ALASKA</span>
+        <span class="brand-large">GOLDEN DAYS <sup>’27</sup></span>
       </a>
 
       <div class="nav-links" id="desktopNav">
+        <a href="#anniversary">75 Years</a>
         <a href="#events">Events</a>
         <a href="#experience">Experience</a>
-        <a href="#schedule">Schedule</a>
+        <a href="#schedule">2027</a>
         <a href="#partners">Partners</a>
-        <a href="#about">About</a>
       </div>
 
-      <a class="nav-cta desktop-cta" href="#events">PLAN YOUR DAY</a>
+      <a class="nav-cta desktop-cta" href="#events">EXPLORE ’27</a>
 
       <button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
@@ -50,52 +53,66 @@
     </nav>
 
     <div class="mobile-menu" id="mobileMenu">
+      <a href="#anniversary">75 Years</a>
       <a href="#events">Events</a>
       <a href="#experience">Experience</a>
-      <a href="#schedule">Schedule</a>
+      <a href="#schedule">Golden Days ’27</a>
       <a href="#partners">Partners</a>
-      <a href="#about">About</a>
-      <a class="nav-cta" href="#events">PLAN YOUR DAY</a>
+      <a class="nav-cta" href="#events">EXPLORE GOLDEN DAYS</a>
     </div>
   </header>
 
   <main>
     <!-- =========================================================
-         HERO
-         Replace hero.jpg with your main Golden Days image.
-         Recommended: 2200px wide landscape image.
+         75TH ANNIVERSARY HERO
+         Replace images/hero.jpg with a dramatic Golden Days photo.
     ========================================================== -->
-    <section class="hero">
+    <section class="hero anniversary-hero">
       <div class="hero-image"></div>
       <div class="hero-overlay"></div>
+      <div class="hero-75-watermark" aria-hidden="true">75</div>
 
       <div class="hero-content shell">
-        <div class="hero-kicker reveal">
-          <span>FAIRBANKS, ALASKA</span>
-          <span class="dot"></span>
-          <span>SUMMER TRADITION</span>
+        <div class="hero-topline reveal">
+          <div class="hero-kicker">
+            <span>FAIRBANKS, ALASKA</span>
+            <span class="dot"></span>
+            <span>JULY 17–25, 2027</span>
+          </div>
+          <div class="anniversary-seal" aria-label="75th anniversary">
+            <span class="seal-small">CELEBRATING</span>
+            <strong>75</strong>
+            <span class="seal-small">GOLDEN YEARS</span>
+          </div>
         </div>
 
-        <h1 class="hero-title reveal">
-          <span>GOLDEN</span>
-          <span>DAYS</span>
-        </h1>
+        <div class="hero-theme reveal">
+          <p class="hero-overline">THE 75TH GOLDEN DAYS</p>
+          <h1 class="era-title">
+            <span>OUR</span>
+            <span class="gold-word">GOLDEN</span>
+            <span>ERA</span>
+          </h1>
+        </div>
 
         <div class="hero-bottom reveal">
-          <p>
-            A week of Fairbanks tradition, community, history,
-            summer fun and a whole lot of Golden Heart spirit.
-          </p>
+          <div class="hero-intro">
+            <p class="hero-edition">GOLDEN DAYS ’27</p>
+            <p>
+              Fairbanks is celebrating 75 years of Golden Days with nine days
+              of tradition, community, history and Golden Heart spirit.
+            </p>
+          </div>
 
           <div class="hero-actions">
-            <a class="button button-gold" href="#events">EXPLORE EVENTS</a>
-            <a class="button button-outline" href="#schedule">VIEW SCHEDULE</a>
+            <a class="button button-gold" href="#events">EXPLORE THE CELEBRATION</a>
+            <a class="button button-outline" href="#anniversary">75 YEARS OF GOLDEN</a>
           </div>
         </div>
       </div>
 
-      <a class="scroll-cue" href="#intro" aria-label="Scroll to content">
-        <span>SCROLL</span>
+      <a class="scroll-cue" href="#anniversary" aria-label="Scroll to 75th anniversary">
+        <span>OUR GOLDEN ERA</span>
         <span class="scroll-line"></span>
       </a>
     </section>
@@ -105,26 +122,56 @@
   ========================================================== -->
     <section class="ticker" aria-label="Golden Days highlights">
       <div class="ticker-track">
-        <span>GRANDE PARADE ✦ STREET FAIR ✦ RUBBER DUCKIE RACE ✦ KIDZ KORNER ✦ COMMUNITY EVENTS ✦ FAIRBANKS, ALASKA ✦</span>
-        <span aria-hidden="true">GRANDE PARADE ✦ STREET FAIR ✦ RUBBER DUCKIE RACE ✦ KIDZ KORNER ✦ COMMUNITY EVENTS ✦ FAIRBANKS, ALASKA ✦</span>
+        <span>OUR GOLDEN ERA ✦ 75TH ANNIVERSARY ✦ GOLDEN DAYS ’27 ✦ JULY 17–25 ✦ FAIRBANKS, ALASKA ✦</span>
+        <span aria-hidden="true">OUR GOLDEN ERA ✦ 75TH ANNIVERSARY ✦ GOLDEN DAYS ’27 ✦ JULY 17–25 ✦ FAIRBANKS, ALASKA ✦</span>
       </div>
     </section>
 
     <!-- =========================================================
-         INTRO
-  ========================================================== -->
-    <section class="intro section" id="intro">
-      <div class="shell intro-grid">
-        <p class="eyebrow reveal">THIS IS GOLDEN DAYS</p>
-        <div>
-          <h2 class="display-heading reveal">
-            FAIRBANKS' SUMMER<br>
-            <em>GOES GOLD.</em>
-          </h2>
-          <p class="intro-copy reveal">
-            Golden Days brings Fairbanks together for one of the Interior's
-            favorite summer traditions — from the Grande Parade and downtown
-            Street Fair to thousands of rubber ducks racing down the Chena River.
+         75TH ANNIVERSARY STORY
+    ========================================================== -->
+    <section class="anniversary-story section" id="anniversary">
+      <div class="shell">
+        <div class="anniversary-grid">
+          <div class="anniversary-number reveal" aria-hidden="true">
+            <span>7</span><span>5</span>
+          </div>
+
+          <div class="anniversary-copy">
+            <p class="eyebrow reveal">75TH ANNIVERSARY · GOLDEN DAYS ’27</p>
+            <h2 class="display-heading reveal">
+              THIS IS<br>
+              <em>OUR GOLDEN ERA.</em>
+            </h2>
+            <p class="intro-copy reveal">
+              For 75 years, Golden Days has brought Fairbanks together to celebrate
+              the character, history and community of the Golden Heart City.
+              In 2027, we're making the celebration bigger — honoring the traditions
+              that got us here while creating the next chapter together.
+            </p>
+
+            <div class="anniversary-stats reveal">
+              <div>
+                <strong>75</strong>
+                <span>YEARS OF<br>GOLDEN DAYS</span>
+              </div>
+              <div>
+                <strong>9</strong>
+                <span>DAYS OF<br>CELEBRATION</span>
+              </div>
+              <div>
+                <strong>1</strong>
+                <span>GOLDEN HEART<br>COMMUNITY</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="era-manifesto reveal">
+          <span class="manifesto-label">THE THEME</span>
+          <p>
+            <strong>OUR GOLDEN ERA</strong> celebrates what Fairbanks has built,
+            the people who make this place special, and everything still ahead.
           </p>
         </div>
       </div>
@@ -138,12 +185,12 @@
       <div class="shell">
         <div class="section-header">
           <div>
-            <p class="eyebrow reveal">THE BIG EVENTS</p>
-            <h2 class="display-heading reveal">PICK YOUR<br><em>GOLDEN DAY.</em></h2>
+            <p class="eyebrow reveal">THE ICONS OF GOLDEN DAYS</p>
+            <h2 class="display-heading reveal">THE TRADITIONS<br><em>GO ON.</em></h2>
           </div>
           <p class="section-side-copy reveal">
-            Make a day of it. Come downtown, grab some food, cheer on the parade,
-            explore local vendors and stay for the duck race.
+            The anniversary gets its energy from the traditions Fairbanks already loves.
+            Come downtown, show up gold, and be part of the 75th.
           </p>
         </div>
 
@@ -151,7 +198,7 @@
           <article class="event-card event-card-tall reveal">
             <div class="event-image image-parade" role="img" aria-label="Golden Days Grande Parade"></div>
             <div class="event-shade"></div>
-            <div class="event-number">01</div>
+            <div class="event-number">01</div><div class="event-anniversary-tag">75TH EDITION</div>
             <div class="event-card-copy">
               <p class="event-meta">DOWNTOWN FAIRBANKS</p>
               <h3>GRANDE<br>PARADE</h3>
@@ -163,7 +210,7 @@
           <article class="event-card reveal">
             <div class="event-image image-fair" role="img" aria-label="Golden Days Street Fair"></div>
             <div class="event-shade"></div>
-            <div class="event-number">02</div>
+            <div class="event-number">02</div><div class="event-anniversary-tag">OUR GOLDEN ERA</div>
             <div class="event-card-copy">
               <p class="event-meta">GOLDEN HEART PLAZA + 1ST AVE</p>
               <h3>STREET<br>FAIR</h3>
@@ -175,7 +222,7 @@
           <article class="event-card reveal">
             <div class="event-image image-ducks" role="img" aria-label="Golden Days Rubber Duckie Race"></div>
             <div class="event-shade"></div>
-            <div class="event-number">03</div>
+            <div class="event-number">03</div><div class="event-anniversary-tag">GOLDEN DAYS ’27</div>
             <div class="event-card-copy">
               <p class="event-meta">CHENA RIVER</p>
               <h3>DUCKIE<br>RACE</h3>
@@ -197,10 +244,10 @@
     <section class="experience section" id="experience">
       <div class="shell">
         <div class="experience-title">
-          <p class="eyebrow light reveal">WHAT IS GOLDEN DAYS?</p>
+          <p class="eyebrow light reveal">75 YEARS IN THE MAKING</p>
           <h2 class="display-heading light reveal">
-            A FAIRBANKS<br>
-            <em>TRADITION.</em>
+            THE STORY<br>
+            <em>CONTINUES.</em>
           </h2>
         </div>
 
@@ -208,8 +255,8 @@
           <div class="collage-photo photo-one reveal"></div>
           <div class="collage-photo photo-two reveal"></div>
           <div class="collage-copy reveal">
-            <p class="big-stat">70+</p>
-            <p>YEARS OF<br>GOLDEN DAYS</p>
+            <p class="big-stat">75</p>
+            <p>GOLDEN YEARS.<br>ONE FAIRBANKS.</p>
           </div>
           <div class="collage-photo photo-three reveal"></div>
           <div class="collage-photo photo-four reveal"></div>
@@ -236,47 +283,64 @@
     </section>
 
     <!-- =========================================================
-         SCHEDULE
-         These are intentionally easy to edit.
-         Add/remove .schedule-row items as needed.
-  ========================================================== -->
+         GOLDEN DAYS ’27 DATE BLOCK
+         Add individual 2027 events here as the calendar is confirmed.
+    ========================================================== -->
     <section class="schedule section" id="schedule">
       <div class="shell">
         <div class="section-header">
           <div>
-            <p class="eyebrow reveal">MAKE A DAY OF IT</p>
-            <h2 class="display-heading reveal">YOUR GOLDEN<br><em>SCHEDULE.</em></h2>
+            <p class="eyebrow reveal">SAVE THE DATES</p>
+            <h2 class="display-heading reveal">NINE DAYS.<br><em>ONE GOLDEN ERA.</em></h2>
           </div>
           <p class="section-side-copy reveal">
-            Use this area for the headline events. You can also link out to your
-            full ChamberMaster community calendar for all partner events.
+            Golden Days ’27 runs July 17–25. The full 75th anniversary schedule
+            will be added here as events and community celebrations are confirmed.
           </p>
         </div>
 
-        <div class="schedule-list">
-          <a class="schedule-row reveal" href="https://www.fairbankschamber.org/street-fair">
-            <span class="schedule-time">9:00 AM</span>
-            <span class="schedule-name">STREET FAIR + KIDZ KORNER</span>
-            <span class="schedule-place">GOLDEN HEART PLAZA</span>
-            <span class="schedule-arrow">↗</span>
-          </a>
-          <a class="schedule-row reveal" href="https://www.fairbankschamber.org/grande-parade">
-            <span class="schedule-time">10:00 AM</span>
-            <span class="schedule-name">GRANDE PARADE</span>
-            <span class="schedule-place">DOWNTOWN FAIRBANKS</span>
-            <span class="schedule-arrow">↗</span>
-          </a>
-          <a class="schedule-row reveal" href="https://www.fairbankschamber.org/rubber-duckie-race">
-            <span class="schedule-time">3:00 PM</span>
-            <span class="schedule-name">RUBBER DUCKIE RACE</span>
-            <span class="schedule-place">CHENA RIVER</span>
-            <span class="schedule-arrow">↗</span>
-          </a>
+        <div class="date-band reveal" aria-label="Golden Days dates July 17 through July 25, 2027">
+          <div class="date-band-main">
+            <span class="date-month">JULY</span>
+            <strong>17</strong>
+            <span class="date-dash">—</span>
+            <strong>25</strong>
+            <span class="date-year">2027</span>
+          </div>
+          <div class="date-band-side">
+            <span>75TH GOLDEN DAYS</span>
+            <span>FAIRBANKS, ALASKA</span>
+          </div>
         </div>
 
+        <div class="schedule-list anniversary-schedule">
+          <div class="schedule-row reveal">
+            <span class="schedule-time">JUL 17</span>
+            <span class="schedule-name">OPENING WEEKEND</span>
+            <span class="schedule-place">GOLDEN DAYS ’27 BEGINS</span>
+            <span class="schedule-arrow">✦</span>
+          </div>
+          <div class="schedule-row reveal">
+            <span class="schedule-time">JUL 17–25</span>
+            <span class="schedule-name">COMMUNITY EVENTS</span>
+            <span class="schedule-place">FAIRBANKS + THE INTERIOR</span>
+            <span class="schedule-arrow">✦</span>
+          </div>
+          <div class="schedule-row reveal">
+            <span class="schedule-time">JUL 25</span>
+            <span class="schedule-name">FINALE WEEKEND</span>
+            <span class="schedule-place">CELEBRATE THE 75TH</span>
+            <span class="schedule-arrow">✦</span>
+          </div>
+        </div>
+
+        <p class="schedule-note reveal">
+          Parade, Street Fair, Rubber Duckie Race and community-event details coming as the 2027 calendar is finalized.
+        </p>
+
         <div class="schedule-actions reveal">
-          <a class="button button-dark" href="https://www.fairbankschamber.org/golden-days-2026">FULL GOLDEN DAYS CALENDAR</a>
-          <a class="button button-ghost-dark" href="https://www.fairbankschamber.org/golden-days-2026">ADD A COMMUNITY EVENT</a>
+          <a class="button button-dark" href="#newsletter">GET 2027 UPDATES</a>
+          <a class="button button-ghost-dark" href="#events">EXPLORE SIGNATURE EVENTS</a>
         </div>
       </div>
     </section>
@@ -288,9 +352,9 @@
       <div class="duck-cta-art"></div>
       <div class="duck-cta-overlay"></div>
       <div class="shell duck-cta-content reveal">
-        <p class="eyebrow light">A FAIRBANKS FAVORITE</p>
-        <h2>8,000 DUCKS.<br>ONE CHENA RIVER.</h2>
-        <p>Get your ticket number into the race and cheer your duck all the way to the finish.</p>
+        <p class="eyebrow light">AN ICON OF OUR GOLDEN ERA</p>
+        <h2>THE DUCKS<br>ARE GOING GOLD.</h2>
+        <p>The Rubber Duckie Race returns as part of the 75th Golden Days celebration — one of Fairbanks’ most unmistakable traditions.</p>
         <a class="button button-gold" href="https://www.fairbankschamber.org/rubber-duckie-race">RUBBER DUCKIE RACE →</a>
       </div>
     </section>
@@ -302,7 +366,7 @@
     <section class="partners section" id="partners">
       <div class="shell">
         <p class="eyebrow reveal">MADE POSSIBLE BY</p>
-        <h2 class="partner-heading reveal">GOLDEN DAYS <em>PARTNERS</em></h2>
+        <h2 class="partner-heading reveal">75TH ANNIVERSARY <em>PARTNERS</em></h2>
 
         <div class="partner-feature reveal">
           <p>PRESENTING + MAJOR EVENT PARTNERS</p>
@@ -315,14 +379,14 @@
 
         <div class="partner-marquee reveal">
           <div class="partner-marquee-track">
-            <span>SUPPORT FAIRBANKS ✦ CELEBRATE COMMUNITY ✦ BECOME A GOLDEN DAYS PARTNER ✦</span>
-            <span aria-hidden="true">SUPPORT FAIRBANKS ✦ CELEBRATE COMMUNITY ✦ BECOME A GOLDEN DAYS PARTNER ✦</span>
+            <span>BE PART OF OUR GOLDEN ERA ✦ CELEBRATE 75 YEARS ✦ PARTNER WITH GOLDEN DAYS ’27 ✦</span>
+            <span aria-hidden="true">BE PART OF OUR GOLDEN ERA ✦ CELEBRATE 75 YEARS ✦ PARTNER WITH GOLDEN DAYS ’27 ✦</span>
           </div>
         </div>
 
         <div class="partner-cta reveal">
-          <p>Want your business at the center of one of Fairbanks' biggest summer traditions?</p>
-          <a class="button button-dark" href="mailto:info@fairbankschamber.org">SPONSOR GOLDEN DAYS</a>
+          <p>Put your business at the center of the 75th anniversary — a landmark year for one of Fairbanks’ biggest summer traditions.</p>
+          <a class="button button-dark" href="mailto:info@fairbankschamber.org">SPONSOR THE 75TH</a>
         </div>
       </div>
     </section>
@@ -333,36 +397,35 @@
     <section class="about section" id="about">
       <div class="shell about-grid">
         <div>
-          <p class="eyebrow light reveal">THE GOLDEN HEART CITY</p>
-          <h2 class="display-heading light reveal">COME FOR<br>THE GOLD.<br><em>STAY FOR FAIRBANKS.</em></h2>
+          <p class="eyebrow light reveal">THIS IS OUR MOMENT</p>
+          <h2 class="display-heading light reveal">75 YEARS.<br>STILL<br><em>GOLDEN.</em></h2>
         </div>
         <div class="about-copy reveal">
           <p>
-            Golden Days celebrates the people, businesses, history and character
-            that make Fairbanks unlike anywhere else.
+            Our Golden Era is a celebration of the people, businesses, traditions
+            and unmistakable character that make Fairbanks the Golden Heart City.
           </p>
           <p>
-            This standalone site can become the front door to the celebration
-            while detailed registrations, forms and event listings continue to
-            live on FairbanksChamber.org.
+            The 75th anniversary gives Fairbanks a chance to look back, show up,
+            and make 2027 one of the biggest Golden Days celebrations yet.
           </p>
           <a class="text-link light-link" href="https://www.fairbankschamber.org/">VISIT THE FAIRBANKS CHAMBER <span>↗</span></a>
         </div>
       </div>
     </section>
 
-    <section class="newsletter">
+    <section class="newsletter" id="newsletter">
       <div class="shell newsletter-grid">
         <div>
-          <p class="eyebrow">DON'T MISS A THING</p>
-          <h2>GET GOLDEN DAYS UPDATES.</h2>
+          <p class="eyebrow">COUNTDOWN TO JULY 17</p>
+          <h2>ENTER OUR GOLDEN ERA.</h2>
         </div>
 
         <!-- Replace action URL with Constant Contact / Chamber signup endpoint -->
         <form class="signup-form" action="#" method="post">
           <label class="sr-only" for="email">Email address</label>
           <input id="email" type="email" name="email" placeholder="YOUR EMAIL ADDRESS" required>
-          <button type="submit">SIGN ME UP →</button>
+          <button type="submit">KEEP ME GOLDEN →</button>
         </form>
       </div>
     </section>
@@ -375,13 +438,13 @@
     <div class="shell">
       <div class="footer-top">
         <a class="brand footer-brand" href="#top">
-          <span class="brand-small">FAIRBANKS</span>
-          <span class="brand-large">GOLDEN DAYS</span>
+          <span class="brand-small">75TH ANNIVERSARY · FAIRBANKS</span>
+          <span class="brand-large">OUR GOLDEN ERA</span>
         </a>
 
         <div class="footer-links">
           <div>
-            <p>GOLDEN DAYS</p>
+            <p>GOLDEN DAYS ’27</p>
             <a href="#events">Events</a>
             <a href="#schedule">Schedule</a>
             <a href="#partners">Partners</a>
