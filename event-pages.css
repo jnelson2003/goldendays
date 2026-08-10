@@ -1317,3 +1317,119 @@ button, input { font: inherit; }
     grid-column: auto;
   }
 }
+
+
+/* =========================================================
+   HERO CLEANUP + SPACING
+   ========================================================= */
+
+/* Remove the decorative words, shapes, dots and line patterns from every hero. */
+.event-hero::after,
+.hero-pattern {
+  display: none !important;
+}
+
+/* Keep the hero photography clean with only a simple readability overlay. */
+.event-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.14), rgba(0,0,0,.28) 46%, rgba(0,0,0,.62)),
+    linear-gradient(90deg, rgba(0,0,0,.28), transparent 68%);
+  pointer-events: none;
+}
+
+/* Give all hero text more room from both screen edges.
+   This applies to the headline and the paragraph beneath it. */
+.hero-content {
+  padding-left: clamp(28px, 3.5vw, 58px);
+  padding-right: clamp(28px, 3.5vw, 58px);
+}
+
+.hero-bottom {
+  padding-right: 0;
+}
+
+.hero-actions {
+  padding-right: 0;
+}
+
+/* ---------------------------------------------------------
+   PARADE ROUTE MAP — no box/background behind the map
+   --------------------------------------------------------- */
+
+.parade-page .map-section {
+  overflow: hidden;
+}
+
+.route-map-image {
+  width: 100%;
+  min-width: 0;
+  background: transparent;
+  border: 0;
+}
+
+.route-map-image img {
+  width: 100%;
+  height: auto;
+  max-height: 620px;
+  object-fit: contain;
+  background: transparent;
+}
+
+/* ---------------------------------------------------------
+   DUCKIE PRIZE LIST
+   --------------------------------------------------------- */
+
+.duck-prizes-section {
+  position: relative;
+  overflow: hidden;
+  background: var(--gold);
+}
+
+.duck-prizes-section .section-heading {
+  margin-bottom: 30px;
+}
+
+.duck-prize-button {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--white);
+}
+
+.duck-prize-button:hover {
+  background: var(--white);
+  border-color: var(--white);
+  color: var(--ink);
+}
+
+/* ---------------------------------------------------------
+   MOBILE HERO SPACING
+   --------------------------------------------------------- */
+
+@media (max-width: 700px) {
+  .hero-content {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .hero-intro {
+    max-width: 100%;
+  }
+
+  .route-map-image img {
+    max-height: none;
+  }
+
+  .duck-prize-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 390px) {
+  .hero-content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
