@@ -479,35 +479,36 @@ button, input { font: inherit; }
 
 .event-card:hover .event-image { transform: scale(1.065); }
 
-/* Sponsor logo box on major event photos */
+/* Sponsor logos on major event photos */
 .event-sponsor-logo {
   position: absolute;
   z-index: 4;
-  top: 24px;
-  right: 24px;
-  width: 170px;
-  height: 96px;
-  padding: 14px;
+  top: 26px;
+  right: 26px;
+  width: 185px;
+  height: 105px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255,255,255,.94);
-  border: 1px solid rgba(255,255,255,.7);
-  box-shadow: 0 10px 30px rgba(0,0,0,.16);
-  backdrop-filter: blur(8px);
+  align-items: flex-start;
+  justify-content: flex-end;
+  pointer-events: none;
 }
 
 .event-sponsor-logo-small {
-  width: 145px;
-  height: 82px;
+  width: 155px;
+  height: 90px;
 }
 
 .event-sponsor-logo img {
-  width: 100%;
-  height: 100%;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
   object-fit: contain;
+  object-position: top right;
   display: block;
+  filter: drop-shadow(0 3px 8px rgba(0,0,0,.32));
 }
+
 
 
 .event-shade {
@@ -765,6 +766,26 @@ button, input { font: inherit; }
   font-size: 18px;
   line-height: 1.5;
   margin-bottom: 30px;
+}
+
+/* Parking section */
+.parking-cta .duck-cta-art {
+  background-image: url("downtown.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.parking-cta .duck-cta-overlay {
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.78), rgba(0,0,0,.34) 58%, rgba(0,0,0,.12)),
+    linear-gradient(to top, rgba(0,0,0,.25), transparent 55%);
+}
+
+.parking-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 /* Partners */
@@ -1398,6 +1419,137 @@ button, input { font: inherit; }
   margin-bottom: 0;
 }
 
+/* Enhanced 75th anniversary history section */
+.anniversary-story {
+  isolation: isolate;
+}
+
+.anniversary-story::before {
+  content: "GOLDEN";
+  position: absolute;
+  left: -2vw;
+  bottom: -44px;
+  z-index: -1;
+  color: rgba(17,17,17,.028);
+  font-family: var(--display);
+  font-size: clamp(120px, 18vw, 290px);
+  line-height: .8;
+  letter-spacing: -.08em;
+  pointer-events: none;
+}
+
+.history-milestones {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 48px;
+  border-top: 1px solid rgba(17,17,17,.35);
+  border-bottom: 1px solid rgba(17,17,17,.35);
+}
+
+.history-milestone {
+  min-height: 105px;
+  padding: 20px 20px 18px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid rgba(17,17,17,.25);
+}
+
+.history-milestone:not(:first-child) {
+  padding-left: 22px;
+}
+
+.history-milestone:last-child {
+  border-right: 0;
+}
+
+.history-year {
+  color: var(--red);
+  font-family: var(--display);
+  font-size: 34px;
+  line-height: 1;
+  letter-spacing: -.05em;
+}
+
+.history-label {
+  margin-top: 7px;
+  font-family: var(--display);
+  font-size: 8px;
+  letter-spacing: .13em;
+}
+
+.history-dropdown {
+  margin-top: 30px;
+  border: 0;
+  background: var(--ink);
+  color: var(--white);
+}
+
+.history-dropdown summary {
+  min-height: 92px;
+  padding: 0 24px;
+  color: var(--white);
+}
+
+.history-summary-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.history-summary-copy small {
+  color: var(--gold);
+  font-family: var(--body);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .16em;
+}
+
+.history-summary-copy strong {
+  font-family: var(--display);
+  font-size: 13px;
+  letter-spacing: .08em;
+}
+
+.history-toggle {
+  border-color: rgba(255,255,255,.55);
+  color: var(--white);
+}
+
+.history-dropdown[open] .history-toggle {
+  background: var(--gold);
+  color: var(--ink);
+  border-color: var(--gold);
+}
+
+.history-dropdown-content {
+  max-width: none;
+  padding: 8px 24px 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 36px;
+}
+
+.history-dropdown-content p {
+  color: rgba(255,255,255,.78);
+  font-size: 15px;
+  line-height: 1.72;
+}
+
+.history-dropdown-content .history-finale {
+  grid-column: 1 / -1;
+  margin-top: 8px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255,255,255,.18);
+  color: var(--white);
+  font-size: 17px;
+}
+
+.history-finale strong {
+  color: var(--gold);
+  font-family: var(--display);
+}
+
 
 .anniversary-stats {
   display: grid;
@@ -1755,17 +1907,105 @@ button, input { font: inherit; }
     line-height: 1.65;
   }
 
+
+
+  .history-milestones {
+    grid-template-columns: 1fr;
+  }
+
+  .history-milestone,
+  .history-milestone:not(:first-child) {
+    min-height: 72px;
+    padding: 14px 0;
+    border-right: 0;
+    border-bottom: 1px solid rgba(17,17,17,.22);
+  }
+
+  .history-milestone:last-child {
+    border-bottom: 0;
+  }
+
+  .history-year {
+    font-size: 28px;
+  }
+
+  .history-dropdown summary {
+    min-height: 78px;
+    padding: 0 18px;
+  }
+
+  .history-dropdown-content {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 4px 18px 24px;
+  }
+
+  .history-dropdown-content .history-finale {
+    grid-column: auto;
+  }
+
   .event-sponsor-logo,
   .event-sponsor-logo-small {
     top: 18px;
     right: 18px;
-    width: 124px;
-    height: 72px;
-    padding: 11px;
+    width: 125px;
+    height: 70px;
+  }
+
+  .parking-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .parking-actions .button {
+    width: 100%;
+  }
+
+  .sponsor-photo,
+  .sponsor-photo img {
+    min-height: 300px;
+    max-height: 460px;
   }
 
   .newsletter::after {
     right: -18px;
     font-size: 140px;
   }
+}
+
+/* Full-width sponsor image */
+.sponsor-photo-section {
+  position: relative;
+  background: var(--ink);
+  overflow: hidden;
+}
+
+.sponsor-photo {
+  width: 100%;
+  min-height: 420px;
+  max-height: 760px;
+  background: var(--ink);
+}
+
+.sponsor-photo img {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  max-height: 760px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.sponsor-photo-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 22px 0;
+  color: var(--white);
+  background: linear-gradient(to top, rgba(0,0,0,.78), transparent);
+  font-family: var(--display);
+  font-size: 10px;
+  letter-spacing: .12em;
 }
