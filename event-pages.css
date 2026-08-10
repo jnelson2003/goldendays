@@ -771,8 +771,8 @@ button, input { font: inherit; }
 }
 
 .sponsor-logo-box img {
-  max-width: 90%;
-  max-height: 230px;
+  max-width: 95%;
+  max-height: 280px;
   object-fit: contain;
 }
 
