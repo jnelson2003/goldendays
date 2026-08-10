@@ -2443,3 +2443,9 @@ button, input { font: inherit; }
     gap: 7px;
   }
 }
+
+
+/* Calendar heading contrast */
+.festival-calendar .display-heading em {
+  color: var(--white);
+}
