@@ -2449,3 +2449,510 @@ button, input { font: inherit; }
 .festival-calendar .display-heading em {
   color: var(--white);
 }
+
+
+/* =========================================================
+   MOBILE RESPONSIVE POLISH
+   Final overrides for phones + small tablets
+   ========================================================= */
+
+/* Keep anchored sections from hiding underneath fixed navigation. */
+section[id] {
+  scroll-margin-top: 105px;
+}
+
+/* Prevent grid/flex children from creating horizontal overflow. */
+.nav > *,
+.anniversary-grid > *,
+.section-header > *,
+.about-grid > *,
+.newsletter-grid > *,
+.calendar-heading > *,
+.calendar-events > *,
+.footer-top > *,
+.footer-links > * {
+  min-width: 0;
+}
+
+/* Keep the full sponsor graphic visible at every screen size. */
+.sponsor-photo {
+  min-height: 0;
+  max-height: none;
+}
+
+.sponsor-photo img {
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  object-fit: contain;
+}
+
+/* Mobile menu should always fit inside the visible viewport. */
+@media (max-width: 1040px) {
+  .mobile-menu {
+    min-height: 0;
+    height: calc(100dvh - 90px);
+  }
+
+  .site-header:not(.scrolled) .mobile-menu {
+    height: calc(100dvh - 134px);
+  }
+}
+
+/* Touch screens do not need desktop hover movement. */
+@media (hover: none) {
+  .event-card:hover .event-image {
+    transform: scale(1.015);
+  }
+
+  .calendar-event-card:hover,
+  .button:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 760px) {
+  /* Announcement bar */
+  .announcement a {
+    justify-content: center;
+    gap: 12px;
+    min-height: 38px;
+    padding: 7px 12px;
+  }
+
+  .announcement span {
+    display: inline;
+  }
+
+  .anniversary-banner .banner-dates:last-child {
+    display: none;
+  }
+
+  .banner-edition,
+  .banner-dates {
+    font-size: 9px;
+    letter-spacing: .1em;
+  }
+
+  /* Header + mobile menu */
+  .menu-button {
+    width: 46px;
+    height: 46px;
+    padding: 10px;
+  }
+
+  .mobile-menu {
+    width: 100%;
+    height: calc(100dvh - 74px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding:
+      34px max(20px, env(safe-area-inset-right))
+      max(70px, calc(45px + env(safe-area-inset-bottom)))
+      max(20px, env(safe-area-inset-left));
+  }
+
+  .site-header:not(.scrolled) .mobile-menu {
+    height: calc(100dvh - 112px);
+  }
+
+  .mobile-menu > a:not(.nav-cta) {
+    font-size: clamp(27px, 8vw, 38px);
+    line-height: 1;
+    padding: 15px 0;
+  }
+
+  /* Hero */
+  .anniversary-hero {
+    height: calc(100svh - 38px);
+    min-height: 680px;
+    max-height: none;
+  }
+
+  .anniversary-hero .hero-content {
+    padding-top: 112px;
+    padding-bottom: 34px;
+  }
+
+  .hero-topline {
+    gap: 18px;
+  }
+
+  .anniversary-seal-image {
+    width: 88px;
+    height: 88px;
+    flex-basis: 88px;
+  }
+
+  .hero-theme {
+    margin-bottom: 14px;
+  }
+
+  .era-title {
+    font-size: clamp(68px, 23vw, 108px);
+    line-height: .73;
+  }
+
+  .hero-intro {
+    width: 100%;
+  }
+
+  .hero-intro > p:last-child {
+    max-width: 94%;
+    font-size: 15px;
+    line-height: 1.42;
+  }
+
+  /* History */
+  .anniversary-number {
+    font-size: clamp(135px, 45vw, 195px);
+  }
+
+  .anniversary-number span:last-child {
+    top: 25px;
+  }
+
+  .history-dropdown summary {
+    gap: 14px;
+  }
+
+  .history-summary-copy strong {
+    font-size: 11px;
+    line-height: 1.2;
+  }
+
+  .history-toggle {
+    width: 34px;
+    height: 34px;
+    flex-basis: 34px;
+  }
+
+  /* Major event cards */
+  .event-card,
+  .event-card-tall {
+    min-height: 490px;
+  }
+
+  .event-card-copy {
+    left: 20px;
+    right: 20px;
+    bottom: 22px;
+  }
+
+  .event-card h3,
+  .event-card:not(.event-card-tall) h3 {
+    font-size: clamp(42px, 13vw, 52px);
+  }
+
+  .event-card-copy > p:not(.event-meta) {
+    max-width: calc(100% - 4px);
+  }
+
+  .event-sponsor-logo,
+  .event-sponsor-logo-small {
+    top: 17px;
+    right: 17px;
+    width: 116px;
+    height: 66px;
+  }
+
+  /* Event calendar */
+  .festival-calendar::before {
+    right: -12vw;
+    font-size: clamp(180px, 62vw, 270px);
+  }
+
+  .calendar-heading .display-heading {
+    font-size: clamp(52px, 17vw, 76px);
+  }
+
+  .calendar-heading-copy p {
+    font-size: 15px;
+  }
+
+  .calendar-multiday {
+    padding: 20px 18px;
+  }
+
+  .calendar-multiday-date strong {
+    font-size: clamp(38px, 12vw, 47px);
+  }
+
+  .calendar-date strong {
+    font-size: clamp(58px, 19vw, 72px);
+  }
+
+  .calendar-event-card,
+  .calendar-event-music,
+  .calendar-marquee-event {
+    min-height: 158px;
+    padding: 21px 18px 19px;
+  }
+
+  .calendar-event-type {
+    top: 17px;
+    left: 18px;
+  }
+
+  .calendar-event-card h3 {
+    font-size: clamp(27px, 8.5vw, 34px);
+    overflow-wrap: break-word;
+  }
+
+  /* Parking */
+  .parking-cta {
+    min-height: 560px;
+  }
+
+  .parking-cta .duck-cta-art {
+    background-position: center;
+  }
+
+  .duck-cta h2 {
+    font-size: clamp(52px, 16vw, 76px);
+  }
+
+  /* Sponsor section */
+  .about-copy p {
+    font-size: 16px;
+  }
+
+  .sponsor-photo-caption {
+    position: static;
+    padding: 16px 0;
+    background: var(--ink);
+    line-height: 1.45;
+  }
+
+  /* Email signup */
+  .newsletter {
+    padding: 54px 0;
+  }
+
+  .signup-form,
+  .signup-form input {
+    min-width: 0;
+  }
+
+  /* Footer */
+  .footer {
+    padding-top: 60px;
+  }
+
+  .footer-brand {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .footer-brand .brand-large {
+    max-width: 100%;
+    font-size: clamp(30px, 9.5vw, 42px);
+    line-height: .92;
+  }
+
+  .footer-brand .brand-small {
+    font-size: 11px;
+    letter-spacing: .14em;
+    line-height: 1.3;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --shell: calc(100vw - 30px);
+  }
+
+  .section {
+    padding: 68px 0;
+  }
+
+  /* Header */
+  .brand-small {
+    font-size: 9px;
+    letter-spacing: .18em;
+  }
+
+  .brand-large {
+    font-size: 24px;
+  }
+
+  /* Hero */
+  .hero-75-watermark {
+    top: 19%;
+    right: -18vw;
+  }
+
+  .hero-overline {
+    margin-left: 0;
+    letter-spacing: .14em;
+  }
+
+  .era-title span:nth-child(3) {
+    margin-left: .18em;
+  }
+
+  /* History */
+  .anniversary-grid {
+    gap: 24px;
+  }
+
+  .anniversary-copy .intro-copy {
+    margin-top: 28px;
+  }
+
+  .history-dropdown {
+    margin-top: 24px;
+  }
+
+  .history-dropdown summary {
+    min-height: 72px;
+    padding: 0 15px;
+  }
+
+  .history-dropdown-content {
+    padding: 4px 15px 22px;
+  }
+
+  /* Major events */
+  .event-grid {
+    gap: 12px;
+  }
+
+  .event-card,
+  .event-card-tall {
+    min-height: 460px;
+  }
+
+  /* Calendar */
+  .calendar-heading {
+    margin-bottom: 32px;
+  }
+
+  .calendar-multiday {
+    margin-bottom: 16px;
+  }
+
+  .calendar-multiday-copy h3 {
+    font-size: 27px;
+  }
+
+  .calendar-date,
+  .calendar-day-featured .calendar-date {
+    gap: 9px;
+  }
+
+  .calendar-weekday {
+    font-size: 8px;
+  }
+
+  .calendar-big-day {
+    font-size: 7px;
+    padding: 6px 7px;
+  }
+
+  /* Signup stacks on small phones for comfortable tap targets. */
+  .signup-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    border-bottom: 0;
+    gap: 8px;
+  }
+
+  .signup-form input {
+    width: 100%;
+    min-height: 52px;
+    border-bottom: 3px solid var(--ink);
+  }
+
+  .signup-form button {
+    width: 100%;
+    min-height: 50px;
+    padding: 12px 14px;
+    border: 2px solid var(--ink);
+  }
+
+  /* One-column footer prevents overflow on narrow phones. */
+  .footer-top {
+    gap: 42px;
+    padding-bottom: 45px;
+  }
+
+  .footer-links {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .footer-links div {
+    gap: 5px;
+  }
+
+  .footer-links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+  }
+}
+
+@media (max-width: 360px) {
+  .announcement a {
+    gap: 8px;
+    padding-inline: 8px;
+  }
+
+  .banner-edition,
+  .banner-dates {
+    font-size: 8px;
+  }
+
+  .anniversary-hero {
+    min-height: 650px;
+  }
+
+  .anniversary-hero .hero-content {
+    padding-top: 105px;
+    padding-bottom: 28px;
+  }
+
+  .anniversary-seal-image {
+    width: 78px;
+    height: 78px;
+    flex-basis: 78px;
+  }
+
+  .era-title {
+    font-size: clamp(62px, 22vw, 78px);
+  }
+
+  .hero-intro > p:last-child {
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .display-heading {
+    font-size: clamp(42px, 14vw, 58px);
+  }
+
+  .event-card,
+  .event-card-tall {
+    min-height: 440px;
+  }
+
+  .event-sponsor-logo,
+  .event-sponsor-logo-small {
+    width: 105px;
+    height: 60px;
+  }
+
+  .calendar-event-card h3 {
+    font-size: 27px;
+  }
+
+  .duck-cta h2 {
+    font-size: 50px;
+  }
+
+  .footer-brand .brand-large {
+    font-size: 28px;
+  }
+}
