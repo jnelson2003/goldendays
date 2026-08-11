@@ -443,6 +443,93 @@
     }
   }
 
+
+  /* =========================================================
+     RESULTS TICKET TEXT / SPACING FIX
+     Keeps prize names readable and prevents over-aggressive wrapping.
+     ========================================================= */
+
+  body.results-template-page .results-page .ticket {
+    grid-template-columns: 96px minmax(0, 1fr);
+    min-height: 92px;
+  }
+
+  body.results-template-page .results-page .ticket .num-block {
+    padding: 24px 10px 16px;
+  }
+
+  body.results-template-page .results-page .ticket .num {
+    font-size: 23px;
+    white-space: nowrap;
+  }
+
+  body.results-template-page .results-page .ticket .place-label {
+    left: 8px;
+    right: 8px;
+    white-space: nowrap;
+  }
+
+  body.results-template-page .results-page .ticket .prize-block {
+    min-width: 0;
+    padding: 18px 22px;
+    align-items: center;
+  }
+
+  body.results-template-page .results-page .ticket .prize {
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.5;
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: none;
+  }
+
+  body.results-template-page .results-page .ticket.wild-duck .prize-block {
+    padding-right: 78px;
+  }
+
+  @media (max-width: 980px) {
+    body.results-template-page .results-page .ticket-columns {
+      grid-template-columns: 1fr;
+      gap: 52px;
+    }
+
+    body.results-template-page .results-page .ticket {
+      grid-template-columns: 110px minmax(0, 1fr);
+    }
+
+    body.results-template-page .results-page .ticket .prize {
+      font-size: 14.5px;
+    }
+  }
+
+  @media (max-width: 520px) {
+    body.results-template-page .results-page .ticket {
+      grid-template-columns: 82px minmax(0, 1fr);
+      min-height: 88px;
+    }
+
+    body.results-template-page .results-page .ticket .num {
+      font-size: 19px;
+    }
+
+    body.results-template-page .results-page .ticket .prize-block {
+      padding: 15px 14px;
+    }
+
+    body.results-template-page .results-page .ticket .prize {
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    body.results-template-page .results-page .ticket.wild-duck .prize-block {
+      padding-right: 14px;
+      padding-top: 28px;
+    }
+  }
+
   </style>
 </head>
 
