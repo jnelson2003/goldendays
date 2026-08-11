@@ -1,0 +1,666 @@
+<!--
+  2026 Golden Days Rubber Duckie Race Results
+  Uses event-pages-2-results.css, which contains the existing event-page CSS
+  unchanged plus a scoped .results-page section appended at the end.
+-->
+<link rel="stylesheet" href="event-pages-2-results.css">
+
+<div class="duck-page results-page">
+
+  <!-- HERO -->
+  <section class="event-hero results-hero">
+    <div class="hero-content">
+      <div class="shell">
+        <span class="hero-date">2026 OFFICIAL RESULTS</span>
+        <h1 class="hero-title">
+          <span class="gold">Rubber Duckie</span><br>
+          Race Results
+        </h1>
+
+        <div class="hero-bottom">
+          <p class="hero-intro">
+            Thank you to everyone who purchased tickets, supported our vendors
+            and helped make this year's Golden Days Rubber Duckie Race possible!
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOLDEN DAYS 2027 -->
+  <section class="results-next-year">
+    <div class="shell results-next-grid">
+      <div>
+        <p class="eyebrow">Mark Your Calendars</p>
+        <h2 class="section-heading">Golden Days <em>'27.</em></h2>
+      </div>
+
+      <div class="results-date-card">
+        <div class="results-date-row">
+          <span>Golden Days</span>
+          <strong>July 17–25, 2027</strong>
+        </div>
+        <div class="results-date-row">
+          <span>Major Events</span>
+          <strong>July 24, 2027</strong>
+        </div>
+        <div class="results-date-row">
+          <span>Featuring</span>
+          <strong>Parade, Street Fair &amp; Rubber Duckie Race</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WINNERS -->
+  <section class="section results-winners">
+    <div class="shell">
+      <p class="eyebrow">2026 Official Results</p>
+
+      <div class="results-heading-row">
+        <h2 class="section-heading">Winning <em>Tickets.</em></h2>
+        <p class="results-intro">
+          Match your ticket number below. Pink and yellow tickets are listed
+          separately. Each list includes the top 40 prizes and the Wild Duck cash prize.
+        </p>
+      </div>
+
+      <div class="ticket-columns">
+        <!-- PINK -->
+        <div class="ticket-column">
+          <div class="column-head">
+            <div class="column-head-main">
+              <span class="swatch pink" aria-hidden="true"></span>
+              <h3>Pink Tickets</h3>
+            </div>
+            <small>41 Winners</small>
+          </div>
+          <div aria-label="Pink winning tickets" class="ticket-list" id="pink-list"></div>
+        </div>
+
+        <!-- YELLOW -->
+        <div class="ticket-column">
+          <div class="column-head">
+            <div class="column-head-main">
+              <span class="swatch yellow" aria-hidden="true"></span>
+              <h3>Yellow Tickets</h3>
+            </div>
+            <small>41 Winners</small>
+          </div>
+          <div aria-label="Yellow winning tickets" class="ticket-list" id="yellow-list"></div>
+        </div>
+      </div>
+
+      <div class="results-note">
+        <strong>Pink Wild Duck Correction</strong>
+        <p>
+          When the race results were originally published on the website on July 28,
+          the Pink Wild Duck winning ticket number was listed incorrectly due to a
+          typographical error. The winning Pink Wild Duck ticket was #4439, which was
+          correctly drawn and remained the official winner because all tickets had been
+          sold. However, the website mistakenly listed the winning ticket as #4339.
+          We apologize for the error.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLAIM -->
+  <section class="section results-claim">
+    <div class="shell">
+      <p class="eyebrow light">Winner Information</p>
+      <h2 class="section-heading">How to Claim <em>Your Prize.</em></h2>
+      <p class="results-claim-intro">
+        If your ticket number appears above, follow these steps to verify your
+        ticket and coordinate prize pickup or shipping with Chamber staff.
+      </p>
+
+      <div class="results-steps">
+        <article class="results-step">
+          <span class="results-step-number">01</span>
+          <h3>Check Your Number</h3>
+          <p>
+            Confirm that your ticket number is listed above under the correct
+            ticket color: pink or yellow.
+          </p>
+        </article>
+
+        <article class="results-step">
+          <span class="results-step-number">02</span>
+          <h3>Hold Onto Your Ticket</h3>
+          <p>
+            You will need your physical winning ticket and an ID to claim your
+            prize. Winners outside Fairbanks may provide a clear photo or
+            photocopy of the winning ticket and ID.
+          </p>
+        </article>
+
+        <article class="results-step">
+          <span class="results-step-number">03</span>
+          <h3>Pick Up Your Prize</h3>
+          <p>
+            Greater Fairbanks Chamber staff will contact winners to confirm their
+            information and coordinate prize pickup or shipping.
+          </p>
+        </article>
+
+        <article class="results-step">
+          <span class="results-step-number">04</span>
+          <h3>Questions?</h3>
+          <p>
+            Email <strong>info@fairbankschamber.org</strong> or call
+            <strong>(907) 452-1105</strong>.
+          </p>
+        </article>
+      </div>
+
+      <div class="deadline-band results-deadline">
+        <span>CLAIM DEADLINE</span>
+        <strong>September 30, 2026</strong>
+      </div>
+
+      <p style="margin:18px 0 0; color:rgba(255,255,255,.58); font-size:12px; line-height:1.55;">
+        Prizes may not be exchanged for cash. Winners receiving prizes valued
+        over $600 will be required to complete applicable tax documentation.
+      </p>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  /*
+   * ============================================================
+   * 2026 RUBBER DUCKIE RACE WINNERS
+   * 40 numbered prizes plus one Wild Duck prize for each color
+   * ============================================================
+   */
+
+  const ticketData = {
+    pink: [
+      {
+        place: "1",
+        number: "8495",
+        prize: "$5,000 Cash"
+      },
+      {
+        place: "2",
+        number: "8332",
+        prize: "Princess Cruises Vacation Package ($2,500 value)"
+      },
+      {
+        place: "3",
+        number: "1280",
+        prize: "Borealis MedSpa Package ($2,000 value)"
+      },
+      {
+        place: "4",
+        number: "2517",
+        prize: "Prospector Outfitters Camping Gear Package ($2,000 value)"
+      },
+      {
+        place: "5",
+        number: "6758",
+        prize: "2-Night Stay at The Laylow Waikiki from North Haven Communities ($954 value)"
+      },
+      {
+        place: "6",
+        number: "8074",
+        prize: "Northern Alaska Tour Company Arctic Adventure for Two (2) ($1,400 value)"
+      },
+      {
+        place: "7",
+        number: "8127",
+        prize: "Alaska Ammo Swag Bundle & Gift Card ($555 value)"
+      },
+      {
+        place: "8",
+        number: "3914",
+        prize: "Arctic Sun VR Package ($459 value)"
+      },
+      {
+        place: "9",
+        number: "2617",
+        prize: "Date-Line Digital Printing Services ($400 value)"
+      },
+      {
+        place: "10",
+        number: "3233",
+        prize: "Alaskan Mystic Wonders Gift Basket ($250 value)"
+      },
+      {
+        place: "11",
+        number: "8938",
+        prize: "Golden Heart Waste Management Gift Certificate ($250 value)"
+      },
+      {
+        place: "12",
+        number: "2418",
+        prize: "Two (2) Tanana Valley State Fair Season Passes ($200 value)"
+      },
+      {
+        place: "13",
+        number: "5669",
+        prize: "Denali Industrial Supply Heated Jacket Kit ($200 value)"
+      },
+      {
+        place: "14",
+        number: "2743",
+        prize: "Yellow Bird Yoga Healing Collective 5-Class Punch Card & 2-Hour Healing Room Session ($198 value)"
+      },
+      {
+        place: "15",
+        number: "1066",
+        prize: "Five (5) Guest Passes to Alaska Club"
+      },
+      {
+        place: "16",
+        number: "6925",
+        prize: "Scottish Highland Games Admission & Mead Tasting Experience for Two + $50 Co-Op Market Gift Card ($200 value)"
+      },
+      {
+        place: "17",
+        number: "7580",
+        prize: "Samson's Hardware Gift Card ($122 value)"
+      },
+      {
+        place: "18",
+        number: "5161",
+        prize: "Santa Claus House Gift Basket ($120 value)"
+      },
+      {
+        place: "19",
+        number: "8279",
+        prize: "Alyeska Tire Change Over Service ($120 value)"
+      },
+      {
+        place: "20",
+        number: "6903",
+        prize: "Visa Gift Card from First National Bank Alaska ($100 value)"
+      },
+      {
+        place: "21",
+        number: "4433",
+        prize: "Visa Gift Card from Birchwood Homes ($100 value)"
+      },
+      {
+        place: "22",
+        number: "7182",
+        prize: "Five (5) Chena Hot Springs Ice Museum Passes ($100 value)"
+      },
+      {
+        place: "23",
+        number: "1255",
+        prize: "Hoarfrost Distilling Gift Certificate ($100 value)"
+      },
+      {
+        place: "24",
+        number: "5036",
+        prize: "Sunrise Bagel & Espresso Gift Basket ($100 value)"
+      },
+      {
+        place: "25",
+        number: "2283",
+        prize: "Banks Alehouse Gift Card ($100 value)"
+      },
+      {
+        place: "26",
+        number: "1700",
+        prize: "Bird House Tattoo Gift Card ($100 value)"
+      },
+      {
+        place: "27",
+        number: "5914",
+        prize: "Gather Gift Basket ($100 value)"
+      },
+      {
+        place: "28",
+        number: "3710",
+        prize: "Red Light Tattoo Gift Certificate ($100 value)"
+      },
+      {
+        place: "29",
+        number: "2407",
+        prize: "Roaming Root Cellar Gift Card from Personnel Plus Employment Agency ($100 value)"
+      },
+      {
+        place: "30",
+        number: "3498",
+        prize: "Sunshine Health Foods Gift Card + Gift Basket from Personnel Plus Employment Agency ($150 value)"
+      },
+      {
+        place: "31",
+        number: "4598",
+        prize: "Noodle House Gift Card from Major's Realty ($100 value)"
+      },
+      {
+        place: "32",
+        number: "6507",
+        prize: "House of Fire Pizza Gift Cards ($100 value)"
+      },
+      {
+        place: "33",
+        number: "1599",
+        prize: "McDonald's of Fairbanks Gift Cards ($100 value)"
+      },
+      {
+        place: "34",
+        number: "5049",
+        prize: "UMV Alaska 360-View Dash Camera ($100 value)"
+      },
+      {
+        place: "35",
+        number: "1827",
+        prize: "Lavelle's Taphouse Swag and Gift Card ($100 value)"
+      },
+      {
+        place: "36",
+        number: "3057",
+        prize: "Desert Passage Gift Card + Blue Roof Bistro Gift Cards ($100 value)"
+      },
+      {
+        place: "37",
+        number: "3811",
+        prize: "Allen & Peterson Gift Card + EuroStyle Grocery Store Gift Cards ($100 value)"
+      },
+      {
+        place: "38",
+        number: "1876",
+        prize: "Elevate Wellness Center Gift Card for Float/Sauna ($85 value)"
+      },
+      {
+        place: "39",
+        number: "6571",
+        prize: "DW Grill Gift Basket ($65 value)"
+      },
+      {
+        place: "40",
+        number: "9000",
+        prize: "Alaska Surplus & Auction Gift Basket ($50 value)"
+      },
+      {
+        place: "Wild Duck",
+        number: "4439",
+        prize: "$250 Cash from Santina's Flowers & Gifts",
+        wild: true
+      }
+    ],
+
+    yellow: [
+      {
+        place: "1",
+        number: "8495",
+        prize: "$10,000 Cash"
+      },
+      {
+        place: "2",
+        number: "8332",
+        prize: "Two (2) Alaska Airlines Round Trip Tickets ($3,500 value)"
+      },
+      {
+        place: "3",
+        number: "1280",
+        prize: "Four (4) Alaska Railroad Denali Star Round Trip Adventure Class Tickets ($2,352 value)"
+      },
+      {
+        place: "4",
+        number: "2517",
+        prize: "#1 Heating Oil from Sourdough Fuel ($2,000 value)"
+      },
+      {
+        place: "5",
+        number: "6758",
+        prize: "Highgate 4-Star Resort Package: 3 Nights in Oahu & 2 Nights in Maui from North Haven Communities ($2,676 value)"
+      },
+      {
+        place: "6",
+        number: "8074",
+        prize: "Greer Tank Single Axle ATV Trailer ($1,295 value)"
+      },
+      {
+        place: "7",
+        number: "8127",
+        prize: "One Week Rental from Alaska Auto Rental ($800 value)"
+      },
+      {
+        place: "8",
+        number: "3914",
+        prize: "Alaska Ammo Swag Bundle & Gift Card ($555 value)"
+      },
+      {
+        place: "9",
+        number: "2617",
+        prize: "Alaska Gold Nugget Pendant ($460 value)"
+      },
+      {
+        place: "10",
+        number: "3233",
+        prize: "Two (2) UAF General Admission Season Tickets ('26–'27) ($440 value)"
+      },
+      {
+        place: "11",
+        number: "8938",
+        prize: "Two (2) Riverboat Discovery Passes + Two (2) Gold Dredge 8 Passes ($338 value)"
+      },
+      {
+        place: "12",
+        number: "2418",
+        prize: "Borealis Basecamp Dinner for Two ($250 value)"
+      },
+      {
+        place: "13",
+        number: "5669",
+        prize: "Vintage Junky Gift Certificate ($200 value)"
+      },
+      {
+        place: "14",
+        number: "2743",
+        prize: "Studio J'adore Tattoo Gift Card ($200 value)"
+      },
+      {
+        place: "15",
+        number: "1066",
+        prize: "Running Reindeer Ranch Gift Certificate ($190 value)"
+      },
+      {
+        place: "16",
+        number: "6925",
+        prize: "Aura Spa Basic Services Certificate ($160 value)"
+      },
+      {
+        place: "17",
+        number: "7580",
+        prize: "Scottish Highland Games Admission & Scotch Tasting Experience for Two + $50 Co-Op Market Gift Card ($200 value)"
+      },
+      {
+        place: "18",
+        number: "5161",
+        prize: "Ten (10) UAF General Admission Tickets ('26–'27) ($125 value)"
+      },
+      {
+        place: "19",
+        number: "8279",
+        prize: "Alyeska Tire Change Over Service ($120 value)"
+      },
+      {
+        place: "20",
+        number: "6903",
+        prize: "HooDoo Brewing Company Swag Bundle & Gift Card ($120 value)"
+      },
+      {
+        place: "21",
+        number: "4433",
+        prize: "Escape Room AK Gift Certificate ($120 value)"
+      },
+      {
+        place: "22",
+        number: "7182",
+        prize: "Arctic Traveler's Gift Shop Gift Cards ($100 value)"
+      },
+      {
+        place: "23",
+        number: "1255",
+        prize: "Bucko's Coffee Gift Basket ($100 value)"
+      },
+      {
+        place: "24",
+        number: "5036",
+        prize: "Five (5) Chena Hot Springs Swim Passes + Alaska Heirloom Rolling Pin ($185 value)"
+      },
+      {
+        place: "25",
+        number: "2283",
+        prize: "Eirwen's Nature Gift Basket ($100 value)"
+      },
+      {
+        place: "26",
+        number: "1700",
+        prize: "River City Café Gift Basket ($100 value)"
+      },
+      {
+        place: "27",
+        number: "5914",
+        prize: "Sunrise Bagel & Espresso Gift Basket ($100 value)"
+      },
+      {
+        place: "28",
+        number: "3710",
+        prize: "Tommy G's Meat & Sausage Gift Card ($100 value)"
+      },
+      {
+        place: "29",
+        number: "2407",
+        prize: "Blue Door Antiques Gift Certificate ($100 value)"
+      },
+      {
+        place: "30",
+        number: "3498",
+        prize: "Soba Moldovan Restaurant Gift Card ($100 value)"
+      },
+      {
+        place: "31",
+        number: "4598",
+        prize: "Red Light Tattoo Gift Certificate ($100 value)"
+      },
+      {
+        place: "32",
+        number: "6507",
+        prize: "Roaming Root Cellar Gift Card, courtesy of Personnel Plus ($100 value)"
+      },
+      {
+        place: "33",
+        number: "1599",
+        prize: "Sunshine Health Foods Gift Card from Personnel Plus Employment Agency ($100 value)"
+      },
+      {
+        place: "34",
+        number: "5049",
+        prize: "Mid Town Market Fairbanks Gift Card from Personnel Plus Employment Agency ($100 value)"
+      },
+      {
+        place: "35",
+        number: "1827",
+        prize: "GCI Bluetooth Speaker ($99 value)"
+      },
+      {
+        place: "36",
+        number: "3057",
+        prize: "Blue Roof Bistro Gift Cards ($100 value)"
+      },
+      {
+        place: "37",
+        number: "3811",
+        prize: "Wildfire Book Shop Gift Card + The Crepery Gift Card ($100 value)"
+      },
+      {
+        place: "38",
+        number: "1876",
+        prize: "Desert Passage Gift Card + Hari Om Cuisine of India Gift Card ($100 value)"
+      },
+      {
+        place: "39",
+        number: "6571",
+        prize: "House of Fire Pizza Gift Cards ($100 value)"
+      },
+      {
+        place: "40",
+        number: "9000",
+        prize: "Two (2) Tickets to Star Wars: Live Film Orchestration from Fairbanks Symphony Orchestra ($100 value)"
+      },
+      {
+        place: "Wild Duck",
+        number: "5114",
+        prize: "$500 Cash from Santina's Flowers & Gifts",
+        wild: true
+      }
+    ]
+  };
+
+  /*
+   * Escape text before inserting it into the page.
+   * This prevents special characters in prize names from breaking the HTML.
+   */
+  function escapeHtml(value) {
+    return String(value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
+  function renderTickets(list, containerId, colorClass) {
+    const container = document.getElementById(containerId);
+
+    if (!container) {
+      console.error(`Ticket container not found: ${containerId}`);
+      return;
+    }
+
+    container.innerHTML = list.map((item) => {
+      const placeLabel = item.wild
+        ? 'Wild Duck'
+        : `Place ${escapeHtml(item.place)}`;
+
+      const extraClass = item.wild ? ' wild-duck' : '';
+
+      return `
+        <div
+          class="ticket ${colorClass}${extraClass}"
+          tabindex="0"
+          aria-label="${escapeHtml(placeLabel)}, ticket ${escapeHtml(item.number)}: ${escapeHtml(item.prize)}"
+        >
+          <div class="num-block">
+            <span class="place-label">${escapeHtml(placeLabel)}</span>
+            <span class="num">${escapeHtml(item.number)}</span>
+          </div>
+
+          <span class="notch top" aria-hidden="true"></span>
+          <span class="notch bottom" aria-hidden="true"></span>
+
+          <div class="prize-block">
+            <span class="prize">${escapeHtml(item.prize)}</span>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  /*
+   * Wait until the page has loaded before trying to find the ticket lists.
+   * This also makes the code safer when pasted into a website editor.
+   */
+  function initializeTicketResults() {
+    renderTickets(ticketData.pink, 'pink-list', 'pink');
+    renderTickets(ticketData.yellow, 'yellow-list', 'yellow');
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener(
+      'DOMContentLoaded',
+      initializeTicketResults
+    );
+  } else {
+    initializeTicketResults();
+  }
+</script>
