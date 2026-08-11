@@ -530,6 +530,39 @@
     }
   }
 
+
+  /* Final ticket containment safeguards */
+  body.results-template-page .results-page .ticket,
+  body.results-template-page .results-page .ticket * {
+    box-sizing: border-box;
+  }
+
+  body.results-template-page .results-page .ticket {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  body.results-template-page .results-page .ticket .num-block,
+  body.results-template-page .results-page .ticket .prize-block {
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  body.results-template-page .results-page .ticket .num {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  body.results-template-page .results-page .ticket .prize {
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
   </style>
 </head>
 
@@ -734,418 +767,420 @@
 
   const ticketData = {
     pink: [
+      // Replace each 0000 below with the actual winning Pink ticket number.
       {
         place: "1",
-        number: "[PINK #1 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #1 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "2",
-        number: "[PINK #2 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #2 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "3",
-        number: "[PINK #3 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #3 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "4",
-        number: "[PINK #4 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #4 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "5",
-        number: "[PINK #5 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #5 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "6",
-        number: "[PINK #6 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #6 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "7",
-        number: "[PINK #7 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #7 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "8",
-        number: "[PINK #8 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #8 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "9",
-        number: "[PINK #9 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #9 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "10",
-        number: "[PINK #10 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #10 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "11",
-        number: "[PINK #11 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #11 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "12",
-        number: "[PINK #12 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #12 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "13",
-        number: "[PINK #13 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #13 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "14",
-        number: "[PINK #14 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #14 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "15",
-        number: "[PINK #15 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #15 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "16",
-        number: "[PINK #16 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #16 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "17",
-        number: "[PINK #17 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #17 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "18",
-        number: "[PINK #18 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #18 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "19",
-        number: "[PINK #19 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #19 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "20",
-        number: "[PINK #20 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #20 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "21",
-        number: "[PINK #21 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #21 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "22",
-        number: "[PINK #22 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #22 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "23",
-        number: "[PINK #23 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #23 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "24",
-        number: "[PINK #24 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #24 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "25",
-        number: "[PINK #25 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #25 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "26",
-        number: "[PINK #26 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #26 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "27",
-        number: "[PINK #27 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #27 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "28",
-        number: "[PINK #28 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #28 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "29",
-        number: "[PINK #29 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #29 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "30",
-        number: "[PINK #30 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #30 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "31",
-        number: "[PINK #31 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #31 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "32",
-        number: "[PINK #32 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #32 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "33",
-        number: "[PINK #33 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #33 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "34",
-        number: "[PINK #34 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #34 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "35",
-        number: "[PINK #35 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #35 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "36",
-        number: "[PINK #36 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #36 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "37",
-        number: "[PINK #37 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #37 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "38",
-        number: "[PINK #38 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #38 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "39",
-        number: "[PINK #39 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #39 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "40",
-        number: "[PINK #40 TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK #40 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "Wild Duck",
-        number: "[PINK WILD DUCK TICKET NUMBER]",
+        number: "0000",
         prize: "[PINK WILD DUCK CASH PRIZE / SPONSOR]",
         wild: true
       }
     ],
 
     yellow: [
+      // Replace each 0000 below with the actual winning Yellow ticket number.
       {
         place: "1",
-        number: "[YELLOW #1 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #1 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "2",
-        number: "[YELLOW #2 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #2 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "3",
-        number: "[YELLOW #3 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #3 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "4",
-        number: "[YELLOW #4 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #4 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "5",
-        number: "[YELLOW #5 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #5 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "6",
-        number: "[YELLOW #6 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #6 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "7",
-        number: "[YELLOW #7 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #7 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "8",
-        number: "[YELLOW #8 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #8 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "9",
-        number: "[YELLOW #9 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #9 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "10",
-        number: "[YELLOW #10 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #10 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "11",
-        number: "[YELLOW #11 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #11 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "12",
-        number: "[YELLOW #12 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #12 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "13",
-        number: "[YELLOW #13 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #13 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "14",
-        number: "[YELLOW #14 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #14 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "15",
-        number: "[YELLOW #15 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #15 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "16",
-        number: "[YELLOW #16 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #16 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "17",
-        number: "[YELLOW #17 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #17 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "18",
-        number: "[YELLOW #18 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #18 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "19",
-        number: "[YELLOW #19 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #19 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "20",
-        number: "[YELLOW #20 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #20 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "21",
-        number: "[YELLOW #21 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #21 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "22",
-        number: "[YELLOW #22 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #22 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "23",
-        number: "[YELLOW #23 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #23 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "24",
-        number: "[YELLOW #24 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #24 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "25",
-        number: "[YELLOW #25 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #25 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "26",
-        number: "[YELLOW #26 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #26 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "27",
-        number: "[YELLOW #27 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #27 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "28",
-        number: "[YELLOW #28 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #28 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "29",
-        number: "[YELLOW #29 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #29 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "30",
-        number: "[YELLOW #30 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #30 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "31",
-        number: "[YELLOW #31 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #31 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "32",
-        number: "[YELLOW #32 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #32 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "33",
-        number: "[YELLOW #33 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #33 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "34",
-        number: "[YELLOW #34 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #34 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "35",
-        number: "[YELLOW #35 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #35 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "36",
-        number: "[YELLOW #36 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #36 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "37",
-        number: "[YELLOW #37 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #37 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "38",
-        number: "[YELLOW #38 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #38 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "39",
-        number: "[YELLOW #39 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #39 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "40",
-        number: "[YELLOW #40 TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW #40 PRIZE / SPONSOR / VALUE]"
       },
       {
         place: "Wild Duck",
-        number: "[YELLOW WILD DUCK TICKET NUMBER]",
+        number: "0000",
         prize: "[YELLOW WILD DUCK CASH PRIZE / SPONSOR]",
         wild: true
       }
