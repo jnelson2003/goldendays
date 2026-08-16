@@ -1,3 +1,5 @@
+/* Golden Days */
+
 :root{--gold:#e9ad28;--gold-bright:#ffd65c;--ink:#111111;--cream:#eee5cf;--paper:#f8f2e5;--blue:#143f55;--blue-deep:#092b37;--red:#ad442f;--white:#ffffff;--line:rgba(17,17,17,0.18);--shell:min(1380px,calc(100vw - 64px));--display:"Archivo Black",Impact,sans-serif;--body:"DM Sans",Arial,sans-serif}
 
 *{box-sizing:border-box}
