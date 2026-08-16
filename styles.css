@@ -3858,3 +3858,101 @@ section[id]{
     font-size:28px
   }
 }
+
+/* =========================================================
+   MOBILE FINISHING TOUCHES
+   Headings, Jail Poster, Sponsor Graphic, Footer Columns
+   ========================================================= */
+
+@media (max-width:760px){
+
+  /* Give large display type a little breathing room on the right.
+     Archivo Black can visually extend beyond its text box on phones. */
+  .display-heading,
+  .era-title,
+  .event-card h3,
+  .calendar-event-card h3,
+  .duck-cta h2,
+  .jail-heading,
+  .newsletter h2,
+  .footer-brand .brand-large{
+    max-width:100%;
+    padding-right:.08em;
+    overflow:visible;
+  }
+
+  /* Slightly soften the tight tracking on the biggest mobile headings. */
+  .display-heading,
+  .jail-heading,
+  .duck-cta h2{
+    letter-spacing:-.05em;
+  }
+
+  /* Center the wanted poster a touch more on phones. */
+  .jail-visual{
+    padding-left:6px;
+    padding-right:6px;
+  }
+
+  .jail-poster{
+    margin-inline:auto;
+    left:-4px;
+  }
+
+  /* Make the sponsor artwork feel fuller on a phone without changing desktop. */
+  .sponsor-photo{
+    overflow:hidden;
+  }
+
+  .sponsor-photo img{
+    width:112%;
+    max-width:none;
+    margin-left:-6%;
+    height:auto;
+  }
+
+  /* Main Events on the left, Connect on the right. */
+  .footer-links{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:24px;
+  }
+
+  .footer-links div{
+    min-width:0;
+  }
+}
+
+@media (max-width:480px){
+
+  /* Keep footer sections side-by-side even on smaller phones. */
+  .footer-links{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:18px;
+  }
+
+  .footer-links a{
+    font-size:12px;
+    line-height:1.25;
+  }
+
+  .footer-links p{
+    font-size:9px;
+  }
+
+  /* Extra insurance against right-edge clipping on narrow phones. */
+  .display-heading,
+  .era-title,
+  .jail-heading,
+  .duck-cta h2{
+    padding-right:.12em;
+  }
+
+  .jail-poster{
+    left:-3px;
+  }
+
+  .sponsor-photo img{
+    width:116%;
+    margin-left:-8%;
+  }
+}
