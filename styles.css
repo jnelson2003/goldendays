@@ -1,5 +1,3 @@
-/* Golden Days */
-
 :root{--gold:#e9ad28;--gold-bright:#ffd65c;--ink:#111111;--cream:#eee5cf;--paper:#f8f2e5;--blue:#143f55;--blue-deep:#092b37;--red:#ad442f;--white:#ffffff;--line:rgba(17,17,17,0.18);--shell:min(1380px,calc(100vw - 64px));--display:"Archivo Black",Impact,sans-serif;--body:"DM Sans",Arial,sans-serif}
 
 *{box-sizing:border-box}
@@ -1708,7 +1706,7 @@ button,input{font:inherit}
   }
 
   .mobile-events-dropdown[open] summary::after{
-    content:"−"
+    content:"âˆ’"
   }
 
   .mobile-events-submenu{
@@ -2595,7 +2593,7 @@ button,input{font:inherit}
 }
 
 .newsletter::after{
-  content:"’27";
+  content:"â€™27";
   position:absolute;
   right:1vw;
   bottom:-45px;
@@ -2924,7 +2922,7 @@ button,input{font:inherit}
 }
 
 .festival-calendar::before{
-  content:"’27";
+  content:"â€™27";
   position:absolute;
   right:-2vw;
   top:40px;
