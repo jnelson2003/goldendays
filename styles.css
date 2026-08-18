@@ -3891,6 +3891,8 @@ section[id]{
     font-size:clamp(38px,12.6vw,48px)
   }
 
+  
+
   .event-card,
   .event-card-tall{
     min-height:440px
@@ -3926,4 +3928,49 @@ section[id]{
     width:122%;
     margin-left:-11%
   }
+}
+
+
+/* =========================================================
+   Calendar Community Event Submission CSS
+   ========================================================= */
+
+.calendar-community-cta {
+  margin-top: 4rem;
+  padding: 3.5rem 2rem;
+  text-align: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.18);
+}
+
+.calendar-community-cta p {
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.calendar-community-cta h3 {
+  margin: 0 0 1.75rem;
+  font-size: clamp(1.8rem, 4vw, 3.25rem);
+  line-height: 0.95;
+}
+
+.calendar-community-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.5rem;
+  border: 2px solid currentColor;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  transition: transform 0.2s ease, background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.calendar-community-button:hover {
+  transform: translateY(-2px);
+  background: #000;
+  color: #fff;
 }
