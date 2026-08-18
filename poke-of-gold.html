@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Search for the Poke of Gold — Golden Days' legendary hidden treasure hunt. July 19–23, 2027 in Fairbanks, Alaska.">
+  <title>Search for the Poke of Gold | Golden Days '27</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="event-pages.css">
+
+  <style>
+    /* ── Poke page hero watermark ── */
+    .poke-page .event-hero {
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.72)),
+        linear-gradient(115deg, rgba(9,43,55,.72), rgba(9,43,55,.10)),
+        url("poke-hero.jpg") center 42% / cover no-repeat;
+      background-color: var(--blue-deep);
+    }
+
+    /* ── Clue video section ── */
+    .clue-section {
+      background: var(--ink);
+      color: var(--white);
+      padding: 96px 0;
+    }
+
+    .clue-section .section-heading {
+      margin-bottom: 16px;
+    }
+
+    .clue-section .section-heading em {
+      color: var(--gold);
+    }
+
+    .clue-intro {
+      max-width: 680px;
+      margin: 0 0 64px;
+      color: rgba(255,255,255,.72);
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    .clue-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0,1fr));
+      gap: 14px;
+    }
+
+    .clue-card {
+      display: flex;
+      flex-direction: column;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.12);
+      overflow: hidden;
+      transition: transform .2s ease;
+    }
+
+    .clue-card:hover {
+      transform: translateY(-3px);
+    }
+
+    /* The video wrapper — always the same aspect ratio */
+    .clue-video-wrap {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 */
+      background: var(--blue-deep);
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .clue-video-wrap iframe,
+    .clue-video-wrap video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* Locked overlay — shown when video is not yet available */
+    .clue-lock-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      background: rgba(9, 27, 37, 0.92);
+      /* Frosted / blurred feel over whatever thumbnail is behind */
+      backdrop-filter: blur(18px) saturate(.4);
+      -webkit-backdrop-filter: blur(18px) saturate(.4);
+    }
+
+    .clue-lock-overlay.unlocked {
+      display: none;
+    }
+
+    .clue-lock-icon {
+      font-size: 38px;
+      line-height: 1;
+    }
+
+    .clue-lock-label {
+      font-family: var(--display);
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .clue-lock-date {
+      font-family: var(--display);
+      font-size: clamp(15px, 1.8vw, 22px);
+      letter-spacing: -.02em;
+      color: var(--white);
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .clue-lock-countdown {
+      font-size: 11px;
+      color: rgba(255,255,255,.5);
+      letter-spacing: .06em;
+      text-align: center;
+      font-family: var(--body);
+    }
+
+    /* Bottom meta strip on each card */
+    .clue-meta {
+      padding: 18px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .clue-day-label {
+      font-family: var(--display);
+      font-size: 9px;
+      letter-spacing: .16em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    .clue-title {
+      margin: 0;
+      font-family: var(--display);
+      font-size: clamp(16px, 1.6vw, 21px);
+      line-height: .95;
+      letter-spacing: -.04em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .clue-unlock-note {
+      margin: 4px 0 0;
+      font-size: 11px;
+      color: rgba(255,255,255,.42);
+    }
+
+    /* Thumbnail placeholder when no video src yet */
+    .clue-thumb-placeholder {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(233,173,40,.12), rgba(255,255,255,.04)),
+        var(--blue-deep);
+      display: grid;
+      place-items: center;
+      color: rgba(255,255,255,.18);
+      font-family: var(--display);
+      font-size: 48px;
+      letter-spacing: -.05em;
+    }
+
+    /* ── About / Intro section ── */
+    .about-section {
+      background: var(--paper);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .about-lead {
+      font-size: clamp(18px, 2.1vw, 22px);
+      line-height: 1.55;
+      font-weight: 600;
+      margin: 0 0 28px;
+    }
+
+    .about-body {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.68;
+      color: rgba(17,17,17,.8);
+    }
+
+    .about-facts {
+      border-top: 3px solid var(--ink);
+    }
+
+    .about-fact {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(17,17,17,.22);
+    }
+
+    .about-fact span {
+      font-family: var(--display);
+      font-size: 9px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding-top: 3px;
+    }
+
+    .about-fact strong {
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+    /* ── Map + Rules section ── */
+    .poke-map-section {
+      background: var(--blue-deep);
+      color: var(--white);
+      padding: 96px 0;
+    }
+
+    .poke-map-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .poke-map-copy p {
+      max-width: 460px;
+      color: rgba(255,255,255,.72);
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 0 0 40px;
+    }
+
+    .poke-map-image {
+      position: relative;
+      min-height: 460px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.2);
+      overflow: hidden;
+    }
+
+    .poke-map-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .map-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      padding: 7px 12px;
+      background: var(--gold);
+      color: var(--ink);
+      font-family: var(--display);
+      font-size: 9px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    /* Rules list */
+    .rules-list {
+      border-top: 3px solid rgba(255,255,255,.35);
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .rules-list li {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 16px;
+      align-items: baseline;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255,255,255,.14);
+      color: rgba(255,255,255,.8);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .rules-list li .rule-num {
+      font-family: var(--display);
+      font-size: 10px;
+      letter-spacing: .08em;
+      color: var(--gold);
+      padding-top: 2px;
+    }
+
+    /* ── Countdown timer strip ── */
+    .countdown-strip {
+      background: var(--gold);
+      padding: 0;
+    }
+
+    .countdown-strip .shell {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      min-height: 88px;
+    }
+
+    .countdown-strip-label {
+      font-family: var(--display);
+      font-size: 9px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .countdown-strip-label span {
+      display: block;
+      margin-top: 4px;
+      font-family: var(--body);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0;
+    }
+
+    .countdown-digits {
+      display: flex;
+      gap: 18px;
+      align-items: flex-end;
+    }
+
+    .countdown-unit {
+      text-align: center;
+    }
+
+    .countdown-num {
+      display: block;
+      font-family: var(--display);
+      font-size: clamp(28px, 4vw, 52px);
+      line-height: 1;
+      letter-spacing: -.04em;
+    }
+
+    .countdown-lbl {
+      display: block;
+      font-family: var(--display);
+      font-size: 8px;
+      letter-spacing: .14em;
+      margin-top: 4px;
+      color: rgba(17,17,17,.6);
+    }
+
+    .countdown-sep {
+      font-family: var(--display);
+      font-size: 32px;
+      padding-bottom: 6px;
+      color: rgba(17,17,17,.4);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 1100px) {
+      .clue-grid {
+        grid-template-columns: repeat(3, minmax(0,1fr));
+      }
+    }
+
+    @media (max-width: 980px) {
+      .about-grid,
+      .poke-map-grid {
+        grid-template-columns: 1fr;
+        gap: 44px;
+      }
+
+      .clue-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+
+      .clue-intro {
+        margin-bottom: 44px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .clue-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .countdown-strip .shell {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 26px 0;
+        min-height: unset;
+        gap: 18px;
+      }
+
+      .about-fact {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .countdown-num {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body class="poke-page">
+
+  <div class="page-topbar">
+    <div class="shell">
+      <span>GOLDEN DAYS '27</span>
+      <span>JULY 17–25</span>
+      <span>FAIRBANKS, ALASKA</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <nav class="nav shell">
+      <a class="brand" href="index.html">
+        <span class="brand-small">75TH ANNIVERSARY · FAIRBANKS</span>
+        <span class="brand-large">GOLDEN DAYS</span>
+      </a>
+
+      <div class="nav-links">
+        <a class="home-link" href="index.html">← Back to Home Page</a>
+        <a href="parade.html">Grande Parade</a>
+        <a href="duckie-race.html">Duckie Race</a>
+        <a href="street-fair.html">Street Fair</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ═══════════════════════════════════════════════
+         HERO
+    ════════════════════════════════════════════════ -->
+    <section class="event-hero">
+      <div class="hero-pattern"></div>
+      <div class="shell hero-content">
+        <h1 class="hero-title">
+          POKE OF<br><span class="gold">GOLD.</span>
+        </h1>
+
+        <div class="hero-bottom">
+          <p class="hero-intro">
+            Somewhere in Fairbanks, a golden treasure is hidden — and it could be yours.
+            Follow the daily video clues, search the boundaries, and claim the Poke of Gold.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-gold" href="#clues">WATCH CLUES</a>
+            <a class="button button-light" href="#map-rules">MAP &amp; RULES</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         COUNTDOWN STRIP (to first clue)
+    ════════════════════════════════════════════════ -->
+    <div class="countdown-strip" id="countdown-strip">
+      <div class="shell">
+        <div class="countdown-strip-label">
+          FIRST CLUE DROPS
+          <span>Sunday, July 20, 2027 · 8:00 AM AKDT</span>
+        </div>
+        <div class="countdown-digits" id="countdown-digits">
+          <div class="countdown-unit">
+            <span class="countdown-num" id="cd-days">--</span>
+            <span class="countdown-lbl">DAYS</span>
+          </div>
+          <span class="countdown-sep">:</span>
+          <div class="countdown-unit">
+            <span class="countdown-num" id="cd-hours">--</span>
+            <span class="countdown-lbl">HRS</span>
+          </div>
+          <span class="countdown-sep">:</span>
+          <div class="countdown-unit">
+            <span class="countdown-num" id="cd-mins">--</span>
+            <span class="countdown-lbl">MIN</span>
+          </div>
+          <span class="countdown-sep">:</span>
+          <div class="countdown-unit">
+            <span class="countdown-num" id="cd-secs">--</span>
+            <span class="countdown-lbl">SEC</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+         ABOUT
+    ════════════════════════════════════════════════ -->
+    <section class="section about-section">
+      <div class="shell">
+        <p class="eyebrow">Golden Days '27 · July 19–23</p>
+        <div class="about-grid">
+          <div>
+            <h2 class="section-heading">WHAT IS THE<br><em>POKE OF GOLD?</em></h2>
+            <p class="about-lead">
+              The Search for the Poke of Gold is one of Golden Days' most beloved traditions —
+              a community-wide treasure hunt hidden somewhere within Fairbanks city limits.
+            </p>
+            <p class="about-body">
+              Each morning from July 19 through July 23, a new video clue is revealed here on
+              this page at 8:00 AM. The clues build on each other day by day, growing more
+              specific and pointing ever closer to where the Poke is hidden. The first person
+              to find the physical Poke and bring it to the Golden Days committee wins
+              the grand prize.
+            </p>
+            <br>
+            <p class="about-body">
+              There's no registration required — the hunt is free and open to everyone.
+              Grab your family, your friends, and your best detective instincts. The gold
+              is out there waiting.
+            </p>
+          </div>
+
+          <div>
+            <div class="about-facts">
+              <div class="about-fact">
+                <span>Dates</span>
+                <strong>July 19–23, 2027<br>Clues drop at 8:00 AM each day</strong>
+              </div>
+              <div class="about-fact">
+                <span>Location</span>
+                <strong>Hidden somewhere within the designated search boundaries in Fairbanks, AK</strong>
+              </div>
+              <div class="about-fact">
+                <span>How to Win</span>
+                <strong>Find the physical Poke of Gold and return it to the Golden Days committee</strong>
+              </div>
+              <div class="about-fact">
+                <span>Entry Fee</span>
+                <strong>Free — open to everyone</strong>
+              </div>
+              <div class="about-fact">
+                <span>Prize</span>
+                <strong>Grand prize awarded to the finder — details announced at the event</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         DAILY CLUE VIDEOS
+    ════════════════════════════════════════════════ -->
+    <section class="section clue-section" id="clues">
+      <div class="shell">
+        <p class="eyebrow light">July 19–23 · 8:00 AM each morning</p>
+        <h2 class="section-heading">DAILY<br><em>CLUES.</em></h2>
+        <p class="clue-intro">
+          A new clue video unlocks every morning at 8:00 AM AKDT starting July 19.
+          Come back each day — the clues get more specific as the week goes on.
+          You'll need all of them to find the gold.
+        </p>
+
+        <div class="clue-grid">
+
+          <!-- CLUE 1 — Unlocks July 19 @ 8am AKDT -->
+          <div class="clue-card" id="clue-card-1">
+            <div class="clue-video-wrap">
+              <div class="clue-thumb-placeholder">01</div>
+              <!--
+                INSTRUCTIONS: Replace the src below with your YouTube embed URL or hosted video URL.
+                Example YouTube: https://www.youtube.com/embed/VIDEO_ID
+                Example video file: <video src="clue-1.mp4" controls></video>
+              -->
+              <iframe
+                id="clue-iframe-1"
+                src="https://www.youtube.com/embed/YOUR_VIDEO_ID_1"
+                title="Poke of Gold Clue 1"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                style="display:none;">
+              </iframe>
+
+              <!-- Locked overlay — hidden by JS when unlocked -->
+              <div class="clue-lock-overlay" id="clue-lock-1">
+                <div class="clue-lock-icon">🔒</div>
+                <div class="clue-lock-label">Unlocks</div>
+                <div class="clue-lock-date">July 19, 2027<br>8:00 AM</div>
+                <div class="clue-lock-countdown" id="clue-countdown-1"></div>
+              </div>
+            </div>
+            <div class="clue-meta">
+              <span class="clue-day-label">Day 1 · July 19</span>
+              <h3 class="clue-title">CLUE ONE</h3>
+              <p class="clue-unlock-note">Unlocks July 19 at 8:00 AM AKDT</p>
+            </div>
+          </div>
+
+          <!-- CLUE 2 — Unlocks July 20 @ 8am AKDT -->
+          <div class="clue-card" id="clue-card-2">
+            <div class="clue-video-wrap">
+              <div class="clue-thumb-placeholder">02</div>
+              <iframe
+                id="clue-iframe-2"
+                src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2"
+                title="Poke of Gold Clue 2"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                style="display:none;">
+              </iframe>
+              <div class="clue-lock-overlay" id="clue-lock-2">
+                <div class="clue-lock-icon">🔒</div>
+                <div class="clue-lock-label">Unlocks</div>
+                <div class="clue-lock-date">July 20, 2027<br>8:00 AM</div>
+                <div class="clue-lock-countdown" id="clue-countdown-2"></div>
+              </div>
+            </div>
+            <div class="clue-meta">
+              <span class="clue-day-label">Day 2 · July 20</span>
+              <h3 class="clue-title">CLUE TWO</h3>
+              <p class="clue-unlock-note">Unlocks July 20 at 8:00 AM AKDT</p>
+            </div>
+          </div>
+
+          <!-- CLUE 3 — Unlocks July 21 @ 8am AKDT -->
+          <div class="clue-card" id="clue-card-3">
+            <div class="clue-video-wrap">
+              <div class="clue-thumb-placeholder">03</div>
+              <iframe
+                id="clue-iframe-3"
+                src="https://www.youtube.com/embed/YOUR_VIDEO_ID_3"
+                title="Poke of Gold Clue 3"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                style="display:none;">
+              </iframe>
+              <div class="clue-lock-overlay" id="clue-lock-3">
+                <div class="clue-lock-icon">🔒</div>
+                <div class="clue-lock-label">Unlocks</div>
+                <div class="clue-lock-date">July 21, 2027<br>8:00 AM</div>
+                <div class="clue-lock-countdown" id="clue-countdown-3"></div>
+              </div>
+            </div>
+            <div class="clue-meta">
+              <span class="clue-day-label">Day 3 · July 21</span>
+              <h3 class="clue-title">CLUE THREE</h3>
+              <p class="clue-unlock-note">Unlocks July 21 at 8:00 AM AKDT</p>
+            </div>
+          </div>
+
+          <!-- CLUE 4 — Unlocks July 22 @ 8am AKDT -->
+          <div class="clue-card" id="clue-card-4">
+            <div class="clue-video-wrap">
+              <div class="clue-thumb-placeholder">04</div>
+              <iframe
+                id="clue-iframe-4"
+                src="https://www.youtube.com/embed/YOUR_VIDEO_ID_4"
+                title="Poke of Gold Clue 4"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                style="display:none;">
+              </iframe>
+              <div class="clue-lock-overlay" id="clue-lock-4">
+                <div class="clue-lock-icon">🔒</div>
+                <div class="clue-lock-label">Unlocks</div>
+                <div class="clue-lock-date">July 22, 2027<br>8:00 AM</div>
+                <div class="clue-lock-countdown" id="clue-countdown-4"></div>
+              </div>
+            </div>
+            <div class="clue-meta">
+              <span class="clue-day-label">Day 4 · July 22</span>
+              <h3 class="clue-title">CLUE FOUR</h3>
+              <p class="clue-unlock-note">Unlocks July 22 at 8:00 AM AKDT</p>
+            </div>
+          </div>
+
+          <!-- CLUE 5 — Unlocks July 23 @ 8am AKDT -->
+          <div class="clue-card" id="clue-card-5">
+            <div class="clue-video-wrap">
+              <div class="clue-thumb-placeholder">05</div>
+              <iframe
+                id="clue-iframe-5"
+                src="https://www.youtube.com/embed/YOUR_VIDEO_ID_5"
+                title="Poke of Gold Clue 5"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                style="display:none;">
+              </iframe>
+              <div class="clue-lock-overlay" id="clue-lock-5">
+                <div class="clue-lock-icon">🔒</div>
+                <div class="clue-lock-label">Unlocks</div>
+                <div class="clue-lock-date">July 23, 2027<br>8:00 AM</div>
+                <div class="clue-lock-countdown" id="clue-countdown-5"></div>
+              </div>
+            </div>
+            <div class="clue-meta">
+              <span class="clue-day-label">Day 5 · July 23</span>
+              <h3 class="clue-title">CLUE FIVE</h3>
+              <p class="clue-unlock-note">Unlocks July 23 at 8:00 AM AKDT</p>
+            </div>
+          </div>
+
+        </div><!-- /clue-grid -->
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         MAP + RULES
+    ════════════════════════════════════════════════ -->
+    <section class="poke-map-section" id="map-rules">
+      <div class="shell poke-map-grid">
+
+        <div class="poke-map-copy">
+          <p class="eyebrow light">SEARCH BOUNDARIES + RULES</p>
+          <h2 class="section-heading">KNOW<br><em>THE ZONE.</em></h2>
+          <p>
+            The Poke of Gold is hidden somewhere inside the designated search area shown
+            on the map. It will not be placed on private property, inside any structure,
+            or in a location that requires digging.
+          </p>
+
+          <ul class="rules-list">
+            <li>
+              <span class="rule-num">01</span>
+              <span>The Poke is hidden on publicly accessible land within the marked boundaries. It will not be on private property.</span>
+            </li>
+            <li>
+              <span class="rule-num">02</span>
+              <span>Do not dig, damage vegetation, or disturb wildlife in your search. The Poke is above ground and findable without tools.</span>
+            </li>
+            <li>
+              <span class="rule-num">03</span>
+              <span>The hunt is open to everyone — no registration or entry fee required.</span>
+            </li>
+            <li>
+              <span class="rule-num">04</span>
+              <span>Clue videos are the only official hints. No additional clues will be provided by phone, email, or social media.</span>
+            </li>
+            <li>
+              <span class="rule-num">05</span>
+              <span>The finder must bring the physical Poke to the Golden Days committee at the event headquarters to claim the prize.</span>
+            </li>
+            <li>
+              <span class="rule-num">06</span>
+              <span>Golden Days reserves the right to relocate the Poke in the event of an emergency or safety concern, with notice posted here.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="poke-map-image">
+            <!--
+              INSTRUCTIONS: Replace with your actual boundary map image.
+              Upload your map as poke-boundary-map.jpg (or .png)
+            -->
+            <img src="poke-boundary-map.jpg" alt="Poke of Gold search boundary map for Fairbanks, Alaska"
+                 onerror="this.style.background='rgba(255,255,255,.04)'">
+            <span class="map-badge">SEARCH BOUNDARIES</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         SPONSOR
+    ════════════════════════════════════════════════ -->
+    <section class="sponsor-section">
+      <div class="shell sponsor-grid">
+        <div class="sponsor-copy">
+          <p class="eyebrow light">PRESENTED WITH SUPPORT FROM</p>
+          <h2>THANK YOU,<br><em>OUR SPONSORS.</em></h2>
+          <p>
+            The Search for the Poke of Gold wouldn't be possible without the generosity
+            of our community sponsors. Their support keeps this Golden Days tradition
+            alive and thriving for Fairbanks families year after year.
+          </p>
+        </div>
+
+        <div class="sponsor-logo-box">
+          <!--
+            INSTRUCTIONS: Upload sponsor logo as poke-sponsor.png
+            The onerror hides the broken image and lets the box stay clean.
+          -->
+          <img src="poke-sponsor.png" alt="Poke of Gold Sponsor Logo"
+               onerror="this.style.display='none'">
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="page-footer">
+    <div class="shell">
+      <div class="footer-top">
+        <a class="brand" href="index.html">
+          <span class="brand-small">75TH ANNIVERSARY</span>
+          <span class="brand-large">OUR GOLDEN ERA</span>
+        </a>
+
+        <div class="footer-links">
+          <a href="index.html">Home Page</a>
+          <a href="parade.html">Grande Parade</a>
+          <a href="duckie-race.html">Duckie Race</a>
+          <a href="street-fair.html">Street Fair</a>
+          <a href="https://www.fairbankschamber.org/">Fairbanks Chamber</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2027 GREATER FAIRBANKS CHAMBER OF COMMERCE</span>
+        <span>FAIRBANKS, ALASKA</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════
+       JAVASCRIPT — Clue unlock logic + countdown
+  ════════════════════════════════════════════════ -->
+  <script>
+    /**
+     * UNLOCK DATES
+     * All times are Alaska Daylight Time (AKDT = UTC−8).
+     * Date.UTC subtracts 8 hours to get the right moment.
+     *
+     * To test locally, temporarily change the dates to something
+     * in the past and reload. The overlay will disappear and the
+     * iframe will become visible.
+     */
+    const UNLOCKS = [
+      { id: 1, utc: Date.UTC(2027, 6, 19,  16, 0, 0) }, // July 19 @ 08:00 AKDT
+      { id: 2, utc: Date.UTC(2027, 6, 20,  16, 0, 0) }, // July 20 @ 08:00 AKDT
+      { id: 3, utc: Date.UTC(2027, 6, 21,  16, 0, 0) }, // July 21 @ 08:00 AKDT
+      { id: 4, utc: Date.UTC(2027, 6, 22,  16, 0, 0) }, // July 22 @ 08:00 AKDT
+      { id: 5, utc: Date.UTC(2027, 6, 23,  16, 0, 0) }, // July 23 @ 08:00 AKDT
+    ];
+
+    /** First clue unlock — used for the countdown strip */
+    const FIRST_UNLOCK_UTC = UNLOCKS[0].utc;
+
+    function pad(n) {
+      return String(n).padStart(2, '0');
+    }
+
+    function msToHMS(ms) {
+      const totalSecs = Math.max(0, Math.floor(ms / 1000));
+      const days  = Math.floor(totalSecs / 86400);
+      const hours = Math.floor((totalSecs % 86400) / 3600);
+      const mins  = Math.floor((totalSecs % 3600) / 60);
+      const secs  = totalSecs % 60;
+      return { days, hours, mins, secs };
+    }
+
+    function humanTimeLeft(ms) {
+      const { days, hours, mins, secs } = msToHMS(ms);
+      if (days > 1)  return `Opens in ${days} days`;
+      if (days === 1) return `Opens tomorrow`;
+      if (hours > 0) return `Opens in ${hours}h ${pad(mins)}m`;
+      if (mins > 0)  return `Opens in ${mins}m ${pad(secs)}s`;
+      return `Opens in ${secs}s`;
+    }
+
+    function tick() {
+      const now = Date.now();
+
+      /* --- Main countdown strip --- */
+      const stripEl = document.getElementById('countdown-strip');
+      const remaining = FIRST_UNLOCK_UTC - now;
+
+      if (remaining <= 0) {
+        // All clues are in range — hide the strip after all unlocked
+        const allUnlocked = UNLOCKS.every(u => now >= u.utc);
+        if (allUnlocked) stripEl.style.display = 'none';
+        else {
+          document.getElementById('cd-days').textContent  = '00';
+          document.getElementById('cd-hours').textContent = '00';
+          document.getElementById('cd-mins').textContent  = '00';
+          document.getElementById('cd-secs').textContent  = '00';
+        }
+      } else {
+        const { days, hours, mins, secs } = msToHMS(remaining);
+        document.getElementById('cd-days').textContent  = pad(days);
+        document.getElementById('cd-hours').textContent = pad(hours);
+        document.getElementById('cd-mins').textContent  = pad(mins);
+        document.getElementById('cd-secs').textContent  = pad(secs);
+      }
+
+      /* --- Per-clue unlock state --- */
+      UNLOCKS.forEach(({ id, utc }) => {
+        const overlay   = document.getElementById(`clue-lock-${id}`);
+        const iframe    = document.getElementById(`clue-iframe-${id}`);
+        const countdown = document.getElementById(`clue-countdown-${id}`);
+
+        if (!overlay) return;
+
+        const diff = utc - now;
+
+        if (diff <= 0) {
+          // Unlock: hide overlay, show video
+          overlay.classList.add('unlocked');
+          if (iframe) iframe.style.display = 'block';
+        } else {
+          // Still locked: update mini countdown in the overlay
+          if (countdown) countdown.textContent = humanTimeLeft(diff);
+        }
+      });
+    }
+
+    // Run immediately, then every second
+    tick();
+    setInterval(tick, 1000);
+  </script>
+
+</body>
+</html>
