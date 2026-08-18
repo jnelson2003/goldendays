@@ -3937,68 +3937,42 @@ section[id]{
 
 .calendar-community-cta{
   margin-top:42px;
-  padding:42px 24px 10px;
+  padding:48px 0 12px;
   text-align:center;
   border-top:2px solid rgba(17,17,17,.55)
 }
 
-.calendar-community-cta p{
-  margin:0 0 12px;
+.calendar-community-label{
+  margin:0 0 14px;
   font-family:var(--display);
-  font-size:9px;
+  font-size:8px;
   font-weight:400;
   letter-spacing:.14em;
   text-transform:uppercase
 }
 
-.calendar-community-cta h3{
-  margin:0 0 24px;
+.calendar-community-heading{
+  margin:0 auto 26px;
   font-family:var(--display);
-  font-size:clamp(28px,3.5vw,48px);
+  font-size:clamp(25px,2.6vw,42px);
+  font-weight:900;
   line-height:.9;
   letter-spacing:-.045em;
   text-transform:uppercase
-}
-
-.calendar-community-button{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-height:54px;
-  padding:0 22px;
-  border:2px solid var(--ink);
-  background:var(--ink);
-  color:var(--white);
-  font-family:var(--display);
-  font-size:11px;
-  letter-spacing:.07em;
-  text-transform:uppercase;
-  transition:
-    transform .18s ease,
-    background .18s ease,
-    color .18s ease
-}
-
-.calendar-community-button:hover{
-  transform:translateY(-3px);
-  background:var(--white);
-  color:var(--ink)
 }
 
 @media (max-width:760px){
 
   .calendar-community-cta{
     margin-top:30px;
-    padding:34px 0 0
+    padding:36px 0 0
   }
 
-  .calendar-community-cta h3{
+  .calendar-community-heading{
     font-size:clamp(27px,8.5vw,34px)
   }
 
-  .calendar-community-button{
-    width:100%;
-    min-height:49px;
-    font-size:10px
+  .calendar-community-cta .button{
+    width:100%
   }
 }
