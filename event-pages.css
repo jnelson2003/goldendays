@@ -1582,3 +1582,491 @@ button, input { font: inherit; }
     font-size: 16px;
   }
 }
+
+/* =========================================================
+   GOLDEN DAYS — RUBBER DUCKIE RACE RESULTS
+   Supplemental styles loaded after /event-pages.css
+   ========================================================= */
+
+.results-page .results-hero {
+  min-height: 680px;
+}
+
+.results-page .results-hero .hero-content {
+  padding-top: 205px;
+  padding-bottom: 72px;
+}
+
+.results-page .results-hero .hero-title {
+  max-width: 1180px;
+  font-size: clamp(66px, 9.2vw, 138px);
+  line-height: .78;
+}
+
+.results-page .results-hero .hero-intro {
+  max-width: 720px;
+}
+
+/* WINNERS */
+.results-winners {
+  background: var(--paper);
+}
+
+.results-heading-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(280px, .7fr);
+  gap: 70px;
+  align-items: end;
+  margin-bottom: 58px;
+}
+
+.results-heading-row .section-heading {
+  margin-bottom: 0;
+}
+
+.results-intro {
+  max-width: 500px;
+  margin: 0 0 8px;
+  color: rgba(17,17,17,.7);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.ticket-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 30px;
+  align-items: start;
+}
+
+.ticket-column {
+  min-width: 0;
+}
+
+.column-head {
+  min-height: 78px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: var(--ink);
+  color: var(--white);
+  border-bottom: 5px solid var(--gold);
+}
+
+.column-head-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.column-head h3 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(24px, 2.7vw, 36px);
+  line-height: 1;
+  letter-spacing: -.04em;
+  text-transform: uppercase;
+}
+
+.column-head small {
+  color: rgba(255,255,255,.56);
+  font-family: var(--display);
+  font-size: 8px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.swatch {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 15px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,.72);
+}
+
+.swatch.pink {
+  background: #ef75a8;
+}
+
+.swatch.yellow {
+  background: var(--gold);
+}
+
+.ticket-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 10px;
+}
+
+.ticket,
+.ticket * {
+  box-sizing: border-box;
+}
+
+.ticket {
+  position: relative;
+  width: 100%;
+  min-height: 94px;
+  display: grid;
+  grid-template-columns: 108px minmax(0,1fr);
+  overflow: hidden;
+  border: 1px solid rgba(17,17,17,.2);
+  background: var(--white);
+  box-shadow: 0 2px 0 rgba(17,17,17,.05);
+}
+
+.ticket:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.num-block {
+  position: relative;
+  min-width: 0;
+  max-width: 100%;
+  padding: 28px 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-right: 2px dashed rgba(17,17,17,.32);
+  color: var(--ink);
+}
+
+.ticket.pink .num-block {
+  background: #ef8cb5;
+}
+
+.ticket.yellow .num-block {
+  background: var(--gold);
+}
+
+.place-label {
+  position: absolute;
+  top: 8px;
+  left: 7px;
+  right: 7px;
+  font-family: var(--display);
+  font-size: 7px;
+  line-height: 1.15;
+  letter-spacing: .1em;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.num {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  font-family: var(--display);
+  font-size: 23px;
+  line-height: 1;
+  letter-spacing: -.035em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.prize-block {
+  min-width: 0;
+  max-width: 100%;
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.prize {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: none;
+}
+
+.notch {
+  position: absolute;
+  z-index: 2;
+  left: 98px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 1px solid rgba(17,17,17,.12);
+}
+
+.notch.top {
+  top: -11px;
+}
+
+.notch.bottom {
+  bottom: -11px;
+}
+
+.ticket.wild-duck {
+  border: 2px solid var(--ink);
+  background: var(--gold);
+}
+
+.ticket.wild-duck .num-block {
+  background: var(--ink);
+  color: var(--gold);
+  border-right-color: rgba(255,255,255,.32);
+}
+
+.ticket.wild-duck .prize-block {
+  padding-right: 76px;
+}
+
+.ticket.wild-duck::after {
+  content: "★";
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(17,17,17,.2);
+  font-size: 42px;
+}
+
+/* CLAIM */
+.results-claim {
+  position: relative;
+  overflow: hidden;
+  background: var(--blue-deep);
+  color: var(--white);
+}
+
+.results-claim::after {
+  content: "WIN";
+  position: absolute;
+  right: -1vw;
+  bottom: -45px;
+  color: rgba(255,255,255,.035);
+  font-family: var(--display);
+  font-size: clamp(160px, 23vw, 360px);
+  line-height: .78;
+  letter-spacing: -.08em;
+  pointer-events: none;
+}
+
+.results-claim .shell {
+  position: relative;
+  z-index: 1;
+}
+
+.results-claim .section-heading em {
+  color: var(--gold);
+}
+
+.results-claim-intro {
+  max-width: 700px;
+  margin: -4px 0 50px;
+  color: rgba(255,255,255,.72);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.results-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 12px;
+}
+
+.results-step {
+  min-height: 245px;
+  padding: 24px;
+  border: 1px solid rgba(255,255,255,.2);
+  background: rgba(255,255,255,.05);
+}
+
+.results-step-number {
+  display: block;
+  margin-bottom: 44px;
+  color: var(--gold);
+  font-family: var(--display);
+  font-size: 10px;
+  letter-spacing: .1em;
+}
+
+.results-step h3 {
+  margin: 0 0 12px;
+  font-family: var(--display);
+  font-size: 21px;
+  line-height: 1;
+  letter-spacing: -.025em;
+  text-transform: uppercase;
+}
+
+.results-step p {
+  margin: 0;
+  color: rgba(255,255,255,.72);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.results-step strong {
+  color: var(--white);
+}
+
+.results-deadline {
+  margin-top: 28px;
+  border: 1px solid rgba(255,255,255,.16);
+  background: var(--ink);
+}
+
+.results-deadline strong {
+  color: var(--gold);
+}
+
+/* RESPONSIVE */
+@media (max-width: 980px) {
+  .results-heading-row {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .ticket-columns {
+    grid-template-columns: 1fr;
+    gap: 52px;
+  }
+
+  .ticket {
+    grid-template-columns: 116px minmax(0,1fr);
+  }
+
+  .notch {
+    left: 106px;
+  }
+
+  .prize {
+    font-size: 14.5px;
+  }
+
+  .results-steps {
+    grid-template-columns: repeat(2, minmax(0,1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .results-page .results-hero {
+    min-height: 620px;
+  }
+
+  .results-page .results-hero .hero-content {
+    padding-top: 155px;
+    padding-bottom: 46px;
+  }
+
+  .results-page .results-hero .hero-title {
+    font-size: clamp(48px, 15.5vw, 74px);
+    line-height: .82;
+  }
+
+  .results-heading-row {
+    margin-bottom: 40px;
+  }
+
+  .results-intro {
+    font-size: 15px;
+  }
+
+  .column-head {
+    min-height: 70px;
+    padding: 16px;
+  }
+
+  .column-head small {
+    display: none;
+  }
+
+  .ticket {
+    grid-template-columns: 88px minmax(0,1fr);
+    min-height: 88px;
+  }
+
+  .notch {
+    left: 78px;
+  }
+
+  .num-block {
+    padding: 26px 8px 12px;
+  }
+
+  .num {
+    font-size: 19px;
+  }
+
+  .place-label {
+    left: 5px;
+    right: 5px;
+    font-size: 6px;
+  }
+
+  .prize-block {
+    padding: 15px 14px;
+  }
+
+  .prize {
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  .ticket.wild-duck .prize-block {
+    padding: 28px 14px 15px;
+  }
+
+  .ticket.wild-duck::after {
+    top: 9px;
+    right: 12px;
+    transform: none;
+    font-size: 20px;
+  }
+
+  .results-claim-intro {
+    margin-bottom: 36px;
+    font-size: 15px;
+  }
+
+  .results-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .results-step {
+    min-height: 0;
+  }
+
+  .results-step-number {
+    margin-bottom: 25px;
+  }
+}
+
+@media (max-width: 390px) {
+  .results-page .results-hero .hero-title {
+    font-size: 47px;
+  }
+
+  .ticket {
+    grid-template-columns: 80px minmax(0,1fr);
+  }
+
+  .notch {
+    left: 70px;
+  }
+
+  .num {
+    font-size: 17px;
+  }
+
+  .prize {
+    font-size: 12.5px;
+  }
+}
