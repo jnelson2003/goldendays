@@ -1467,12 +1467,11 @@ button, input { font: inherit; }
 
 /* =========================================================
    POKE OF GOLD ABOUT SECTION
-   Keep the image small and positioned to the right of the copy.
    ========================================================= */
 
 .poke-about-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 280px;
+  grid-template-columns: minmax(0, 1fr) 360px;
   gap: 48px;
   align-items: center;
 }
@@ -1489,7 +1488,7 @@ button, input { font: inherit; }
 
 .poke-about-image img {
   width: 100%;
-  max-width: 240px;
+  max-width: 330px;
   height: auto;
   object-fit: contain;
 }
@@ -1506,10 +1505,9 @@ button, input { font: inherit; }
   }
 
   .poke-about-image img {
-    max-width: 200px;
+    max-width: 270px;
   }
 }
-
 /* =========================================================
    STREET FAIR — SINGLE REGISTRATION CTA
    ========================================================= */
