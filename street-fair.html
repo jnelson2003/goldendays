@@ -5,11 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Golden Days Street Fair — July 24, 2027 in downtown Fairbanks, Alaska.">
   <title>Golden Days Street Fair | Golden Days ’27</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="event-pages.css">
+
+  <style>
+    /* Single Street Fair registration card */
+    .street-actions-single {
+      display: grid;
+      grid-template-columns: minmax(0, 720px);
+    }
+
+    @media (max-width: 700px) {
+      .street-actions-single {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body class="fair-page">
 
   <div class="page-topbar">
@@ -22,6 +39,7 @@
 
   <header class="site-header">
     <nav class="nav shell">
+
       <a class="brand" href="index.html">
         <span class="brand-small">75TH ANNIVERSARY · FAIRBANKS</span>
         <span class="brand-large">GOLDEN DAYS</span>
@@ -33,115 +51,180 @@
         <a href="duckie-race.html">Duckie Race</a>
         <a href="poke-of-gold.html">Search for the Poke of Gold</a>
       </div>
+
     </nav>
   </header>
 
   <main>
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
     <section class="event-hero">
+
       <div class="shell hero-content">
 
         <h1 class="hero-title">
-          STREET<br><span class="gold">FAIR.</span>
+          STREET<br>
+          <span class="gold">FAIR.</span>
         </h1>
 
         <div class="hero-bottom">
+
           <p class="hero-intro">
             Vendors, food, entertainment and a full day downtown during Golden Days.
-            Register your booth, sponsor a pod or find your favorite vendors.
+            Register your booth and be part of one of Fairbanks’ favorite summer traditions.
           </p>
 
-          <div class="hero-actions">
-          </div>
+          <div class="hero-actions"></div>
+
         </div>
+
       </div>
     </section>
 
-   <section class="section">
-  <div class="shell">
-    <h2 class="section-heading">JOIN THE<br><em>STREET FAIR.</em></h2>
 
-    <div class="street-actions">
-      <article class="street-action-card" data-number="01">
-        <h3>REGISTER<br>A BOOTH.</h3>
-        <p>
-          Businesses, organizations, makers, food vendors and community groups
-          can join the Golden Days Street Fair.
-        </p>
-        <!-- Street Fair Registration URL goes below -->
-        <a
-          class="text-link"
-          href="https://pci.jotform.com/form/262288298797178"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          STREET FAIR REGISTRATION →
-        </a>
-      </article>
+    <!-- =====================================================
+         STREET FAIR REGISTRATION
+    ====================================================== -->
+    <section class="section">
 
-      <article class="street-action-card" data-number="02">
-        <h3>SPONSOR<br>A POD.</h3>
-        <p>
-          Help support the Street Fair and put your business in the middle of
-          one of Golden Days’ busiest downtown events.
-        </p>
-        <!-- Replace # with sponsorship URL -->
-        <a
-          class="text-link"
-          href="#"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          POD SPONSORSHIP →
-        </a>
-      </article>
-    </div>
-  </div>
-</section>
-
-
-    <section class="section photo-feature">
       <div class="shell">
-        <h2 class="section-heading">FOOD. VENDORS.<br><em>FUN.</em></h2>
+
+        <h2 class="section-heading">
+          JOIN THE<br>
+          <em>STREET FAIR.</em>
+        </h2>
+
+        <div class="street-actions street-actions-single">
+
+          <article class="street-action-card" data-number="01">
+
+            <h3>
+              REGISTER<br>
+              A BOOTH.
+            </h3>
+
+            <p>
+              Businesses, organizations, makers, food vendors and community groups
+              can join the Golden Days Street Fair.
+            </p>
+
+            <a
+              class="text-link"
+              href="https://pci.jotform.com/form/262288298797178"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              STREET FAIR REGISTRATION →
+            </a>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         STREET FAIR PHOTOS
+    ====================================================== -->
+    <section class="section photo-feature">
+
+      <div class="shell">
+
+        <h2 class="section-heading">
+          FOOD. VENDORS.<br>
+          <em>FUN.</em>
+        </h2>
 
         <div class="photo-feature-grid">
+
           <div class="photo-feature-main">
-            <!-- Upload as street-fair-photo-1.jpg -->
-            <img src="street-fair-photo-1.jpg" alt="Golden Days Street Fair in downtown Fairbanks"
-                 onerror="this.style.display='none'">
-            <span class="photo-feature-label">GOLDEN DAYS STREET FAIR</span>
+
+            <img
+              src="street-fair-photo-1.jpg"
+              alt="Golden Days Street Fair in downtown Fairbanks"
+              onerror="this.style.display='none'"
+            >
+
+            <span class="photo-feature-label">
+              GOLDEN DAYS STREET FAIR
+            </span>
+
           </div>
+
 
           <div class="photo-feature-side">
-            <!-- Upload as street-fair-photo-2.jpg -->
-            <img src="street-fair-photo-2.jpg" alt="Golden Days Street Fair vendors and visitors"
-                 onerror="this.style.display='none'">
-            <span class="photo-feature-label">DOWNTOWN FAIRBANKS</span>
+
+            <img
+              src="street-fair-photo-2.jpg"
+              alt="Golden Days Street Fair vendors and visitors"
+              onerror="this.style.display='none'"
+            >
+
+            <span class="photo-feature-label">
+              DOWNTOWN FAIRBANKS
+            </span>
+
           </div>
+
         </div>
+
       </div>
     </section>
 
+
+    <!-- =====================================================
+         STREET FAIR SPONSOR
+    ====================================================== -->
     <section class="sponsor-section">
+
       <div class="shell sponsor-grid">
+
         <div class="sponsor-copy">
-          <h2>THANK YOU,<br><em>ALASKA 529.</em></h2>
+
+          <h2>
+            THANK YOU,<br>
+            <em>ALASKA 529.</em>
+          </h2>
+
           <p>
-            A special thank you to Alaska 529 for supporting the Golden Days Street Fair and helping bring downtown Fairbanks to life for one of the biggest days of Golden Days. Their support helps make it possible for local businesses, vendors, families and the community to come together and celebrate.
+            A special thank you to Alaska 529 for supporting the Golden Days Street Fair
+            and helping bring downtown Fairbanks to life for one of the biggest days of
+            Golden Days. Their support helps make it possible for local businesses,
+            vendors, families and the community to come together and celebrate.
           </p>
+
         </div>
+
 
         <div class="sponsor-logo-box">
-          <!-- Upload a combined sponsor graphic as street-fair-sponsors.jpg -->
-          <img src="street-fair-sponsor.png" alt="Alaska 529 Logo"
-               onerror="this.style.display='none'">
+
+          <img
+            src="street-fair-sponsor.png"
+            alt="Alaska 529 Logo"
+            onerror="this.style.display='none'"
+          >
+
         </div>
+
       </div>
     </section>
+
   </main>
 
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
   <footer class="page-footer">
+
     <div class="shell">
+
       <div class="footer-top">
+
         <a class="brand" href="index.html">
           <span class="brand-small">75TH ANNIVERSARY</span>
           <span class="brand-large">OUR GOLDEN ERA</span>
@@ -153,13 +236,18 @@
           <a href="duckie-race.html">Duckie Race</a>
           <a href="https://www.fairbankschamber.org/">Fairbanks Chamber</a>
         </div>
+
       </div>
+
 
       <div class="footer-bottom">
         <span>© 2027 GREATER FAIRBANKS CHAMBER OF COMMERCE</span>
         <span>FAIRBANKS, ALASKA</span>
       </div>
+
     </div>
+
   </footer>
+
 </body>
 </html>
