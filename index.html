@@ -713,8 +713,9 @@
   <!-- End Constant Contact Active Forms -->
 
   <!--
-    Show our Golden Days confirmation only after Constant Contact
-    returns its successful signup message.
+    Show our Golden Days confirmation only AFTER someone actually
+    submits the Constant Contact form and Constant Contact displays
+    a visible success response.
   -->
   <script>
     (function () {
@@ -724,25 +725,48 @@
 
       if (!formWrap || !formHost || !successMessage) return;
 
+      let submissionAttempted = false;
+
       const successTextPattern = /thank you|thanks for signing up|successfully|you(?:'|’)ve been added|you have been added|subscription confirmed/i;
 
       function checkForSuccess() {
-        const formText = formHost.textContent || '';
+        if (!submissionAttempted) return;
 
-        if (successTextPattern.test(formText)) {
+        // innerText only reads text that is actually visible.
+        // This avoids Constant Contact's hidden success copy
+        // falsely triggering the confirmation on page load.
+        const visibleFormText = formHost.innerText || '';
+
+        if (successTextPattern.test(visibleFormText)) {
           formWrap.classList.add('is-complete');
           successMessage.classList.add('is-visible');
         }
       }
 
+      function markSubmissionAttempt() {
+        submissionAttempted = true;
+        window.setTimeout(checkForSuccess, 100);
+      }
+
+      // Capture a real form submission, including pressing Enter.
+      formWrap.addEventListener('submit', markSubmissionAttempt, true);
+
+      // Fallback for the submit button in case the embedded widget
+      // intercepts the form's submit event internally.
+      formWrap.addEventListener('click', function (event) {
+        if (event.target.closest('button[type="submit"], input[type="submit"], .ctct-form-button')) {
+          markSubmissionAttempt();
+        }
+      }, true);
+
       const observer = new MutationObserver(checkForSuccess);
       observer.observe(formHost, {
         childList: true,
         subtree: true,
-        characterData: true
+        characterData: true,
+        attributes: true,
+        attributeFilter: ['class', 'style', 'hidden', 'aria-hidden']
       });
-
-      checkForSuccess();
     })();
   </script>
 
