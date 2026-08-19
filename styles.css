@@ -1036,111 +1036,40 @@ button,input{font:inherit}
   align-items:center
 }
 
-/* Wanted poster / jail-bar visual */
+/* Jail photo visual */
 .jail-visual{
   position:relative;
   min-height:650px;
-  display:grid;
-  place-items:center
+  display:flex;
+  align-items:center;
+  justify-content:center
 }
 
-.jail-poster{
+.jail-photo{
   position:relative;
-  width:min(100%,510px);
-  min-height:590px;
-  padding:38px 34px 34px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  background:var(--gold);
-  color:var(--ink);
-  border:2px solid rgba(17,17,17,.85);
+  width:100%;
+  max-width:620px;
+  overflow:hidden;
+  border:2px solid rgba(255,255,255,.18);
   box-shadow:
     18px 20px 0 var(--red),
     28px 31px 0 rgba(0,0,0,.24),
     0 30px 70px rgba(0,0,0,.32);
-  transform:rotate(-2.2deg)
+  transform:rotate(-1.4deg)
 }
 
-.jail-poster::before,
-.jail-poster::after{
+.jail-photo::after{
   content:"";
   position:absolute;
-  left:17px;
-  right:17px;
-  height:8px;
-  border-top:2px solid var(--ink);
-  border-bottom:2px solid var(--ink)
+  inset:0;
+  pointer-events:none;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)
 }
 
-.jail-poster::before{top:18px}
-.jail-poster::after{bottom:18px}
-
-.jail-poster-top{
-  margin-top:4px;
-  font-family:var(--display);
-  font-size:10px;
-  letter-spacing:.18em
-}
-
-.jail-wanted{
-  margin:25px 0 18px;
-  font-family:var(--display);
-  font-size:clamp(62px,7vw,104px);
-  line-height:.78;
-  letter-spacing:-.065em
-}
-
-.jail-bars{
-  position: relative;
-  width: 82%;
-  height: 285px;
-  margin: 8px 0 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-  overflow: hidden;
-  border-top: 14px solid var(--ink);
-  border-bottom: 14px solid var(--ink);
-  background: var(--blue-deep);
-}
-
-.jail-bars::before{
-  content:"";
-  position:absolute;
-  left:0;
-  right:0;
-  top:50%;
-  height:16px;
-  transform:translateY(-50%);
-  background:var(--ink)
-}
-
-.jail-bars span{
-  position:relative;
-  z-index:2;
-  width:15px;
-  height:100%;
-  background:var(--ink)
-}
-
-.jail-poster-bottom{
-  text-align:center;
-  display:flex;
-  flex-direction:column;
-  gap:6px
-}
-
-.jail-poster-bottom strong{
-  font-family:var(--display);
-  font-size:27px;
-  line-height:1
-}
-
-.jail-poster-bottom span{
-  font-size:10px;
-  font-weight:800;
-  letter-spacing:.13em
+.jail-photo img{
+  display:block;
+  width:100%;
+  height:auto
 }
 
 /* Copy side */
@@ -1269,16 +1198,11 @@ button,input{font:inherit}
   }
 
   .jail-visual{
-    min-height:560px
+    min-height:520px
   }
 
-  .jail-poster{
-    min-height:510px;
-    padding-inline:26px
-  }
-
-  .jail-bars{
-    height:235px
+  .jail-photo{
+    max-width:540px
   }
 
   .jail-volunteer,
@@ -1306,7 +1230,7 @@ button,input{font:inherit}
   .jail-visual{
     order:2;
     min-height:0;
-    padding:12px 20px 34px;
+    padding:12px 12px 34px;
     overflow:visible
   }
 
@@ -1318,25 +1242,18 @@ button,input{font:inherit}
     margin-bottom:24px
   }
 
-  .jail-poster{
-    width:min(100%,420px);
-    min-height:500px;
+  .jail-photo{
+    width:100%;
+    max-width:520px;
     margin-inline:auto;
-    padding:32px 22px 30px;
     box-shadow:
       9px 11px 0 var(--red),
       15px 18px 0 rgba(0,0,0,.24);
-    transform:rotate(-1.35deg);
-    transform-origin:center center
+    transform:rotate(-.7deg)
   }
 
-  .jail-wanted{
-    font-size:clamp(58px,18vw,82px)
-  }
-
-  .jail-bars{
-    width:86%;
-    height:230px
+  .jail-photo img{
+    aspect-ratio:auto
   }
 
   .jail-volunteer{
@@ -1354,24 +1271,13 @@ button,input{font:inherit}
 }
 
 @media (max-width:480px){
+
   .jail-copy .jail-lead{
     font-size:18px
   }
 
   .jail-copy > p:not(.eyebrow){
     font-size:15px
-  }
-
-  .jail-poster{
-    min-height:440px
-  }
-
-  .jail-bars{
-    height:190px
-  }
-
-  .jail-poster-bottom strong{
-    font-size:22px
   }
 }
 
@@ -3737,12 +3643,11 @@ section[id]{
   }
 
   .jail-visual{
-    padding-inline:18px
+    padding-inline:12px
   }
 
-  .jail-poster{
-    width:100%;
-    transform:rotate(-1deg)
+  .jail-photo{
+    width:100%
   }
 
   .hero-75-watermark{
