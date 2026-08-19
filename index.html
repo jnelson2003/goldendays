@@ -69,6 +69,36 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Newsletter success confirmation -->
+  <style>
+    .newsletter-success {
+      display: none;
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 2px solid currentColor;
+    }
+
+    .newsletter-success.is-visible {
+      display: block;
+    }
+
+    .newsletter-success strong {
+      display: block;
+      font-family: "Archivo Black", sans-serif;
+      font-size: clamp(1.35rem, 2.2vw, 2rem);
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .newsletter-success span {
+      display: block;
+      margin-top: 8px;
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+  </style>
 </head>
 <body>
 
@@ -643,6 +673,16 @@
         class="ctct-inline-form"
         data-form-id="ff1c7f14-ba52-492a-a2cf-0cb384e44406">
       </div>
+
+      <div
+        class="newsletter-success"
+        id="newsletterSuccess"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true">
+        <strong>YOU'RE IN!</strong>
+        <span>You've been added to the Golden Days update list.</span>
+      </div>
     </div>
   </div>
 </section>
@@ -700,6 +740,39 @@
     defer>
   </script>
   <!-- End Constant Contact Active Forms -->
+
+  <!--
+    Show our Golden Days confirmation only after Constant Contact
+    returns its successful signup message.
+  -->
+  <script>
+    (function () {
+      const formHost = document.querySelector('.ctct-inline-form');
+      const successMessage = document.getElementById('newsletterSuccess');
+
+      if (!formHost || !successMessage) return;
+
+      const successTextPattern = /thank you|thanks for signing up|successfully|you(?:'|’)ve been added|you have been added|subscription confirmed/i;
+
+      function checkForSuccess() {
+        const formText = formHost.textContent || '';
+
+        if (successTextPattern.test(formText)) {
+          formHost.style.display = 'none';
+          successMessage.classList.add('is-visible');
+        }
+      }
+
+      const observer = new MutationObserver(checkForSuccess);
+      observer.observe(formHost, {
+        childList: true,
+        subtree: true,
+        characterData: true
+      });
+
+      checkForSuccess();
+    })();
+  </script>
 
   <script src="script.js"></script>
 </body>
