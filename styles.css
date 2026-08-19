@@ -1091,7 +1091,7 @@ button,input{font:inherit}
   letter-spacing:-.065em
 }
 
-..jail-bars{
+.jail-bars{
   position: relative;
   width: 82%;
   height: 285px;
