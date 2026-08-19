@@ -1,615 +1,50 @@
+---
+permalink: /duckie-race-results/
+---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="2027 Golden Days Rubber Duckie Race official results and prize claim information.">
+  <link rel="canonical" href="https://goldendaysfairbanks.com/duckie-race-results/">
   <title>2027 Rubber Duckie Race Results | Golden Days</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="event-pages-2-results.css">
-
-  <style>
-
-  /* =========================================================
-     GOLDEN DAYS SITE HEADER + FOOTER
-     Scoped to this results template only.
-     ========================================================= */
-
-  body.results-template-page.menu-open {
-    overflow: hidden;
-  }
-
-  body.results-template-page .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-  }
-
-  /* Announcement bar */
-  body.results-template-page .announcement {
-    position: relative;
-    z-index: 1001;
-    background: var(--gold);
-    color: var(--ink);
-    font-family: var(--display);
-    letter-spacing: .09em;
-    border-bottom: 1px solid rgba(17,17,17,.45);
-  }
-
-  body.results-template-page .announcement a {
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 17px;
-    padding: 8px 20px;
-  }
-
-  body.results-template-page .announcement span {
-    border: 0;
-  }
-
-  body.results-template-page .banner-edition,
-  body.results-template-page .banner-dates {
-    font-family: var(--display);
-    white-space: nowrap;
-  }
-
-  body.results-template-page .banner-edition {
-    font-size: 13px;
-  }
-
-  body.results-template-page .banner-dates {
-    font-size: 13px;
-    letter-spacing: .16em;
-  }
-
-  /* Header */
-  body.results-template-page .site-header {
-    position: absolute;
-    top: 44px;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    color: var(--white);
-    transition: background .25s ease, color .25s ease, box-shadow .25s ease;
-  }
-
-  body.results-template-page .site-header.scrolled {
-    position: fixed;
-    top: 0;
-    color: var(--ink);
-    background: rgba(248,242,229,.96);
-    backdrop-filter: blur(12px);
-    box-shadow: 0 1px 0 rgba(0,0,0,.12);
-  }
-
-  body.results-template-page .site-header .nav {
-    min-height: 90px;
-    height: 90px;
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    gap: 30px;
-    padding: 0;
-  }
-
-  body.results-template-page .site-header .brand {
-    display: inline-flex;
-    width: max-content;
-    flex-direction: column;
-    font-family: var(--display);
-    line-height: .84;
-    transform: rotate(-1deg);
-  }
-
-  body.results-template-page .site-header .brand-small {
-    margin: 0 0 5px 3px;
-    font-size: 11px;
-    letter-spacing: .24em;
-  }
-
-  body.results-template-page .site-header .brand-large {
-    font-size: 27px;
-    letter-spacing: -.04em;
-  }
-
-  body.results-template-page .site-header .nav-links {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 34px;
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: .07em;
-  }
-
-  body.results-template-page .site-header .nav-links a {
-    position: relative;
-    padding: 8px 0;
-    border-bottom: 0;
-  }
-
-  body.results-template-page .site-header .nav-links a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 3px;
-    width: 100%;
-    height: 2px;
-    background: currentColor;
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform .25s ease;
-  }
-
-  body.results-template-page .site-header .nav-links a:hover::after {
-    transform: scaleX(1);
-    transform-origin: left;
-  }
-
-  body.results-template-page .menu-button {
-    display: none;
-    justify-self: end;
-    width: 42px;
-    height: 42px;
-    border: 0;
-    background: transparent;
-    color: inherit;
-    padding: 9px;
-    cursor: pointer;
-  }
-
-  body.results-template-page .menu-button span:not(.sr-only) {
-    display: block;
-    height: 2px;
-    background: currentColor;
-    margin: 5px 0;
-    transition: .25s ease;
-  }
-
-  body.results-template-page .mobile-menu {
-    display: none;
-  }
-
-  body.results-template-page .mobile-menu .nav-cta {
-    display: block;
-    margin-top: 30px;
-    padding: 14px 18px;
-    background: var(--gold);
-    color: var(--ink);
-    font-family: var(--display);
-    font-size: 11px;
-    letter-spacing: .08em;
-    text-align: center;
-  }
-
-  /* Footer */
-  body.results-template-page .footer {
-    background: var(--ink);
-    color: var(--white);
-    padding: 80px 0 25px;
-  }
-
-  body.results-template-page .footer .footer-top {
-    display: grid;
-    grid-template-columns: 1.3fr 2fr;
-    align-items: start;
-    gap: 100px;
-    padding-bottom: 80px;
-  }
-
-  body.results-template-page .footer .footer-brand {
-    display: inline-flex;
-    width: max-content;
-    flex-direction: column;
-    font-family: var(--display);
-    line-height: .84;
-    transform: rotate(-1deg);
-  }
-
-  body.results-template-page .footer .footer-brand .brand-small {
-    margin: 0 0 5px 3px;
-    font-size: 14px;
-    letter-spacing: .18em;
-  }
-
-  body.results-template-page .footer .footer-brand .brand-large {
-    font-size: clamp(38px, 5vw, 75px);
-    letter-spacing: -.04em;
-  }
-
-  body.results-template-page .footer .footer-links {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0,1fr));
-    gap: 35px;
-    justify-content: initial;
-    color: inherit;
-    font-size: inherit;
-  }
-
-  body.results-template-page .footer .footer-links > div {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  body.results-template-page .footer .footer-links p {
-    margin: 0 0 10px;
-    color: var(--gold);
-    font-family: var(--display);
-    font-size: 10px;
-    letter-spacing: .12em;
-  }
-
-  body.results-template-page .footer .footer-links a {
-    color: rgba(255,255,255,.7);
-    font-size: 13px;
-  }
-
-  body.results-template-page .footer .footer-links a:hover {
-    color: var(--white);
-  }
-
-  body.results-template-page .footer .footer-bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 25px;
-    padding-top: 22px;
-    border-top: 1px solid rgba(255,255,255,.22);
-    color: rgba(255,255,255,.45);
-    font-size: 10px;
-    letter-spacing: .08em;
-  }
-
-  @media (max-width: 1040px) {
-    body.results-template-page .site-header .nav {
-      grid-template-columns: 1fr auto;
-    }
-
-    body.results-template-page .site-header .nav-links {
-      display: none;
-    }
-
-    body.results-template-page .menu-button {
-      display: block;
-    }
-
-    body.results-template-page .mobile-menu {
-      position: fixed;
-      inset: 90px 0 auto 0;
-      height: calc(100dvh - 90px);
-      overflow-y: auto;
-      background: var(--paper);
-      color: var(--ink);
-      padding: 45px 20px 70px;
-      flex-direction: column;
-      gap: 7px;
-      overscroll-behavior: contain;
-    }
-
-    body.results-template-page .site-header:not(.scrolled) .mobile-menu {
-      top: 134px;
-      height: calc(100dvh - 134px);
-    }
-
-    body.results-template-page .mobile-menu.open {
-      display: flex;
-    }
-
-    body.results-template-page .mobile-menu > a:not(.nav-cta) {
-      padding: 14px 0;
-      border-bottom: 1px solid var(--line);
-      font-family: var(--display);
-      font-size: 38px;
-      line-height: 1;
-      letter-spacing: -.04em;
-    }
-  }
-
-  @media (max-width: 760px) {
-    body.results-template-page .announcement a {
-      min-height: 38px;
-      justify-content: center;
-      gap: 12px;
-      padding: 7px 12px;
-    }
-
-    body.results-template-page .anniversary-banner .banner-dates:last-child {
-      display: none;
-    }
-
-    body.results-template-page .banner-edition,
-    body.results-template-page .banner-dates {
-      font-size: 9px;
-      letter-spacing: .1em;
-    }
-
-    body.results-template-page .site-header {
-      top: 38px;
-    }
-
-    body.results-template-page .site-header .nav {
-      min-height: 74px;
-      height: 74px;
-    }
-
-    body.results-template-page .menu-button {
-      width: 46px;
-      height: 46px;
-      padding: 10px;
-    }
-
-    body.results-template-page .mobile-menu {
-      inset: 74px 0 auto 0;
-      width: 100%;
-      height: calc(100dvh - 74px);
-      padding:
-        34px max(20px, env(safe-area-inset-right))
-        max(70px, calc(45px + env(safe-area-inset-bottom)))
-        max(20px, env(safe-area-inset-left));
-    }
-
-    body.results-template-page .site-header:not(.scrolled) .mobile-menu {
-      top: 112px;
-      height: calc(100dvh - 112px);
-    }
-
-    body.results-template-page .mobile-menu > a:not(.nav-cta) {
-      font-size: clamp(27px, 8vw, 38px);
-      padding: 15px 0;
-    }
-
-    body.results-template-page .footer {
-      padding-top: 60px;
-    }
-
-    body.results-template-page .footer .footer-top {
-      grid-template-columns: 1fr;
-      gap: 50px;
-      padding-bottom: 55px;
-    }
-
-    body.results-template-page .footer .footer-brand {
-      width: 100%;
-      max-width: 100%;
-    }
-
-    body.results-template-page .footer .footer-brand .brand-large {
-      max-width: 100%;
-      font-size: clamp(30px, 9.5vw, 42px);
-      line-height: .92;
-    }
-
-    body.results-template-page .footer .footer-brand .brand-small {
-      font-size: 11px;
-      line-height: 1.3;
-      letter-spacing: .14em;
-    }
-
-    body.results-template-page .footer .footer-bottom {
-      align-items: flex-start;
-      flex-direction: column;
-    }
-  }
-
-  @media (max-width: 480px) {
-    body.results-template-page .site-header .brand-small {
-      font-size: 9px;
-      letter-spacing: .18em;
-    }
-
-    body.results-template-page .site-header .brand-large {
-      font-size: 24px;
-    }
-
-    body.results-template-page .footer .footer-links {
-      grid-template-columns: 1fr;
-      gap: 30px;
-    }
-
-    body.results-template-page .footer .footer-links > div {
-      gap: 5px;
-    }
-
-    body.results-template-page .footer .footer-links a {
-      display: inline-flex;
-      align-items: center;
-      min-height: 36px;
-    }
-  }
-
-  @media (max-width: 360px) {
-    body.results-template-page .announcement a {
-      gap: 8px;
-      padding-inline: 8px;
-    }
-
-    body.results-template-page .banner-edition,
-    body.results-template-page .banner-dates {
-      font-size: 8px;
-    }
-  }
-
-
-  /* =========================================================
-     RESULTS TICKET TEXT / SPACING FIX
-     Keeps prize names readable and prevents over-aggressive wrapping.
-     ========================================================= */
-
-  body.results-template-page .results-page .ticket {
-    grid-template-columns: 96px minmax(0, 1fr);
-    min-height: 92px;
-  }
-
-  body.results-template-page .results-page .ticket .num-block {
-    padding: 24px 10px 16px;
-  }
-
-  body.results-template-page .results-page .ticket .num {
-    font-size: 23px;
-    white-space: nowrap;
-  }
-
-  body.results-template-page .results-page .ticket .place-label {
-    left: 8px;
-    right: 8px;
-    white-space: nowrap;
-  }
-
-  body.results-template-page .results-page .ticket .prize-block {
-    min-width: 0;
-    padding: 18px 22px;
-    align-items: center;
-  }
-
-  body.results-template-page .results-page .ticket .prize {
-    display: block;
-    width: 100%;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 1.5;
-    overflow-wrap: break-word;
-    word-break: normal;
-    hyphens: none;
-  }
-
-  body.results-template-page .results-page .ticket.wild-duck .prize-block {
-    padding-right: 78px;
-  }
-
-  @media (max-width: 980px) {
-    body.results-template-page .results-page .ticket-columns {
-      grid-template-columns: 1fr;
-      gap: 52px;
-    }
-
-    body.results-template-page .results-page .ticket {
-      grid-template-columns: 110px minmax(0, 1fr);
-    }
-
-    body.results-template-page .results-page .ticket .prize {
-      font-size: 14.5px;
-    }
-  }
-
-  @media (max-width: 520px) {
-    body.results-template-page .results-page .ticket {
-      grid-template-columns: 82px minmax(0, 1fr);
-      min-height: 88px;
-    }
-
-    body.results-template-page .results-page .ticket .num {
-      font-size: 19px;
-    }
-
-    body.results-template-page .results-page .ticket .prize-block {
-      padding: 15px 14px;
-    }
-
-    body.results-template-page .results-page .ticket .prize {
-      font-size: 13px;
-      line-height: 1.45;
-    }
-
-    body.results-template-page .results-page .ticket.wild-duck .prize-block {
-      padding-right: 14px;
-      padding-top: 28px;
-    }
-  }
-
-
-  /* Final ticket containment safeguards */
-  body.results-template-page .results-page .ticket,
-  body.results-template-page .results-page .ticket * {
-    box-sizing: border-box;
-  }
-
-  body.results-template-page .results-page .ticket {
-    width: 100%;
-    max-width: 100%;
-    overflow: hidden;
-  }
-
-  body.results-template-page .results-page .ticket .num-block,
-  body.results-template-page .results-page .ticket .prize-block {
-    min-width: 0;
-    max-width: 100%;
-    overflow: hidden;
-  }
-
-  body.results-template-page .results-page .ticket .num {
-    max-width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  body.results-template-page .results-page .ticket .prize {
-    max-width: 100%;
-    white-space: normal;
-    overflow-wrap: anywhere;
-    word-break: normal;
-  }
-
-  </style>
+  <link rel="stylesheet" href="/event-pages.css">
+  <link rel="stylesheet" href="/duckie-race-results.css">
 </head>
 
-<body class="results-template-page">
+<body class="duck-page results-page">
 
-  <!-- =========================================================
-       ANNOUNCEMENT BAR
-  ========================================================== -->
-  <div class="announcement anniversary-banner">
-    <a href="index.html#anniversary" aria-label="Golden Days 2027 anniversary information">
-      <span class="banner-edition">GOLDEN DAYS ’27</span>
-      <span class="banner-dates">JULY 17-25</span>
-      <span class="banner-dates">FAIRBANKS, ALASKA</span>
-    </a>
+  <div class="page-topbar">
+    <div class="shell">
+      <span>GOLDEN DAYS ’27</span>
+      <span>RUBBER DUCKIE RACE RESULTS</span>
+      <span>FAIRBANKS, ALASKA</span>
+    </div>
   </div>
 
-  <!-- =========================================================
-       NAVIGATION
-  ========================================================== -->
-  <header class="site-header" id="top">
-    <nav class="nav shell" aria-label="Main navigation">
-      <a class="brand" href="index.html" aria-label="Golden Days home">
-        <span class="brand-small">FAIRBANKS · ALASKA</span>
+  <header class="site-header">
+    <nav class="nav shell">
+      <a class="brand" href="/">
+        <span class="brand-small">75TH ANNIVERSARY · FAIRBANKS</span>
         <span class="brand-large">GOLDEN DAYS</span>
       </a>
 
-      <div class="nav-links" id="desktopNav">
-        <a href="index.html#anniversary">Celebrating 75 Years</a>
-        <a href="index.html#events">Major Events</a>
-        <a href="index.html#schedule">Events Calendar</a>
+      <div class="nav-links">
+        <a class="home-link" href="/">← Back to Home Page</a>
+        <a href="/duckie-race/">Duckie Race</a>
+        <a href="/parade/">Grande Parade</a>
+        <a href="/street-fair/">Street Fair</a>
+        <a href="/poke-of-gold/">Search for the Poke of Gold</a>
       </div>
-
-      <button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="mobileMenu">
-        <span></span><span></span><span></span>
-        <span class="sr-only">Open menu</span>
-      </button>
     </nav>
-
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="index.html#anniversary">Celebrating 75 Years</a>
-      <a href="index.html#events">Major Events</a>
-      <a href="index.html#schedule">Events Calendar</a>
-      <a href="index.html#about">Sponsors</a>
-      <a class="nav-cta" href="index.html#events">EXPLORE GOLDEN DAYS</a>
-    </div>
   </header>
-
 
 <main>
 <!--
@@ -633,7 +68,6 @@
   Uses event-pages-2-results.css, which contains the existing event-page CSS
   unchanged plus a scoped .results-page section appended at the end.
 -->
-<div class="duck-page results-page">
 
   <!-- HERO -->
   <section class="event-hero results-hero">
@@ -755,7 +189,6 @@
     </div>
   </section>
 
-</div>
 
 <script>
   /*
@@ -1258,81 +691,30 @@
 </main>
 
 
-  <!-- =========================================================
-       FOOTER
-  ========================================================== -->
-  <footer class="footer">
+  <footer class="page-footer">
     <div class="shell">
       <div class="footer-top">
-        <a class="brand footer-brand" href="index.html">
-          <span class="brand-small">75TH ANNIVERSARY · GOLDEN DAYS</span>
+        <a class="brand" href="/">
+          <span class="brand-small">75TH ANNIVERSARY</span>
           <span class="brand-large">OUR GOLDEN ERA</span>
         </a>
 
         <div class="footer-links">
-          <div>
-            <p>MAIN EVENTS</p>
-            <a href="parade.html">Grande Parade</a>
-            <a href="street-fair.html">Street Fair</a>
-            <a href="duckie-race.html">Duckie Race</a>
-          </div>
-
-          <div>
-            <p>CONNECT</p>
-            <a href="https://www.fairbankschamber.org/">Fairbanks Chamber</a>
-            <a href="mailto:info@fairbankschamber.org">Email Us</a>
-            <a href="https://www.facebook.com/FairbanksChamber">Facebook</a>
-            <a href="https://www.instagram.com/greaterfairbankschamber/">Instagram</a>
-          </div>
+          <a href="/">Home Page</a>
+          <a href="/duckie-race/">Duckie Race</a>
+          <a href="/parade/">Grande Parade</a>
+          <a href="/street-fair/">Street Fair</a>
+          <a href="/poke-of-gold/">Search for the Poke of Gold</a>
+          <a href="https://www.fairbankschamber.org/">Fairbanks Chamber</a>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <span>© <span id="year"></span> GREATER FAIRBANKS CHAMBER OF COMMERCE</span>
+        <span>© 2027 GREATER FAIRBANKS CHAMBER OF COMMERCE</span>
         <span>FAIRBANKS, ALASKA</span>
       </div>
     </div>
   </footer>
-
-
-
-<script>
-  /* Header/mobile-menu behavior for this standalone results template. */
-  (() => {
-    const header = document.querySelector(".site-header");
-    const menuButton = document.getElementById("menuButton");
-    const mobileMenu = document.getElementById("mobileMenu");
-    const year = document.getElementById("year");
-
-    const updateHeader = () => {
-      if (!header) return;
-      header.classList.toggle("scrolled", window.scrollY > 90);
-    };
-
-    updateHeader();
-    window.addEventListener("scroll", updateHeader, { passive: true });
-
-    if (menuButton && mobileMenu) {
-      menuButton.addEventListener("click", () => {
-        const open = mobileMenu.classList.toggle("open");
-        document.body.classList.toggle("menu-open", open);
-        menuButton.setAttribute("aria-expanded", String(open));
-      });
-
-      mobileMenu.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => {
-          mobileMenu.classList.remove("open");
-          document.body.classList.remove("menu-open");
-          menuButton.setAttribute("aria-expanded", "false");
-        });
-      });
-    }
-
-    if (year) {
-      year.textContent = new Date().getFullYear();
-    }
-  })();
-</script>
 
 </body>
 </html>
