@@ -70,35 +70,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Newsletter success confirmation -->
-  <style>
-    .newsletter-success {
-      display: none;
-      margin-top: 18px;
-      padding-top: 16px;
-      border-top: 2px solid currentColor;
-    }
-
-    .newsletter-success.is-visible {
-      display: block;
-    }
-
-    .newsletter-success strong {
-      display: block;
-      font-family: "Archivo Black", sans-serif;
-      font-size: clamp(1.35rem, 2.2vw, 2rem);
-      line-height: 1;
-      text-transform: uppercase;
-    }
-
-    .newsletter-success span {
-      display: block;
-      margin-top: 8px;
-      font-family: "DM Sans", sans-serif;
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-  </style>
 </head>
 <body>
 
@@ -747,10 +718,11 @@
   -->
   <script>
     (function () {
-      const formHost = document.querySelector('.ctct-inline-form');
+      const formWrap = document.querySelector('.golden-ctct-form');
+      const formHost = formWrap?.querySelector('.ctct-inline-form');
       const successMessage = document.getElementById('newsletterSuccess');
 
-      if (!formHost || !successMessage) return;
+      if (!formWrap || !formHost || !successMessage) return;
 
       const successTextPattern = /thank you|thanks for signing up|successfully|you(?:'|’)ve been added|you have been added|subscription confirmed/i;
 
@@ -758,7 +730,7 @@
         const formText = formHost.textContent || '';
 
         if (successTextPattern.test(formText)) {
-          formHost.style.display = 'none';
+          formWrap.classList.add('is-complete');
           successMessage.classList.add('is-visible');
         }
       }
