@@ -1091,20 +1091,18 @@ button,input{font:inherit}
   letter-spacing:-.065em
 }
 
-.jail-bars{
-  position:relative;
-  width:82%;
-  height:285px;
-  margin:8px 0 24px;
-  display:flex;
-  justify-content:space-between;
-  align-items:stretch;
-  overflow:hidden;
-  border-top:14px solid var(--ink);
-  border-bottom:14px solid var(--ink);
-  background:
-    radial-gradient(circle at 50% 46%,rgba(255,255,255,.24),transparent 35%),
-    var(--blue-deep)
+..jail-bars{
+  position: relative;
+  width: 82%;
+  height: 285px;
+  margin: 8px 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  overflow: hidden;
+  border-top: 14px solid var(--ink);
+  border-bottom: 14px solid var(--ink);
+  background: var(--blue-deep);
 }
 
 .jail-bars::before{
