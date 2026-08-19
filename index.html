@@ -4,6 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <script>
+  if (window.location.pathname.endsWith('.html')) {
+    window.location.replace(window.location.pathname.slice(0, -5));
+  }
+</script>
+  
   <!-- =========================================================
        PAGE TITLE + SEARCH DESCRIPTION
   ========================================================== -->
