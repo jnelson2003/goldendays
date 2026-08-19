@@ -5,57 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <script>
-  const path = window.location.pathname;
+    const path = window.location.pathname;
 
-  // Homepage: /index.html → /
-  if (path === "/index.html" || path === "/index") {
-    window.location.replace("/");
-  }
+    if (path === "/index.html" || path === "/index") {
+      window.location.replace("/");
+    }
+  </script>
 
-  // Other pages: /parade.html → /parade
-  else if (path.endsWith(".html")) {
-    window.location.replace(path.slice(0, -5));
-  }
-</script>
-  
-  <!-- =========================================================
-       PAGE TITLE + SEARCH DESCRIPTION
-  ========================================================== -->
- <title>Golden Days 2027 | Fairbanks, AK</title>
-<meta name="description" content="Golden Days 2027 | Fairbanks, AK" />
+  <title>Golden Days 2028 | Fairbanks, Alaska</title>
+  <meta
+    name="description"
+    content="Golden Days 2028 is coming to Fairbanks, Alaska. Dates, theme, events and participation information will be announced as planning continues."
+  />
+  <link rel="canonical" href="https://goldendaysfairbanks.com/" />
 
-<link rel="canonical" href="https://goldendaysfairbanks.com/">
+  <link
+    rel="icon"
+    type="image/png"
+    href="https://raw.githubusercontent.com/jnelson2003/goldendays/main/anniversary-seal.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    href="https://raw.githubusercontent.com/jnelson2003/goldendays/main/anniversary-seal.png"
+  />
 
-  <!-- =========================================================
-       FAVICON / APP ICON
-       Uses the Golden Days 75th Anniversary seal from GitHub.
-  ========================================================== -->
-  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/jnelson2003/goldendays/main/anniversary-seal.png" />
-  <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/jnelson2003/goldendays/main/anniversary-seal.png" />
-
-  <!-- =========================================================
-       SOCIAL SHARE / WEBSITE THUMBNAIL
-       Used by Facebook, LinkedIn, iMessage, Slack, Discord, etc.
-  ========================================================== -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Golden Days" />
-  <meta property="og:title" content="Golden Days 2027 | Fairbanks, AK" />
-  <meta property="og:description" content="Golden Days 2027 | Fairbanks, AK" />
-  <meta property="og:image" content="https://raw.githubusercontent.com/jnelson2003/goldendays/main/parade.jpg" />
-  <meta property="og:image:alt" content="Golden Days Grande Parade in Fairbanks, Alaska" />
+  <meta property="og:title" content="Golden Days 2028 | Fairbanks, Alaska" />
+  <meta
+    property="og:description"
+    content="Golden Days returns in 2028. Dates, theme, events and participation information will be announced as planning continues."
+  />
+  <meta
+    property="og:image"
+    content="https://raw.githubusercontent.com/jnelson2003/goldendays/main/parade.jpg"
+  />
+  <meta property="og:image:alt" content="Golden Days celebration in Fairbanks, Alaska" />
 
-  <!-- X / Twitter share card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Golden Days 2027 | Fairbanks, AK" />
-  <meta name="twitter:description" content="Golden Days 2027 | Fairbanks, AK" />
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/jnelson2003/goldendays/main/parade.jpg" />
-  <meta name="twitter:image:alt" content="Golden Days Grande Parade in Fairbanks, Alaska" />
+  <meta name="twitter:title" content="Golden Days 2028 | Fairbanks, Alaska" />
+  <meta
+    name="twitter:description"
+    content="Golden Days returns in 2028. Dates, theme and event details are coming soon."
+  />
+  <meta
+    name="twitter:image"
+    content="https://raw.githubusercontent.com/jnelson2003/goldendays/main/parade.jpg"
+  />
 
-  <!-- =========================================================
-       GOOGLE ANALYTICS 4
-       Replace BOTH instances of G-XXXXXXXXXX with your GA4
-       Measurement ID from Analytics > Admin > Data Streams.
-  ========================================================== -->
+  <!-- Replace G-XXXXXXXXXX with your GA4 Measurement ID when ready. -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -64,618 +62,327 @@
     gtag('config', 'G-XXXXXXXXXX');
   </script>
 
-  <!-- Fonts + site stylesheet -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles-2028.css?v=2028-preview-2" />
 </head>
-<body>
+
+<body class="preview-2028">
 
   <!-- =========================================================
        ANNOUNCEMENT BAR
-       Edit this for registration deadlines, duck tickets, etc.
   ========================================================== -->
-  <div class="announcement anniversary-banner">
-    <a href="#anniversary" aria-label="Golden Days 2027 anniversary information">
-      <span class="banner-edition">GOLDEN DAYS ’27</span>
-      <span class="banner-dates">JULY 17-25</span>
-      <span class="banner-dates">FAIRBANKS, ALASKA</span>
-    </a>
+  <div class="announcement preview-banner">
+    <div class="preview-banner-inner">
+      <span>GOLDEN DAYS 2028</span>
+      <span class="preview-banner-divider" aria-hidden="true"></span>
+      <span>FAIRBANKS, ALASKA</span>
+      <span class="preview-banner-divider" aria-hidden="true"></span>
+      <span>DETAILS COMING SOON</span>
+    </div>
   </div>
 
   <!-- =========================================================
-       NAVIGATION
+       HEADER
+       Intentionally minimal for the off-season preview page.
   ========================================================== -->
-<header class="site-header" id="top">
-  <nav class="nav shell" aria-label="Main navigation">
+  <header class="site-header preview-header" id="top">
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Golden Days 2028 home">
+        <span class="brand-small">FAIRBANKS · ALASKA</span>
+        <span class="brand-large">GOLDEN DAYS</span>
+      </a>
 
-    <a class="brand" href="#top" aria-label="Golden Days home">
-      <span class="brand-small">FAIRBANKS · ALASKA</span>
-      <span class="brand-large">GOLDEN DAYS</span>
-    </a>
+      <a class="preview-results-link" href="/duckie-race-results/">
+        2027 DUCKIE RACE RESULTS →
+      </a>
+    </nav>
+  </header>
 
-    <div class="nav-links" id="desktopNav">
+  <main>
 
-      <a href="#anniversary">Celebrating 75 Years</a>
-
-      <!-- MAJOR EVENTS HOVER MENU -->
-      <div class="nav-dropdown">
-
-        <a href="#events" class="nav-dropdown-trigger">
-          Major Events
-        </a>
-
-        <div class="nav-dropdown-menu">
-          <a href="street-fair">Street Fair</a>
-          <a href="parade">Grande Parade</a>
-          <a href="duckie-race">Rubber Duckie Race</a>
-        </div>
-
-      </div>
-
-      <a href="#schedule">Events Calendar</a>
-
-      <a href="poke-of-gold">Search for the Poke of Gold</a>
-
-    </div>
-
-    <button
-      class="menu-button"
-      id="menuButton"
-      aria-expanded="false"
-      aria-controls="mobileMenu"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-      <span class="sr-only">Open menu</span>
-    </button>
-
-  </nav>
-
-  <!-- MOBILE MENU -->
-  <div class="mobile-menu" id="mobileMenu">
-
-    <a href="#anniversary">Celebrating 75 Years</a>
-
-    <details class="mobile-events-dropdown">
-      <summary>Major Events</summary>
-
-      <div class="mobile-events-submenu">
-        <a href="street-fair.html">Street Fair</a>
-        <a href="parade.html">Grande Parade</a>
-        <a href="duckie-race.html">Rubber Duckie Race</a>
-      </div>
-    </details>
-
-    <a href="#schedule">Events Calendar</a>
-    <a href="#about">Sponsors</a>
-
-    <a class="nav-cta" href="#events">
-      EXPLORE GOLDEN DAYS
-    </a>
-
-  </div>
-</header>
-
-<main>
     <!-- =========================================================
-         75TH ANNIVERSARY HERO
+         2028 HERO
     ========================================================== -->
-
-  <section class="hero anniversary-hero">
+    <section class="hero preview-hero">
       <div class="hero-image"></div>
       <div class="hero-overlay"></div>
-      <div class="hero-75-watermark" aria-hidden="true">75</div>
+      <div class="preview-year-watermark" aria-hidden="true">2028</div>
 
-           <div class="hero-content shell">
-        <div class="hero-topline reveal">
-          <div class="hero-kicker">
-            <span></span>
-            <span class=""></span>
-            <span></span>
-          </div>
-
-          <div class="anniversary-seal-image">
-            <!-- Upload your official seal using this filename,
-                 or change the src to match your file. -->
-            <img src="anniversary-seal.png" alt="Golden Days 75th Anniversary">
-          </div>
+      <div class="hero-content shell">
+        <div class="preview-kicker">
+          <span class="dot"></span>
+          <span>THE NEXT GOLDEN DAYS IS ON THE WAY</span>
         </div>
 
-        <div class="hero-theme reveal">
-          <p class="hero-overline">THE 75TH GOLDEN DAYS</p>
-          <h1 class="era-title">
-            <span>OUR</span>
-            <span class="gold-word">GOLDEN</span>
-            <span>ERA</span>
+        <div class="preview-hero-main">
+          <p class="hero-overline">FAIRBANKS, ALASKA</p>
+
+          <h1 class="preview-title">
+            GOLDEN<br>
+            <span>DAYS ’28.</span>
           </h1>
-        </div>
 
-        <div class="hero-bottom reveal">
-          <div class="hero-intro">
-            <p>
-              Celebrating 75 years of Golden Days with nine days
-              of tradition, community, history and Golden Heart fun.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <a class="scroll-cue" href="#anniversary" aria-label="Scroll to 75th anniversary">
-        <span>OUR GOLDEN ERA</span>
-        <span class="scroll-line"></span>
-      </a>
-    </section>
-    
-    <!-- =========================================================
-         MOVING TICKER
-  ========================================================== -->
-    <section class="ticker" aria-label="Golden Days highlights">
-      <div class="ticker-track">
-        <span>OUR GOLDEN ERA ✦ 75TH ANNIVERSARY ✦ GOLDEN DAYS ’27 ✦ JULY 17–25 ✦ FAIRBANKS, ALASKA ✦</span>
-        <span aria-hidden="true">OUR GOLDEN ERA ✦ 75TH ANNIVERSARY ✦ GOLDEN DAYS ’27 ✦ JULY 17–25 ✦ FAIRBANKS, ALASKA ✦</span>
-      </div>
-    </section>
-
-    <!-- =========================================================
-         75TH ANNIVERSARY STORY + HISTORY
-    ========================================================== -->
-<section class="anniversary-story section" id="anniversary">
-  <div class="shell">
-    <div class="anniversary-grid">
-
-      <div class="anniversary-number reveal" aria-hidden="true">
-        <span>7</span><span>5</span>
-      </div>
-
-      <div class="anniversary-copy">
-        <p class="eyebrow reveal">THE STORY BEHIND GOLDEN DAYS</p>
-
-        <h2 class="display-heading reveal">
-          75 YEARS<br>
-          <em>IN THE MAKING.</em>
-        </h2>
-
-        <p class="intro-copy reveal">
-          Golden Days traces its roots to the discovery of gold that helped shape
-          Fairbanks. Fifty years after Felix Pedro’s 1902 discovery, the community
-          came together for the first Golden Days celebration. What started as a
-          salute to Fairbanks’ Gold Rush history has become one of the city’s
-          biggest summer traditions.
-        </p>
-
-        <details class="history-dropdown reveal">
-          <summary>
-            <span class="history-summary-copy">
-              <small>LOOK BACK</small>
-              <strong>THE HISTORY OF GOLDEN DAYS</strong>
-            </span>
-            <span class="history-toggle" aria-hidden="true">+</span>
-          </summary>
-
-          <div class="history-dropdown-content">
-            <p>
-              Golden Days celebrates the history of Fairbanks and the events that
-              helped shape our community. In 1901, E.T. Barnette established a
-              trading post along the Chena River. The following summer, Italian
-              immigrant prospector Felix Pedro discovered paying quantities of gold
-              about 12 miles north of the settlement. News of the July 1902 discovery
-              spread quickly, bringing prospectors to the Tanana Valley and helping
-              transform the small trading post into the growing community of Fairbanks.
-            </p>
-
-            <p>
-              Fifty years later, in 1952, Golden Days began as a community celebration
-              honoring Fairbanks’ Gold Rush and pioneer heritage. Held each July near
-              the anniversary of Pedro’s discovery, Golden Days invites residents and
-              visitors to celebrate early Fairbanks through parades, pioneer characters,
-              community gatherings and other festivities. Over the decades, the
-              celebration has grown into one of Fairbanks’ signature summer traditions.
-            </p>
-
-            <p>
-              New traditions have become part of Golden Days along the way. In 1985,
-              the Fairbanks Chamber added the Rubber Duckie Race. The first race sent
-              2,000 rubber ducks down the Chena River; today, 8,000 ducks take part.
-              Together with the Grande Parade, downtown Street Fair and other community
-              events, the race has become one of the traditions generations of
-              Fairbanksans associate with Golden Days.
-            </p>
-
-            <p class="history-finale">
-              In 2027, Golden Days celebrates 75 years.
-              <strong>Our Golden Era</strong> honors the history, people and traditions
-              that have shaped both Golden Days and Fairbanks while celebrating the
-              community that continues to carry them forward.
-            </p>
-          </div>
-        </details>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-    <!-- =========================================================
-         FEATURED EVENT CARDS
-  ========================================================== -->
-    <section class="events section" id="events">
-      <div class="shell">
-        <div class="section-header">
-          <div>
-            <p class="eyebrow reveal">MAJOR EVENTS - JULY 24</p>
-            <h2 class="display-heading reveal">THE TRADITIONS<br><em>GO ON.</em></h2>
-          </div>
-          <p class="section-side-copy reveal">
+          <p class="preview-hero-copy">
+            Golden Days will return in 2028. Planning is underway, and we’ll share
+            dates, the official theme, signature event details, sponsorship
+            opportunities and ways to participate as they are confirmed.
           </p>
         </div>
 
-        <div class="event-grid">
-          <article class="event-card event-card-tall reveal">
-            <div class="event-image image-parade" role="img" aria-label="Golden Days Grande Parade"></div>
-            <div class="event-shade"></div>
+        <div class="preview-status">
+          <span>DATES</span>
+          <strong>COMING SOON</strong>
 
-            <div class="event-sponsor-logo">
-              <!-- Transparent PNG recommended -->
-              <img src="parade-sponsor.png" alt="Grande Parade sponsor logo" onerror="this.style.display='none'">
-            </div>
-            <div class="event-card-copy">
-              <p class="event-meta">DOWNTOWN FAIRBANKS</p>
-              <h3>GRANDE<br>PARADE</h3>
-              <p>Line the streets and enjoy floats, performers and community groups from across Fairbanks.</p>
-              <a href="parade">PARADE DETAILS <span>→</span></a>
-            </div>
-          </article>
+          <span>THEME</span>
+          <strong>COMING SOON</strong>
 
-          <article class="event-card reveal">
-            <div class="event-image image-fair" role="img" aria-label="Golden Days Street Fair"></div>
-            <div class="event-shade"></div>
-
-            <div class="event-sponsor-logo event-sponsor-logo-small">
-              <!-- Transparent PNG recommended -->
-              <img src="street-fair-sponsor.png" alt="Street Fair sponsor logo" onerror="this.style.display='none'">
-            </div>
-            <div class="event-card-copy">
-              <p class="event-meta">GOLDEN HEART PLAZA + 1ST AVE</p>
-              <h3>STREET<br>FAIR</h3>
-              <p>Local vendors, food, live entertainment and Kidz Korner downtown.</p>
-              <a href="street-fair">STREET FAIR DETAILS <span>→</span></a>
-            </div>
-          </article>
-
-          <article class="event-card reveal">
-            <div class="event-image image-ducks" role="img" aria-label="Golden Days Rubber Duckie Race"></div>
-            <div class="event-shade"></div>
-
-            <div class="event-sponsor-logo event-sponsor-logo-small">
-              <!-- Transparent PNG recommended -->
-              <img src="duck-race-sponsor.png" alt="Rubber Duckie Race sponsor logo" onerror="this.style.display='none'">
-            </div>
-            <div class="event-card-copy">
-              <p class="event-meta">CHENA RIVER</p>
-              <h3>DUCKIE<br>RACE</h3>
-              <p>Watch thousands of rubber ducks race down the Chena River for prizes.</p>
-              <a href="duckie-race">RACE DETAILS <span>→</span></a>
-            </div>
-          </article>
-        </div>
-
-        <div class="all-events-cta reveal">
+          <span>EVENT DETAILS</span>
+          <strong>COMING SOON</strong>
         </div>
       </div>
     </section>
 
     <!-- =========================================================
-         GOLDEN DAYS ’27 EVENT CALENDAR
+         TICKER
     ========================================================== -->
-<section class="schedule section festival-calendar" id="schedule">
-  <div class="shell">
-
-    <div class="calendar-heading reveal">
-      <div>
-        <p class="eyebrow"></p>
-        <h2 class="display-heading">
-          EVENTS<br><em>CALENDAR.</em>
-        </h2>
-      </div>
-
-      <div class="calendar-heading-copy">
-        <p></p>
-        <span class="calendar-location"></span>
-      </div>
-    </div>
-
-    <!-- MULTI-DAY EVENT -->
-    <div class="calendar-multiday reveal">
-      <div class="calendar-multiday-date">
-        <span>JULY</span>
-        <strong>22–25</strong>
-      </div>
-
-      <div class="calendar-multiday-copy">
-        <h3>PANCAKE BREAKFAST</h3>
-        <p>Thursday through Sunday during Golden Days.</p>
-      </div>
-
-      <span class="calendar-multiday-mark" aria-hidden="true">✦</span>
-    </div>
-
-    <div class="calendar-stack">
-
-      <!-- SATURDAY · JULY 17 -->
-      <article class="calendar-day reveal">
-        <div class="calendar-date">
-          <span class="calendar-weekday">SATURDAY</span>
-          <strong>17</strong>
-          <span>JULY</span>
-        </div>
-
-        <div class="calendar-events calendar-events-single">
-          <div class="calendar-event-card calendar-event-music">
-            <h3>GOLDEN HOUR<br>LIVE MUSIC SESSIONS</h3>
-            <p>Country, Americana and bluegrass.</p>
-          </div>
-        </div>
-      </article>
-
-      <!-- WEDNESDAY · JULY 21 -->
-      <article class="calendar-day reveal">
-        <div class="calendar-date">
-          <span class="calendar-weekday">WEDNESDAY</span>
-          <strong>21</strong>
-          <span>JULY</span>
-        </div>
-
-        <div class="calendar-events calendar-events-single">
-          <div class="calendar-event-card">
-            <h3>OLD TYME<br>GAMES</h3>
-          </div>
-        </div>
-      </article>
-
-      <!-- SATURDAY · JULY 24 -->
-      <article class="calendar-day calendar-day-featured reveal">
-        <div class="calendar-date">
-          <span class="calendar-weekday">SATURDAY</span>
-          <strong>24</strong>
-          <span>JULY</span>
-        </div>
-
-        <div class="calendar-events calendar-events-three">
-
-          <div class="calendar-event-card calendar-marquee-event">
-            <span class="calendar-event-type">40TH ANNUAL</span>
-            <h3>MT. McKINLEY BANK<br>DUCKIE RACE</h3>
-          </div>
-
-          <div class="calendar-event-card calendar-marquee-event">
-            <span class="calendar-event-type">DOWNTOWN FAIRBANKS</span>
-            <h3>KINROSS<br>GRANDE PARADE</h3>
-          </div>
-
-          <div class="calendar-event-card calendar-marquee-event">
-            <span class="calendar-event-type">DOWNTOWN FAIRBANKS</span>
-            <h3>ALASKA 529<br>STREET FAIR</h3>
-          </div>
-
-        </div>
-      </article>
-
-    </div>
-
-    <div class="calendar-footer reveal">
-      <span></span>
-      <span></span>
-    </div>
-
-    <!-- ADD A COMMUNITY EVENT -->
-    <div class="calendar-community-cta reveal">
-      <p class="calendar-community-label">
-        HOSTING A GOLDEN DAYS EVENT?
-      </p>
-
-      <h3 class="calendar-community-heading">
-        ADD YOUR EVENT<br>TO THE CALENDAR.
-      </h3>
-
-      <a
-        class="button button-dark"
-        href="https://form.jotform.com/262290797049165"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        SUBMIT A COMMUNITY EVENT →
-      </a>
-    </div>
-
-  </div>
-</section>
-
-    <!-- =========================================================
-         PARKING / GETTING DOWNTOWN
-         Background image: downtown.jpg
-    ========================================================== -->
-    <section class="duck-cta parking-cta">
-      <div class="duck-cta-art"></div>
-      <div class="duck-cta-overlay"></div>
-
-      <div class="shell duck-cta-content reveal">
-        <p class="eyebrow light">BEFORE YOU HEAD DOWNTOWN</p>
-        <h2>KNOW WHERE<br>TO PARK.</h2>
-
-        <p>
-          Downtown gets busy during Golden Days. Take a look at parking areas,
-          road closures and other helpful information before you arrive.
-        </p>
-
-        <div class="parking-actions">
-          <a class="button button-outline" href="#">PARKING DETAILS →</a>
-          <a class="button button-outline" href="#">DOWNTOWN MAP →</a>
-        </div>
+    <section class="ticker" aria-label="Golden Days 2028 preview">
+      <div class="ticker-track">
+        <span>GOLDEN DAYS 2028 ✦ FAIRBANKS, ALASKA ✦ DATES COMING SOON ✦ THEME COMING SOON ✦ SEE YOU NEXT SUMMER ✦</span>
+        <span aria-hidden="true">GOLDEN DAYS 2028 ✦ FAIRBANKS, ALASKA ✦ DATES COMING SOON ✦ THEME COMING SOON ✦ SEE YOU NEXT SUMMER ✦</span>
       </div>
     </section>
 
-
     <!-- =========================================================
-         GOLDEN DAYS JAIL
+         COMING SOON
     ========================================================== -->
-    <section class="jail-section section" id="jail">
-      <div class="jail-backdrop-word" aria-hidden="true">JAIL</div>
-
-      <div class="shell jail-grid">
-
-        <div class="jail-visual reveal">
-          <div class="jail-photo">
-            <img
-              src="jail.jpg"
-              alt="Golden Days Jail"
-            >
-          </div>
-        </div>
-
-        <div class="jail-copy reveal">
-          <h2 class="jail-heading">
-            GOLDEN DAYS<br><em>JAIL.</em>
+    <section class="section preview-coming-soon">
+      <div class="shell preview-coming-grid">
+        <div>
+          <p class="eyebrow">LOOKING AHEAD</p>
+          <h2 class="display-heading">
+            SEE YOU<br>
+            <em>IN 2028.</em>
           </h2>
+        </div>
 
-          <p class="jail-lead">
-  With warrants in hand, the sheriffs will “arrest” the people of your choice,
-  as well as any citizen caught without a Golden Days pin, garter or T-shirt.
-</p>
+        <div class="preview-coming-copy">
+          <p class="preview-lead">
+            We’re already looking ahead to another Golden Days in Fairbanks.
+          </p>
 
-<p>
-  This is your chance to have your friends, family, bosses and co-workers
-  thrown in the “Big House!”
-</p>
+          <p>
+            The next celebration is still in the early planning stages, so some of
+            the big pieces are intentionally under wraps for now. Check back as we
+            announce the 2028 theme, dates, event schedule, registration information
+            and more.
+          </p>
 
-<p>
-  The Golden Days Jail is operated by volunteers and organized by the Midnight Sun Marshalls &amp; Madams.
-</p>
-
-<div class="sponsor-contact jail-contact">
-  <strong>Contact Nena Ballek</strong>
-  <span>Golden Days Jail Crew</span>
-  <a href="tel:+19074604548">(907) 460-4548</a>
-  <a href="mailto:GoldenDaysJailCrew@yahoo.com">
-    GoldenDaysJailCrew@yahoo.com
-  </a>
-</div>
+          <p>
+            You can expect the traditions that make Golden Days feel like Golden
+            Days — community celebrations, downtown activity and plenty of Golden
+            Heart spirit.
+          </p>
         </div>
       </div>
     </section>
 
-<!-- =========================================================
-     SPONSORS
-========================================================== -->
-<section class="about section" id="about">
-  <div class="shell about-grid">
+    <!-- =========================================================
+         WHAT TO EXPECT
+         Informational only — intentionally no links.
+    ========================================================== -->
+    <section class="section preview-traditions">
+      <div class="shell">
+        <p class="eyebrow light">THE TRADITIONS CONTINUE</p>
 
-    <div>
-      <h2 class="display-heading light reveal">
-        75 YEARS.<br>
-        CELEBRATE<br>
-        <em>WITH US.</em>
-      </h2>
-    </div>
+        <h2 class="display-heading light preview-traditions-heading">
+          FAIRBANKS<br>
+          <em>GOES GOLD.</em>
+        </h2>
 
-    <div class="about-copy reveal">
-      <p>
-        Golden Days has always been a community effort, and our sponsors are a big part of what makes it happen.
-      </p>
+        <div class="preview-tradition-grid">
+          <article>
+            <span>01</span>
+            <h3>GRANDE PARADE</h3>
+            <p>
+              Floats, performers, community groups and generations of Fairbanksans
+              lining the streets downtown.
+            </p>
+          </article>
 
-      <p>
-        As we celebrate 75 years in 2027, we’re looking for businesses that want to be part of the fun, support the events people look forward to every summer, and help make this milestone year a great one for Fairbanks.
-      </p>
+          <article>
+            <span>02</span>
+            <h3>STREET FAIR</h3>
+            <p>
+              Local vendors, food, entertainment and a full day of activity in the
+              heart of downtown Fairbanks.
+            </p>
+          </article>
 
-<div class="sponsor-contact">
-  <strong>Contact Jasmine St. Pierre</strong>
-  <span>Events Coordinator</span>
-  <a href="tel:19073746703" style="display: block;">(907) 374-6703</a>
-  <a href="mailto:jasmine@fairbankschamber.org" style="display: block;">
-    jasmine@fairbankschamber.org
-  </a>
-</div>
-    </div>
+          <article>
+            <span>03</span>
+            <h3>RUBBER DUCKIE RACE</h3>
+            <p>
+              Thousands of rubber ducks racing down the Chena River in one of Golden
+              Days’ most recognizable traditions.
+            </p>
+          </article>
 
-  </div>
-</section>
-
-<!-- =========================================================
-     ALL SPONSORS PHOTO
-     Replace sponsors.jpg with your sponsor graphic/photo.
-==========================================================
-
-<section class="sponsor-photo-section" aria-label="Golden Days sponsors">
-  <div class="sponsor-photo">
-    <img src="sponsors.jpg" alt="Golden Days sponsors" onerror="this.style.display='none'">
-  </div>
-
-  <div class="sponsor-photo-caption">
-    <div class="shell">
-      THANK YOU TO THE BUSINESSES THAT HELP MAKE GOLDEN DAYS POSSIBLE.
-    </div>
-  </div>
-</section>
-
-========================================================== -->
-
-
-<section class="newsletter" id="newsletter">
-  <div class="shell newsletter-grid">
-    <div>
-      <p class="eyebrow">DON'T MISS A THING</p>
-      <h2>GET GOLDEN DAYS UPDATES.</h2>
-      <p class="newsletter-copy">
-        Be the first to hear about events, registration openings, announcements and Golden Days news.
-      </p>
-    </div>
-
-    <!--
-      CONSTANT CONTACT INLINE FORM
-      The form fields, list destination and submission are controlled
-      by Constant Contact. Website CSS below makes the embedded form
-      match the Golden Days design.
-    -->
-    <div class="golden-ctct-form">
-      <div
-        class="ctct-inline-form"
-        data-form-id="ff1c7f14-ba52-492a-a2cf-0cb384e44406">
+          <article>
+            <span>04</span>
+            <h3>COMMUNITY EVENTS</h3>
+            <p>
+              Golden Days grows through the businesses, organizations and community
+              groups that add their own celebrations throughout the week.
+            </p>
+          </article>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-</main>
-  
+    <!-- =========================================================
+         HISTORY
+    ========================================================== -->
+    <section class="anniversary-story section" id="history">
+      <div class="shell">
+        <div class="preview-history-grid">
+
+          <div class="preview-history-mark" aria-hidden="true">
+            <span>19</span>
+            <span>52</span>
+          </div>
+
+          <div class="anniversary-copy">
+            <p class="eyebrow">THE STORY BEHIND GOLDEN DAYS</p>
+
+            <h2 class="display-heading">
+              A FAIRBANKS<br>
+              <em>TRADITION.</em>
+            </h2>
+
+            <p class="intro-copy">
+              Golden Days traces its roots to the discovery of gold that helped shape
+              Fairbanks. Fifty years after Felix Pedro’s 1902 discovery, the community
+              came together for the first Golden Days celebration in 1952. What started
+              as a salute to Fairbanks’ Gold Rush history has grown into one of the
+              city’s biggest summer traditions.
+            </p>
+
+            <details class="history-dropdown">
+              <summary>
+                <span class="history-summary-copy">
+                  <small>LOOK BACK</small>
+                  <strong>THE HISTORY OF GOLDEN DAYS</strong>
+                </span>
+                <span class="history-toggle" aria-hidden="true">+</span>
+              </summary>
+
+              <div class="history-dropdown-content">
+                <p>
+                  Golden Days celebrates the history of Fairbanks and the events that
+                  helped shape our community. In 1901, E.T. Barnette established a
+                  trading post along the Chena River. The following summer, Italian
+                  immigrant prospector Felix Pedro discovered paying quantities of gold
+                  about 12 miles north of the settlement.
+                </p>
+
+                <p>
+                  News of the July 1902 discovery spread quickly, bringing prospectors
+                  to the Tanana Valley and helping transform the small trading post into
+                  the growing community of Fairbanks. Fifty years later, in 1952,
+                  Golden Days began as a community celebration honoring Fairbanks’
+                  Gold Rush and pioneer heritage.
+                </p>
+
+                <p>
+                  Over the decades, the celebration has grown to include the Grande
+                  Parade, downtown Street Fair, community events and the Rubber Duckie
+                  Race, which joined Golden Days in 1985.
+                </p>
+
+                <p class="history-finale">
+                  The details change from year to year, but the heart of Golden Days
+                  remains the same: <strong>Fairbanks celebrating Fairbanks.</strong>
+                </p>
+              </div>
+            </details>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         2027 RESULTS CTA
+         The only page link on the 2028 preview site.
+    ========================================================== -->
+    <section class="section preview-results-section">
+      <div class="shell preview-results-grid">
+        <div>
+          <p class="eyebrow">LOOKING FOR 2027?</p>
+          <h2 class="display-heading">
+            DUCKIE RACE<br>
+            <em>RESULTS.</em>
+          </h2>
+        </div>
+
+        <div class="preview-results-copy">
+          <p>
+            Checking a ticket from the 2027 Rubber Duckie Race? Official winning
+            ticket numbers and prize information are still available.
+          </p>
+
+          <a class="button button-dark preview-results-button" href="/duckie-race-results/">
+            VIEW 2027 RESULTS →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         NEWSLETTER
+    ========================================================== -->
+    <section class="newsletter" id="newsletter">
+      <div class="shell newsletter-grid">
+        <div>
+          <p class="eyebrow">BE FIRST TO KNOW</p>
+          <h2>GET 2028 UPDATES.</h2>
+          <p class="newsletter-copy">
+            Get Golden Days announcements as the 2028 theme, dates, events and
+            participation opportunities are released.
+          </p>
+        </div>
+
+        <div class="golden-ctct-form">
+          <div
+            class="ctct-inline-form"
+            data-form-id="ff1c7f14-ba52-492a-a2cf-0cb384e44406">
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
   <!-- =========================================================
        FOOTER
+       No page links on the 2028 preview.
   ========================================================== -->
-  <footer class="footer">
+  <footer class="footer preview-footer">
     <div class="shell">
-      <div class="footer-top">
-        <a class="brand footer-brand" href="#top">
-          <span class="brand-small">75TH ANNIVERSARY · GOLDEN DAYS</span>
-          <span class="brand-large">OUR GOLDEN ERA</span>
-        </a>
-
-        <div class="footer-links">
-          <div>
-            <p>MAIN EVENTS</p>
-            <a href="parade">Grande Parade</a>
-            <a href="street-fair">Street Fair</a>
-            <a href="duckie-race">Duckie Race</a>
-            <a href="poke-of-gold">Search for the Poke of Gold</a>
-          </div>
-          <div>
-            <p>CONNECT</p>
-            <a href="https://www.fairbankschamber.org/">Fairbanks Chamber</a>
-            <a href="mailto:info@fairbankschamber.org">Email Us</a>
-            <a href="https://www.facebook.com/FairbanksChamber">Facebook</a>
-            <a href="https://www.instagram.com/greaterfairbankschamber/">Instagram</a>
-          </div>
+      <div class="preview-footer-top">
+        <div class="brand footer-brand">
+          <span class="brand-small">FAIRBANKS · ALASKA</span>
+          <span class="brand-large">GOLDEN DAYS 2028</span>
         </div>
+
+        <p>
+          Dates, theme and full event information will be shared as planning continues.
+        </p>
       </div>
 
       <div class="footer-bottom">
@@ -685,11 +392,7 @@
     </div>
   </footer>
 
-  <!-- =========================================================
-       CONSTANT CONTACT UNIVERSAL CODE
-       Required for the inline Golden Days signup form above.
-  ========================================================== -->
-  <!-- Begin Constant Contact Active Forms -->
+  <!-- Constant Contact -->
   <script>
     var _ctct_m = "1ca8e497351e0f23d2d100b4cf8ab482";
   </script>
@@ -699,527 +402,7 @@
     async
     defer>
   </script>
-  <!-- End Constant Contact Active Forms -->
 
   <script src="script.js"></script>
 </body>
 </html>
-
-/* =========================================================
-   GOLDEN DAYS 2028 PREVIEW / OFF-SEASON LANDING PAGE
-   ========================================================= */
-
-.preview-2028 .site-header{
-  top:44px
-}
-
-.preview-banner{
-  min-height:44px;
-  display:flex;
-  align-items:center;
-  justify-content:center
-}
-
-.preview-banner-inner{
-  min-height:44px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:16px;
-  padding:8px 20px;
-  font-family:var(--display);
-  font-size:11px;
-  letter-spacing:.12em
-}
-
-.preview-banner-divider{
-  width:30px;
-  height:1px;
-  background:rgba(17,17,17,.55)
-}
-
-.preview-header .nav{
-  grid-template-columns:1fr auto;
-}
-
-.preview-results-link{
-  justify-self:end;
-  padding:12px 0 7px;
-  border-bottom:2px solid var(--gold);
-  font-family:var(--display);
-  font-size:10px;
-  letter-spacing:.08em;
-  text-transform:uppercase
-}
-
-
-/* HERO */
-
-.preview-hero{
-  min-height:880px;
-  height:calc(100vh - 44px);
-  max-height:1050px
-}
-
-.preview-hero .hero-image{
-  background-image:
-    linear-gradient(125deg,rgba(9,43,55,.16),rgba(9,43,55,.02)),
-    url("hero.jpg");
-  background-position:center 45%
-}
-
-.preview-hero .hero-overlay{
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(0,0,0,.60),
-      rgba(0,0,0,.22) 43%,
-      rgba(0,0,0,.74)
-    ),
-    linear-gradient(
-      95deg,
-      rgba(0,0,0,.38),
-      transparent 60%
-    )
-}
-
-.preview-year-watermark{
-  position:absolute;
-  z-index:1;
-  right:-5vw;
-  top:13%;
-  color:rgba(255,255,255,.08);
-  font-family:var(--display);
-  font-size:clamp(220px,34vw,520px);
-  line-height:.75;
-  letter-spacing:-.1em;
-  pointer-events:none;
-  user-select:none
-}
-
-.preview-hero .hero-content{
-  padding-top:165px;
-  padding-bottom:58px;
-  justify-content:space-between
-}
-
-.preview-kicker{
-  position:relative;
-  z-index:3;
-  display:flex;
-  align-items:center;
-  gap:12px;
-  font-family:var(--display);
-  font-size:10px;
-  letter-spacing:.14em
-}
-
-.preview-hero-main{
-  position:relative;
-  z-index:3;
-  margin:auto 0 34px
-}
-
-.preview-title{
-  margin:0;
-  max-width:1060px;
-  font-family:var(--display);
-  font-size:clamp(92px,14vw,210px);
-  line-height:.72;
-  letter-spacing:-.075em;
-  text-transform:uppercase
-}
-
-.preview-title span{
-  color:var(--gold)
-}
-
-.preview-hero-copy{
-  max-width:660px;
-  margin:30px 0 0;
-  font-size:clamp(17px,1.8vw,22px);
-  line-height:1.5;
-  font-weight:600
-}
-
-.preview-status{
-  position:relative;
-  z-index:3;
-  display:grid;
-  grid-template-columns:auto 1fr auto 1fr auto 1fr;
-  gap:14px 18px;
-  align-items:baseline;
-  padding-top:22px;
-  border-top:1px solid rgba(255,255,255,.4)
-}
-
-.preview-status span{
-  color:rgba(255,255,255,.55);
-  font-family:var(--display);
-  font-size:8px;
-  letter-spacing:.13em
-}
-
-.preview-status strong{
-  color:var(--white);
-  font-family:var(--display);
-  font-size:12px;
-  letter-spacing:.06em
-}
-
-
-/* COMING SOON */
-
-.preview-coming-soon{
-  background:var(--cream)
-}
-
-.preview-coming-grid{
-  display:grid;
-  grid-template-columns:1.15fr .85fr;
-  gap:80px;
-  align-items:start
-}
-
-.preview-coming-copy{
-  max-width:620px;
-  padding-top:44px
-}
-
-.preview-coming-copy p{
-  margin:0 0 20px;
-  font-size:17px;
-  line-height:1.68
-}
-
-.preview-coming-copy .preview-lead{
-  font-size:clamp(22px,2.4vw,32px);
-  line-height:1.35;
-  font-weight:700;
-  letter-spacing:-.025em
-}
-
-
-/* TRADITIONS */
-
-.preview-traditions{
-  position:relative;
-  overflow:hidden;
-  background:var(--blue-deep);
-  color:var(--white)
-}
-
-.preview-traditions::after{
-  content:"2028";
-  position:absolute;
-  right:-3vw;
-  bottom:-65px;
-  color:rgba(255,255,255,.025);
-  font-family:var(--display);
-  font-size:clamp(190px,28vw,440px);
-  line-height:.8;
-  letter-spacing:-.08em;
-  pointer-events:none
-}
-
-.preview-traditions .shell{
-  position:relative;
-  z-index:2
-}
-
-.preview-traditions-heading{
-  margin-bottom:70px
-}
-
-.preview-tradition-grid{
-  display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  border-top:1px solid rgba(255,255,255,.25);
-  border-bottom:1px solid rgba(255,255,255,.25)
-}
-
-.preview-tradition-grid article{
-  min-height:285px;
-  padding:26px 26px 30px;
-  border-right:1px solid rgba(255,255,255,.2)
-}
-
-.preview-tradition-grid article:first-child{
-  padding-left:0
-}
-
-.preview-tradition-grid article:last-child{
-  border-right:0
-}
-
-.preview-tradition-grid span{
-  color:var(--gold);
-  font-family:var(--display);
-  font-size:9px;
-  letter-spacing:.12em
-}
-
-.preview-tradition-grid h3{
-  margin:70px 0 18px;
-  font-family:var(--display);
-  font-size:clamp(22px,2.2vw,31px);
-  line-height:.95;
-  letter-spacing:-.035em
-}
-
-.preview-tradition-grid p{
-  margin:0;
-  color:rgba(255,255,255,.7);
-  font-size:14px;
-  line-height:1.6
-}
-
-
-/* HISTORY */
-
-.preview-history-grid{
-  display:grid;
-  grid-template-columns:.8fr 2.1fr;
-  gap:75px;
-  align-items:start
-}
-
-.preview-history-mark{
-  display:flex;
-  flex-direction:column;
-  margin-top:-5px;
-  color:var(--gold);
-  font-family:var(--display);
-  font-size:clamp(100px,12vw,185px);
-  line-height:.67;
-  letter-spacing:-.09em
-}
-
-.preview-history-mark span:last-child{
-  color:var(--red);
-  margin-left:.42em
-}
-
-
-/* RESULTS CTA */
-
-.preview-results-section{
-  background:var(--gold)
-}
-
-.preview-results-grid{
-  display:grid;
-  grid-template-columns:1.25fr .75fr;
-  gap:80px;
-  align-items:end
-}
-
-.preview-results-section .display-heading em{
-  color:var(--white)
-}
-
-.preview-results-copy{
-  max-width:540px;
-  padding-bottom:10px
-}
-
-.preview-results-copy p{
-  margin:0 0 28px;
-  font-size:18px;
-  line-height:1.6
-}
-
-.preview-results-button{
-  min-width:220px
-}
-
-
-/* FOOTER */
-
-.preview-footer-top{
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:80px;
-  align-items:end;
-  padding-bottom:70px
-}
-
-.preview-footer-top p{
-  max-width:480px;
-  margin:0;
-  color:rgba(255,255,255,.58);
-  font-size:14px;
-  line-height:1.6
-}
-
-
-/* TABLET */
-
-@media (max-width:1040px){
-
-  .preview-coming-grid,
-  .preview-results-grid{
-    grid-template-columns:1fr;
-    gap:38px
-  }
-
-  .preview-coming-copy{
-    padding-top:0
-  }
-
-  .preview-tradition-grid{
-    grid-template-columns:repeat(2,minmax(0,1fr))
-  }
-
-  .preview-tradition-grid article{
-    border-bottom:1px solid rgba(255,255,255,.2)
-  }
-
-  .preview-tradition-grid article:nth-child(2){
-    border-right:0
-  }
-
-  .preview-tradition-grid article:nth-child(3),
-  .preview-tradition-grid article:nth-child(4){
-    border-bottom:0
-  }
-
-  .preview-history-grid{
-    grid-template-columns:.65fr 1.6fr;
-    gap:42px
-  }
-}
-
-
-/* MOBILE */
-
-@media (max-width:760px){
-
-  .preview-banner-inner{
-    gap:9px;
-    padding-inline:8px;
-    font-size:8px
-  }
-
-  .preview-banner-divider{
-    width:10px
-  }
-
-  .preview-header .nav{
-    height:74px
-  }
-
-  .preview-results-link{
-    max-width:145px;
-    text-align:right;
-    font-size:8px;
-    line-height:1.35
-  }
-
-  .preview-hero{
-    min-height:720px;
-    height:calc(100svh - 38px)
-  }
-
-  .preview-hero .hero-content{
-    padding-top:115px;
-    padding-bottom:32px
-  }
-
-  .preview-year-watermark{
-    right:-18vw;
-    top:20%;
-    font-size:70vw
-  }
-
-  .preview-title{
-    font-size:clamp(68px,21vw,100px);
-    line-height:.74
-  }
-
-  .preview-hero-copy{
-    max-width:95%;
-    margin-top:22px;
-    font-size:15px
-  }
-
-  .preview-status{
-    grid-template-columns:1fr 1fr;
-    gap:8px 18px
-  }
-
-  .preview-status span{
-    font-size:7px
-  }
-
-  .preview-status strong{
-    text-align:right;
-    font-size:9px
-  }
-
-  .preview-coming-grid,
-  .preview-history-grid,
-  .preview-results-grid,
-  .preview-footer-top{
-    grid-template-columns:1fr;
-    gap:30px
-  }
-
-  .preview-tradition-grid{
-    grid-template-columns:1fr
-  }
-
-  .preview-tradition-grid article,
-  .preview-tradition-grid article:first-child{
-    min-height:0;
-    padding:26px 0;
-    border-right:0;
-    border-bottom:1px solid rgba(255,255,255,.2)
-  }
-
-  .preview-tradition-grid article:last-child{
-    border-bottom:0
-  }
-
-  .preview-tradition-grid h3{
-    margin-top:34px;
-    font-size:27px
-  }
-
-  .preview-history-mark{
-    flex-direction:row;
-    gap:5px;
-    font-size:clamp(84px,27vw,120px)
-  }
-
-  .preview-history-mark span:last-child{
-    margin-left:0
-  }
-
-  .preview-results-button{
-    width:100%
-  }
-
-  .preview-footer-top{
-    padding-bottom:50px
-  }
-}
-
-@media (max-width:480px){
-
-  .preview-banner-inner span:last-child{
-    display:none
-  }
-
-  .preview-banner-inner .preview-banner-divider:last-of-type{
-    display:none
-  }
-
-  .preview-title{
-    font-size:clamp(62px,20vw,84px)
-  }
-
-  .preview-kicker{
-    font-size:8px
-  }
-}
