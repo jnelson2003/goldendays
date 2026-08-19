@@ -5,16 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <script>
-  if (window.location.pathname.endsWith('.html')) {
-    window.location.replace(window.location.pathname.slice(0, -5));
+  const path = window.location.pathname;
+
+  // Homepage: /index.html → /
+  if (path === "/index.html" || path === "/index") {
+    window.location.replace("/");
+  }
+
+  // Other pages: /parade.html → /parade
+  else if (path.endsWith(".html")) {
+    window.location.replace(path.slice(0, -5));
   }
 </script>
   
   <!-- =========================================================
        PAGE TITLE + SEARCH DESCRIPTION
   ========================================================== -->
-  <title>Golden Days 2027 | Fairbanks, AK</title>
-  <meta name="description" content="Golden Days 2027 | Fairbanks, AK" />
+ <title>Golden Days 2027 | Fairbanks, AK</title>
+<meta name="description" content="Golden Days 2027 | Fairbanks, AK" />
+
+<link rel="canonical" href="https://goldendaysfairbanks.com/">
 
   <!-- =========================================================
        FAVICON / APP ICON
