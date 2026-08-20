@@ -1623,7 +1623,7 @@ button,input{font:inherit}
   }
 
   .mobile-events-dropdown[open] summary::after{
-    content:"âˆ’"
+    content:"Ã¢Ë†â€™"
   }
 
   .mobile-events-submenu{
@@ -2513,7 +2513,7 @@ button,input{font:inherit}
 }
 
 .newsletter::after{
-  content:"â€™27";
+  content:"Ã¢â‚¬â„¢27";
   position:absolute;
   right:1vw;
   bottom:-45px;
@@ -2842,7 +2842,7 @@ button,input{font:inherit}
 }
 
 .festival-calendar::before{
-  content:"â€™27";
+  content:"Ã¢â‚¬â„¢27";
   position:absolute;
   right:-2vw;
   top:40px;
@@ -4092,74 +4092,6 @@ section[id]{
 
 
 /* =========================================================
-   NEWSLETTER SIGNUP SUCCESS STATE
-   Shown only after Constant Contact confirms the submission.
-   ========================================================= */
-
-.newsletter-success{
-  display:none;
-  width:100%;
-  margin:0;
-  padding:28px 0 6px;
-  border-top:3px solid var(--ink);
-  color:var(--ink)
-}
-
-.newsletter-success.is-visible{
-  display:block;
-  animation:newsletterSuccessIn .35s ease both
-}
-
-.golden-ctct-form.is-complete .ctct-inline-form{
-  display:none !important
-}
-
-.newsletter-success strong{
-  display:block;
-  margin:0;
-  font-family:var(--display);
-  font-size:clamp(34px,4vw,58px);
-  line-height:.9;
-  letter-spacing:-.045em;
-  text-transform:uppercase
-}
-
-.newsletter-success span{
-  display:block;
-  max-width:440px;
-  margin-top:12px;
-  font-family:var(--body);
-  font-size:15px;
-  font-weight:600;
-  line-height:1.5
-}
-
-@keyframes newsletterSuccessIn{
-  from{
-    opacity:0;
-    transform:translateY(8px)
-  }
-  to{
-    opacity:1;
-    transform:translateY(0)
-  }
-}
-
-@media (max-width:760px){
-  .newsletter-success{
-    padding-top:22px
-  }
-
-  .newsletter-success strong{
-    font-size:clamp(32px,11vw,46px)
-  }
-
-  .newsletter-success span{
-    font-size:14px
-  }
-}
-
-/* =========================================================
    Sponsor Contact
    ========================================================= */
 .sponsor-contact {
@@ -4194,4 +4126,61 @@ section[id]{
 
 .sponsor-contact a:hover {
   border-color: var(--gold);
+}
+
+/* =========================================================
+   NEWSLETTER SUBMIT BUTTON FEEDBACK
+   SUBMIT â†’ SUBMITTING... â†’ SUBMITTED âœ“
+   ========================================================= */
+
+.newsletter .golden-ctct-form.is-submitting button[type="submit"],
+.newsletter .golden-ctct-form.is-submitting input[type="submit"],
+.newsletter .golden-ctct-form.is-submitting .ctct-form-button{
+  opacity:.72 !important;
+  cursor:progress !important
+}
+
+.newsletter .golden-ctct-form.is-submitted .ctct-form-success,
+.newsletter .golden-ctct-form.is-submitted .ctct-form-successMessage,
+.newsletter .golden-ctct-form.is-submitted .ctct-form-success-message{
+  display:none !important
+}
+
+.newsletter .golden-ctct-form.is-submitted button[type="submit"],
+.newsletter .golden-ctct-form.is-submitted input[type="submit"],
+.newsletter .golden-ctct-form.is-submitted .ctct-form-button,
+.newsletter .golden-ctct-form .golden-submit-status{
+  width:auto !important;
+  min-width:160px !important;
+  min-height:50px !important;
+  margin:2px 0 0 auto !important;
+  padding:12px 18px !important;
+  border:2px solid var(--ink) !important;
+  border-radius:0 !important;
+  background:var(--ink) !important;
+  color:var(--gold) !important;
+  box-shadow:none !important;
+  font-family:var(--display) !important;
+  font-size:10px !important;
+  font-weight:400 !important;
+  line-height:1.2 !important;
+  letter-spacing:.07em !important;
+  text-transform:uppercase !important;
+  cursor:default !important;
+  opacity:1 !important;
+  transform:none !important
+}
+
+.newsletter .golden-ctct-form .golden-submit-status{
+  display:block !important
+}
+
+@media (max-width:760px){
+  .newsletter .golden-ctct-form.is-submitted button[type="submit"],
+  .newsletter .golden-ctct-form.is-submitted input[type="submit"],
+  .newsletter .golden-ctct-form.is-submitted .ctct-form-button,
+  .newsletter .golden-ctct-form .golden-submit-status{
+    width:100% !important;
+    margin-left:0 !important
+  }
 }
