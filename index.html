@@ -704,8 +704,9 @@
 
   <!-- =========================================================
        GOLDEN DAYS NEWSLETTER BUTTON STATUS
-       Keeps Constant Contact in charge of the actual signup,
-       but gives visitors a clear visual confirmation.
+       Simple timed confirmation: when a valid form submit fires,
+       show SUBMITTING... briefly, then SUBMITTED ✓.
+       Constant Contact still handles the actual signup normally.
   ========================================================== -->
   <script>
     (function () {
@@ -715,21 +716,7 @@
       const buttonSelector =
         'button[type="submit"], input[type="submit"], .ctct-form-button';
 
-      const successSelector = [
-        '.ctct-form-success',
-        '.ctct-form-successMessage',
-        '.ctct-form-success-message',
-        '[data-qe-id="form-success"]'
-      ].join(',');
-
-      const errorSelector = [
-        '.ctct-form-errorMessage',
-        '.ctct-form-error-message',
-        '.ctct-form-error'
-      ].join(',');
-
       let submitted = false;
-      let resetTimer = null;
 
       function getSubmitButton() {
         return wrapper.querySelector(buttonSelector);
@@ -747,58 +734,21 @@
 
       function prepareButton() {
         if (submitted) return;
-
         const button = getSubmitButton();
-        if (!button) return;
-
-        if (!button.dataset.goldenDaysPrepared) {
-          button.dataset.goldenDaysPrepared = 'true';
-          setButtonText(button, 'SUBMIT →');
-        }
-      }
-
-      function successIsVisible() {
-        const success = wrapper.querySelector(successSelector);
-
-        if (success && success.textContent.trim()) {
-          const style = window.getComputedStyle(success);
-          if (style.display !== 'none' && style.visibility !== 'hidden') {
-            return true;
-          }
-        }
-
-        const text = wrapper.textContent.toLowerCase();
-        return (
-          text.includes('thanks for signing up') ||
-          text.includes('thank you for signing up') ||
-          text.includes('successfully subscribed') ||
-          text.includes('you are subscribed') ||
-          text.includes("you're subscribed")
-        );
-      }
-
-      function errorIsVisible() {
-        const errors = wrapper.querySelectorAll(errorSelector);
-
-        return Array.from(errors).some(function (error) {
-          if (!error.textContent.trim()) return false;
-          const style = window.getComputedStyle(error);
-          return style.display !== 'none' && style.visibility !== 'hidden';
-        });
+        if (button) setButtonText(button, 'SUBMIT →');
       }
 
       function showSubmitted() {
         if (submitted) return;
         submitted = true;
-        clearTimeout(resetTimer);
 
         wrapper.classList.remove('is-submitting');
         wrapper.classList.add('is-submitted');
 
         let button = getSubmitButton();
 
-        /* Constant Contact may remove its form after success.
-           If it does, create a matching disabled confirmation button. */
+        /* Constant Contact may replace/remove the form after submission.
+           If that happens, create a matching visual confirmation button. */
         if (!button) {
           button = document.createElement('button');
           button.type = 'button';
@@ -811,51 +761,32 @@
         button.setAttribute('aria-disabled', 'true');
       }
 
-      function resetButton() {
-        if (submitted) return;
-        wrapper.classList.remove('is-submitting');
-        const button = getSubmitButton();
-        if (button) setButtonText(button, 'SUBMIT →');
-      }
+      /* Constant Contact injects its form after page load, so watch only
+         long enough to give the injected submit button our starting label. */
+      const buttonObserver = new MutationObserver(function () {
+        prepareButton();
+        if (getSubmitButton()) buttonObserver.disconnect();
+      });
 
-      /* Constant Contact injects the actual form after page load,
-         so use delegation instead of binding to a button immediately. */
+      buttonObserver.observe(wrapper, {
+        childList: true,
+        subtree: true
+      });
+
+      prepareButton();
+
+      /* A submit event normally fires only after browser-required fields
+         have passed validation. From there, use a simple timed confirmation
+         rather than trying to detect Constant Contact's success markup. */
       wrapper.addEventListener('submit', function (event) {
-        if (!event.target.matches('form')) return;
+        if (!event.target.matches('form') || submitted) return;
 
         const button = getSubmitButton();
         if (button) setButtonText(button, 'SUBMITTING...');
         wrapper.classList.add('is-submitting');
 
-        clearTimeout(resetTimer);
-        resetTimer = setTimeout(function () {
-          if (!submitted && !successIsVisible()) resetButton();
-        }, 12000);
+        setTimeout(showSubmitted, 2200);
       }, true);
-
-      const observer = new MutationObserver(function () {
-        prepareButton();
-
-        if (successIsVisible()) {
-          showSubmitted();
-          return;
-        }
-
-        if (wrapper.classList.contains('is-submitting') && errorIsVisible()) {
-          clearTimeout(resetTimer);
-          resetButton();
-        }
-      });
-
-      observer.observe(wrapper, {
-        childList: true,
-        subtree: true,
-        characterData: true,
-        attributes: true,
-        attributeFilter: ['class', 'style']
-      });
-
-      prepareButton();
     })();
   </script>
 
