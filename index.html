@@ -702,6 +702,163 @@
   </script>
   <!-- End Constant Contact Active Forms -->
 
+  <!-- =========================================================
+       GOLDEN DAYS NEWSLETTER BUTTON STATUS
+       Keeps Constant Contact in charge of the actual signup,
+       but gives visitors a clear visual confirmation.
+  ========================================================== -->
+  <script>
+    (function () {
+      const wrapper = document.querySelector('.golden-ctct-form');
+      if (!wrapper) return;
+
+      const buttonSelector =
+        'button[type="submit"], input[type="submit"], .ctct-form-button';
+
+      const successSelector = [
+        '.ctct-form-success',
+        '.ctct-form-successMessage',
+        '.ctct-form-success-message',
+        '[data-qe-id="form-success"]'
+      ].join(',');
+
+      const errorSelector = [
+        '.ctct-form-errorMessage',
+        '.ctct-form-error-message',
+        '.ctct-form-error'
+      ].join(',');
+
+      let submitted = false;
+      let resetTimer = null;
+
+      function getSubmitButton() {
+        return wrapper.querySelector(buttonSelector);
+      }
+
+      function setButtonText(button, text) {
+        if (!button) return;
+
+        if (button.tagName === 'INPUT') {
+          button.value = text;
+        } else {
+          button.textContent = text;
+        }
+      }
+
+      function prepareButton() {
+        if (submitted) return;
+
+        const button = getSubmitButton();
+        if (!button) return;
+
+        if (!button.dataset.goldenDaysPrepared) {
+          button.dataset.goldenDaysPrepared = 'true';
+          setButtonText(button, 'SUBMIT →');
+        }
+      }
+
+      function successIsVisible() {
+        const success = wrapper.querySelector(successSelector);
+
+        if (success && success.textContent.trim()) {
+          const style = window.getComputedStyle(success);
+          if (style.display !== 'none' && style.visibility !== 'hidden') {
+            return true;
+          }
+        }
+
+        const text = wrapper.textContent.toLowerCase();
+        return (
+          text.includes('thanks for signing up') ||
+          text.includes('thank you for signing up') ||
+          text.includes('successfully subscribed') ||
+          text.includes('you are subscribed') ||
+          text.includes("you're subscribed")
+        );
+      }
+
+      function errorIsVisible() {
+        const errors = wrapper.querySelectorAll(errorSelector);
+
+        return Array.from(errors).some(function (error) {
+          if (!error.textContent.trim()) return false;
+          const style = window.getComputedStyle(error);
+          return style.display !== 'none' && style.visibility !== 'hidden';
+        });
+      }
+
+      function showSubmitted() {
+        if (submitted) return;
+        submitted = true;
+        clearTimeout(resetTimer);
+
+        wrapper.classList.remove('is-submitting');
+        wrapper.classList.add('is-submitted');
+
+        let button = getSubmitButton();
+
+        /* Constant Contact may remove its form after success.
+           If it does, create a matching disabled confirmation button. */
+        if (!button) {
+          button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'golden-submit-status';
+          wrapper.appendChild(button);
+        }
+
+        setButtonText(button, 'SUBMITTED ✓');
+        button.disabled = true;
+        button.setAttribute('aria-disabled', 'true');
+      }
+
+      function resetButton() {
+        if (submitted) return;
+        wrapper.classList.remove('is-submitting');
+        const button = getSubmitButton();
+        if (button) setButtonText(button, 'SUBMIT →');
+      }
+
+      /* Constant Contact injects the actual form after page load,
+         so use delegation instead of binding to a button immediately. */
+      wrapper.addEventListener('submit', function (event) {
+        if (!event.target.matches('form')) return;
+
+        const button = getSubmitButton();
+        if (button) setButtonText(button, 'SUBMITTING...');
+        wrapper.classList.add('is-submitting');
+
+        clearTimeout(resetTimer);
+        resetTimer = setTimeout(function () {
+          if (!submitted && !successIsVisible()) resetButton();
+        }, 12000);
+      }, true);
+
+      const observer = new MutationObserver(function () {
+        prepareButton();
+
+        if (successIsVisible()) {
+          showSubmitted();
+          return;
+        }
+
+        if (wrapper.classList.contains('is-submitting') && errorIsVisible()) {
+          clearTimeout(resetTimer);
+          resetButton();
+        }
+      });
+
+      observer.observe(wrapper, {
+        childList: true,
+        subtree: true,
+        characterData: true,
+        attributes: true,
+        attributeFilter: ['class', 'style']
+      });
+
+      prepareButton();
+    })();
+  </script>
+
   <script src="script.js"></script>
 </body>
 </html>
