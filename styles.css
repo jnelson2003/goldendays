@@ -2513,15 +2513,16 @@ button,input{font:inherit}
 }
 
 .newsletter::after{
-  content:"ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢27";
+  content:"GET CONNECTED";
   position:absolute;
-  right:1vw;
-  bottom:-45px;
+  right:-1vw;
+  bottom:-30px;
   color:rgba(17,17,17,.06);
   font-family:var(--display);
-  font-size:210px;
+  font-size:clamp(80px,11vw,160px);
   line-height:1;
-  letter-spacing:-.08em;
+  letter-spacing:-.06em;
+  white-space:nowrap;
   pointer-events:none
 }
 
@@ -2781,8 +2782,8 @@ button,input{font:inherit}
   }
 
   .newsletter::after{
-    right:-18px;
-    font-size:140px
+    right:-12px;
+    font-size:clamp(60px,16vw,110px)
   }
 }
 
@@ -2842,7 +2843,7 @@ button,input{font:inherit}
 }
 
 .festival-calendar::before{
-  content:"ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢27";
+  content:"’27";
   position:absolute;
   right:-2vw;
   top:40px;
@@ -3910,182 +3911,10 @@ section[id]{
   min-width:0
 }
 
-/* Remove Constant Contact's card-like wrapper styling. */
-.newsletter .golden-ctct-form .ctct-form-embed,
-.newsletter .golden-ctct-form .ctct-form-defaults,
-.newsletter .golden-ctct-form .ctct-form-custom{
-  width:100% !important;
-  max-width:none !important;
-  margin:0 !important;
-  padding:0 !important;
-  background:transparent !important;
-  border:0 !important;
-  border-radius:0 !important;
-  box-shadow:none !important;
-  color:var(--ink) !important;
-  font-family:var(--body) !important
-}
-
-/* The Golden Days section already supplies its own title/copy. */
-.newsletter .golden-ctct-form .ctct-form-header,
-.newsletter .golden-ctct-form .ctct-form-text{
-  display:none !important
-}
-
-/* Form layout: name fields can sit beside each other; email gets a full row. */
-.newsletter .golden-ctct-form form{
-  width:100% !important;
-  display:grid !important;
-  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
-  gap:14px 16px !important;
-  margin:0 !important;
-  padding:0 !important
-}
-
-.newsletter .golden-ctct-form .ctct-form-field,
-.newsletter .golden-ctct-form form > p{
-  min-width:0 !important;
-  margin:0 !important;
-  padding:0 !important
-}
-
-/* Email always gets the full-width row. */
-.newsletter .golden-ctct-form .ctct-form-field:has(input[type="email"]),
-.newsletter .golden-ctct-form form > p:has(input[type="email"]){
-  grid-column:1 / -1 !important
-}
-
-/* Small native-looking field labels. */
-.newsletter .golden-ctct-form label{
-  display:block !important;
-  margin:0 0 6px !important;
-  color:var(--ink) !important;
-  font-family:var(--display) !important;
-  font-size:9px !important;
-  font-weight:400 !important;
-  line-height:1.3 !important;
-  letter-spacing:.12em !important;
-  text-transform:uppercase !important
-}
-
-/* Name/email fields use the same simple underline treatment as the original cute form. */
-.newsletter .golden-ctct-form input[type="text"],
-.newsletter .golden-ctct-form input[type="email"],
-.newsletter .golden-ctct-form input[type="tel"],
-.newsletter .golden-ctct-form select{
-  width:100% !important;
-  min-width:0 !important;
-  min-height:50px !important;
-  margin:0 !important;
-  padding:13px 2px !important;
-  border:0 !important;
-  border-bottom:3px solid var(--ink) !important;
-  border-radius:0 !important;
-  outline:none !important;
-  background:transparent !important;
-  color:var(--ink) !important;
-  box-shadow:none !important;
-  font-family:var(--body) !important;
-  font-size:15px !important;
-  font-weight:700 !important;
-  line-height:1.2 !important;
-  appearance:none !important
-}
-
-.newsletter .golden-ctct-form input::placeholder{
-  color:rgba(17,17,17,.55) !important;
-  opacity:1 !important
-}
-
-.newsletter .golden-ctct-form input:focus,
-.newsletter .golden-ctct-form select:focus{
-  border-bottom-color:var(--red) !important
-}
-
-/* Constant Contact may render the submit as either a button or submit input. */
-.newsletter .golden-ctct-form button[type="submit"],
-.newsletter .golden-ctct-form input[type="submit"],
-.newsletter .golden-ctct-form .ctct-form-button{
-  grid-column:1 / -1 !important;
-  justify-self:end !important;
-  width:auto !important;
-  min-width:160px !important;
-  min-height:50px !important;
-  margin:2px 0 0 !important;
-  padding:12px 18px !important;
-  border:2px solid var(--ink) !important;
-  border-radius:0 !important;
-  background:var(--ink) !important;
-  color:var(--white) !important;
-  box-shadow:none !important;
-  font-family:var(--display) !important;
-  font-size:10px !important;
-  font-weight:400 !important;
-  line-height:1.2 !important;
-  letter-spacing:.07em !important;
-  text-transform:uppercase !important;
-  cursor:pointer !important;
-  transition:transform .18s ease,background .18s ease,color .18s ease !important
-}
-
-.newsletter .golden-ctct-form button[type="submit"]:hover,
-.newsletter .golden-ctct-form input[type="submit"]:hover,
-.newsletter .golden-ctct-form .ctct-form-button:hover{
-  transform:translateY(-2px) !important;
-  background:var(--blue-deep) !important
-}
-
-/* Errors and success messages stay readable without looking like a second widget. */
-.newsletter .golden-ctct-form .ctct-form-errorMessage,
-.newsletter .golden-ctct-form .ctct-form-error-message{
-  color:#6e2014 !important;
-  font-size:11px !important;
-  font-weight:700 !important;
-  line-height:1.4 !important
-}
-
-.newsletter .golden-ctct-form .ctct-form-success{
-  grid-column:1 / -1 !important;
-  padding:18px 0 !important;
-  background:transparent !important;
-  color:var(--ink) !important;
-  font-family:var(--display) !important;
-  font-size:18px !important;
-  line-height:1.25 !important
-}
-
-/* Keep any required consent/legal copy readable and understated. */
-.newsletter .golden-ctct-form small,
-.newsletter .golden-ctct-form .ctct-form-footer{
-  grid-column:1 / -1 !important;
-  color:rgba(17,17,17,.62) !important;
-  font-size:9px !important;
-  line-height:1.45 !important
-}
-
 @media (max-width:760px){
   .newsletter-copy{
     margin-top:14px;
     font-size:13px
-  }
-
-  .newsletter .golden-ctct-form form{
-    grid-template-columns:1fr !important;
-    gap:12px !important
-  }
-
-  .newsletter .golden-ctct-form .ctct-form-field:has(input[type="email"]),
-  .newsletter .golden-ctct-form form > p:has(input[type="email"]){
-    grid-column:auto !important
-  }
-
-  .newsletter .golden-ctct-form button[type="submit"],
-  .newsletter .golden-ctct-form input[type="submit"],
-  .newsletter .golden-ctct-form .ctct-form-button{
-    grid-column:auto !important;
-    justify-self:stretch !important;
-    width:100% !important;
-    margin-top:2px !important
   }
 }
 
@@ -4126,63 +3955,6 @@ section[id]{
 
 .sponsor-contact a:hover {
   border-color: var(--gold);
-}
-
-/* =========================================================
-   NEWSLETTER SUBMIT BUTTON FEEDBACK
-   SUBMIT Ã¢â€ â€™ SUBMITTING... Ã¢â€ â€™ SUBMITTED Ã¢Å“â€œ
-   ========================================================= */
-
-.newsletter .golden-ctct-form.is-submitting button[type="submit"],
-.newsletter .golden-ctct-form.is-submitting input[type="submit"],
-.newsletter .golden-ctct-form.is-submitting .ctct-form-button{
-  opacity:.72 !important;
-  cursor:progress !important
-}
-
-.newsletter .golden-ctct-form.is-submitted .ctct-form-success,
-.newsletter .golden-ctct-form.is-submitted .ctct-form-successMessage,
-.newsletter .golden-ctct-form.is-submitted .ctct-form-success-message{
-  display:none !important
-}
-
-.newsletter .golden-ctct-form.is-submitted button[type="submit"],
-.newsletter .golden-ctct-form.is-submitted input[type="submit"],
-.newsletter .golden-ctct-form.is-submitted .ctct-form-button,
-.newsletter .golden-ctct-form .golden-submit-status{
-  width:auto !important;
-  min-width:160px !important;
-  min-height:50px !important;
-  margin:2px 0 0 auto !important;
-  padding:12px 18px !important;
-  border:2px solid var(--ink) !important;
-  border-radius:0 !important;
-  background:var(--ink) !important;
-  color:var(--gold) !important;
-  box-shadow:none !important;
-  font-family:var(--display) !important;
-  font-size:10px !important;
-  font-weight:400 !important;
-  line-height:1.2 !important;
-  letter-spacing:.07em !important;
-  text-transform:uppercase !important;
-  cursor:default !important;
-  opacity:1 !important;
-  transform:none !important
-}
-
-.newsletter .golden-ctct-form .golden-submit-status{
-  display:block !important
-}
-
-@media (max-width:760px){
-  .newsletter .golden-ctct-form.is-submitted button[type="submit"],
-  .newsletter .golden-ctct-form.is-submitted input[type="submit"],
-  .newsletter .golden-ctct-form.is-submitted .ctct-form-button,
-  .newsletter .golden-ctct-form .golden-submit-status{
-    width:100% !important;
-    margin-left:0 !important
-  }
 }
 
 
@@ -4257,6 +4029,11 @@ section[id]{
 
 .go-golden-heading .display-heading{
   max-width:850px
+}
+
+.go-golden-heading .display-heading .go-golden-line{
+  display:block;
+  white-space:nowrap
 }
 
 .go-golden-heading .display-heading em{
