@@ -4023,12 +4023,12 @@ section[id]{
 }
 
 .go-golden-heading{
-  position:sticky;
-  top:130px
+  position:static
 }
 
 .go-golden-heading .display-heading{
-  max-width:850px
+  max-width:850px;
+  font-size:clamp(48px,5.5vw,90px)
 }
 
 .go-golden-heading .display-heading .go-golden-line{
@@ -4101,10 +4101,6 @@ section[id]{
   .go-golden-grid{
     grid-template-columns:1fr 1fr;
     gap:48px
-  }
-
-  .go-golden-heading{
-    position:static
   }
 }
 
