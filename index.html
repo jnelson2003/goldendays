@@ -504,9 +504,9 @@
       <div class="shell go-golden-grid">
         <div class="go-golden-heading reveal">
           <p class="eyebrow light"></p>
-          <h2 class="display-heading light">
-            GO GOLDEN<br>
-            <em>FOR GOLDEN DAYS.</em>
+          <h2 class="display-heading light go-golden-title">
+            <span class="go-golden-line">GO GOLDEN</span>
+            <span class="go-golden-line go-golden-line-gold">FOR GOLDEN DAYS.</span>
           </h2>
         </div>
 
@@ -522,6 +522,8 @@
           <a
             class="button button-gold go-golden-button"
             href="https://form.jotform.com/262324769983169"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             SUBMIT YOUR BUSINESS PROMOTION →
           </a>
@@ -670,9 +672,9 @@
 
     <!--
       CONSTANT CONTACT INLINE FORM
-      The form fields, list destination and submission are controlled
-      by Constant Contact. Website CSS below makes the embedded form
-      match the Golden Days design.
+      Constant Contact controls the form fields, styling, validation,
+      submission and success state. The surrounding Golden Days section
+      provides the page layout only.
     -->
     <div class="golden-ctct-form">
       <div
@@ -736,94 +738,6 @@
     defer>
   </script>
   <!-- End Constant Contact Active Forms -->
-
-  <!-- =========================================================
-       GOLDEN DAYS NEWSLETTER BUTTON STATUS
-       Simple timed confirmation: when a valid form submit fires,
-       show SUBMITTING... briefly, then SUBMITTED ✓.
-       Constant Contact still handles the actual signup normally.
-  ========================================================== -->
-  <script>
-    (function () {
-      const wrapper = document.querySelector('.golden-ctct-form');
-      if (!wrapper) return;
-
-      const buttonSelector =
-        'button[type="submit"], input[type="submit"], .ctct-form-button';
-
-      let submitted = false;
-
-      function getSubmitButton() {
-        return wrapper.querySelector(buttonSelector);
-      }
-
-      function setButtonText(button, text) {
-        if (!button) return;
-
-        if (button.tagName === 'INPUT') {
-          button.value = text;
-        } else {
-          button.textContent = text;
-        }
-      }
-
-      function prepareButton() {
-        if (submitted) return;
-        const button = getSubmitButton();
-        if (button) setButtonText(button, 'SUBMIT →');
-      }
-
-      function showSubmitted() {
-        if (submitted) return;
-        submitted = true;
-
-        wrapper.classList.remove('is-submitting');
-        wrapper.classList.add('is-submitted');
-
-        let button = getSubmitButton();
-
-        /* Constant Contact may replace/remove the form after submission.
-           If that happens, create a matching visual confirmation button. */
-        if (!button) {
-          button = document.createElement('button');
-          button.type = 'button';
-          button.className = 'golden-submit-status';
-          wrapper.appendChild(button);
-        }
-
-        setButtonText(button, 'SUBMITTED ✓');
-        button.disabled = true;
-        button.setAttribute('aria-disabled', 'true');
-      }
-
-      /* Constant Contact injects its form after page load, so watch only
-         long enough to give the injected submit button our starting label. */
-      const buttonObserver = new MutationObserver(function () {
-        prepareButton();
-        if (getSubmitButton()) buttonObserver.disconnect();
-      });
-
-      buttonObserver.observe(wrapper, {
-        childList: true,
-        subtree: true
-      });
-
-      prepareButton();
-
-      /* A submit event normally fires only after browser-required fields
-         have passed validation. From there, use a simple timed confirmation
-         rather than trying to detect Constant Contact's success markup. */
-      wrapper.addEventListener('submit', function (event) {
-        if (!event.target.matches('form') || submitted) return;
-
-        const button = getSubmitButton();
-        if (button) setButtonText(button, 'SUBMITTING...');
-        wrapper.classList.add('is-submitting');
-
-        setTimeout(showSubmitted, 2200);
-      }, true);
-    })();
-  </script>
 
   <script src="script.js"></script>
 </body>
