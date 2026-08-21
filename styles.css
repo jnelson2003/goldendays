@@ -1623,7 +1623,7 @@ button,input{font:inherit}
   }
 
   .mobile-events-dropdown[open] summary::after{
-    content:"ÃƒÂ¢Ã‹â€ Ã¢â‚¬â„¢"
+    content:"ÃƒÆ’Ã‚Â¢Ãƒâ€¹Ã¢â‚¬ ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢"
   }
 
   .mobile-events-submenu{
@@ -2843,7 +2843,7 @@ button,input{font:inherit}
 }
 
 .festival-calendar::before{
-  content:"’27";
+  content:"â€™27";
   position:absolute;
   right:-2vw;
   top:40px;
@@ -4027,8 +4027,11 @@ section[id]{
 }
 
 .go-golden-heading .display-heading{
-  max-width:850px;
-  font-size:clamp(48px,5.5vw,90px)
+  width:100%;
+  max-width:100%;
+  padding-right:.08em;
+  font-size:clamp(46px,4.9vw,82px);
+  line-height:.9
 }
 
 .go-golden-heading .display-heading .go-golden-line{
@@ -4102,6 +4105,10 @@ section[id]{
     grid-template-columns:1fr 1fr;
     gap:48px
   }
+
+  .go-golden-heading .display-heading{
+    font-size:clamp(42px,4.6vw,64px)
+  }
 }
 
 @media (max-width:760px){
@@ -4112,6 +4119,10 @@ section[id]{
   .go-golden-grid{
     grid-template-columns:1fr;
     gap:38px
+  }
+
+  .go-golden-heading .display-heading{
+    font-size:clamp(34px,10vw,58px)
   }
 
   .go-golden-copy{
